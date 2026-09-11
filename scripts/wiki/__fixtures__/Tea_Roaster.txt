@@ -1,0 +1,75 @@
+{| class="wikitable floatright" style="text-align:center;width: 40%;"
+|-
+|scope="row" colspan="6" style="font-size: 30px"| Tea Roaster
+|-
+|scope="row" colspan="6"| [[File:Tea Roaster.PNG|160px]]
+|-
+! scope="row" colspan="6"| Research
+|-
+| scope="row" colspan="6"| Tea Roaster
+|-
+! scope="row" colspan="6"| Construction Material
+|-
+| scope="rowspan="2" colspan="1"| [[File:Tex wood 07.png|30px]]Planks
+| scope="rowspan="2"" colspan="2"| 13
+| scope="row" colspan="1"| [[File:Tex MiningIcons 80 t.png|30px]]Cut Stone
+| scope="row" colspan="2"| 13
+|-
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="2"| [[File:Tex MiningIcons 14 t.png|30px]]Machinery
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="1"| 1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| Employees
+|-
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="2"| [[File:Icons8-barley-100.png|30px]] Farming Guild Preference
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="2"| Requires one apprentice to function and a scholar for the second slot.
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="2"| 2
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| Foot Print
+|-
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="4"|Processes tea leaves into serviceable tea. 
+|style="background-color: rgb(0 0 0 / 20%)" scope="row" colspan="2"|2x2x3 but with some empty blocks
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex tools 11.png|80px]]
+|scope="row" colspan="3"| Fire Tongs are made in the [[Coppersmith]]
+|-
+|}
+The Tea Roaster is used to create [[Tea]] and [[Fine Tea]] from [[Tea Leaves]] you harvest on a [[Farm]].
+
+This building is obtained in the later game and finally lets you supply your [[Whiskers]] with tea that isn't provided by [[The Claws]].  It is,  however, a very expensive process.
+
+[[Tea Leaves]] must be grown on farms utilizing [[Fertilizer]].  No area on the map is naturally suited to growing tea without it, even for a short while. This requires you to already have an established fertilizer supply chain involving mining [[Potash]] and producing it at a [[Sifting Tower]].  It is recommended to start growing tea before building the Tea Roaster so Whiskers aren't idle waiting for the first crop. 
+
+The Tea Roaster itself is an odd building,  requiring additional engineering to get your Whiskers to its third floor entrance. A simple elevator setup can be used in a pinch.  As the building uses [[Fuel]],  it should also be located away from and downwind from your colony to keep the associated [[Pollution]] away from a majority of your Whiskers.
+
+The Tea Roaster has two recipes to create both [[Tea]] and [[Fine Tea]].  The fine tea recipe is a very late game recipe requiring growing and processing spice. 
+
+For the best processing times,  you will need to find a Farming Guild Scholar to occupy the second work slot which may result in sending a Whisker to school, as that combination is a rare find on a Whisker ship.
+
+Production times can be further improved by using the building catalyst of [[Fire Tongs]].  These are produced at the [[Coppersmith]] using [[Bronze Bars]].  Given the cost and that multiple buildings use [[Fire Tongs]], the choice to use that catalyst in this building is a tough one. 
+
+Tea produced at this building will be distributed to [[Cafe|Cafes]] and [[Dining Hall|Dining Halls]] for consumption.  Tea improves positive thoughts for each Whisker that drinks it but does not provide stat buffs like other food. 
+
+==Recipes==
+{| class="wikitable" style="margin: auto;text-align: center;"
+|-
+! colspan="3" style="width: 25%;" | Input
+! style="width: 25%;" | Production time
+! colspan="2" style="width: 25%;" | Output
+|-
+|
+|  [[File:Tex herbs 07.png|30px]] Tea 1
+|  [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1
+|  [[File:Icons8-time-machine-96.png|30px]] 89.0s 
+|  [[File:SilverTea.png|30px]] Tea 5
+| High Pollution 
+|- style="background-color: rgb(0 0 0 / 2%)"
+|  [[File:Tex herbs 07.png|30px]] Tea 2
+|  [[File:Tex reagent 04.png|30px]] Spices 1
+|  [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1
+|  [[File:Icons8-time-machine-96.png|30px]] 89.0s 
+|  [[File:Tex ForestIcons 20 t.png|30px]] Fine tea 5
+| High Pollution 
+|-
+|}

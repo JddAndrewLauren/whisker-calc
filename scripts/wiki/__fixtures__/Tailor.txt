@@ -1,0 +1,67 @@
+==Tailor==
+{| class="wikitable floatright" style="text-align:center;width: 40%;"
+|-
+|scope="row" colspan="6" style="font-size: 30px"|Tailor
+|-
+|scope="row" colspan="6"| [[File:Tailor.PNG|160px]]
+|-
+! scope="row" colspan="6"| Research
+|-
+| scope="row" colspan="6"| Cotton Gin
+|-
+! scope="row" colspan="6"| Construction Material
+|-
+| scope="rowspan="2" colspan="1"| [[File:Tex wood 07.png|30px]]Planks
+| scope="rowspan="2"" colspan="2"| 13
+| scope="row" colspan="1"| [[File:Tex MiningIcons 80 t.png|30px]]Cut Stone
+| scope="row" colspan="2"| 8
+|-style="background-color: rgb(0 0 0 / 5%)
+| scope="row" colspan="4"| [[File:Tex MiningIcons 14 t.png|30px]]Machinery
+| scope="row" colspan="2"| 1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| Employees
+|- style="background-color: rgb(0 0 0 / 5%)"
+| scope="row" colspan="2"| [[File:Icons8-compass-100.png|30px]] Explorer's Guild Preference
+| scope="row" colspan="2"| Requires one apprentice to start, then a free slot with the last one requiring a Craftsman.
+| scope="row" colspan="2"| 3
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| Foot Print
+|- style="background-color: rgb(0 0 0 / 5%)"
+| scope="row" colspan="4"|Sews insulated cloaks and other refined textiles. 
+| scope="row" colspan="2"|2x2x1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex tongs 01.png|80px]]
+|scope="row" colspan="3"| Scissors are made in the [[Coppersmith]]
+|-
+|}
+The Tailor is the final building in the fabric production chain and will produce tailored cloaks or bedding. 
+
+This production chain is Fiber Crop -> Threads -> Fabric -> Tailor products. Crops are either Flax or Cotton grown on Farms.  Threads can be made at the Flax Spinner and/or Cotton Gin.  Fabric is made at the Weaver.
+
+Understanding this supply chain is important because scaling up Tailors to provide Tailored Cloaks to your entire colony,  as well as bedding, will be an undertaking. 
+
+Each job at the Weaver produces 3 Fabric which is just enough to make 2 Tailored Cloaks (rare down convert) or 3 Bedding at the Tailor.  Your colony of Whiskers is likely quite large by the point you unlock the Tailor.   So even two tailors, one producing bedding and one producing Tailored Cloaks, will not be able to keep up when replacement rates are considered.  
+
+At the very least,  you will need at least one Weaver to support one Tailor.  Your ratios will vary based on everything from Whisker travel time to available traits/expertise.  Remember,  there is currently no reason to significantky stock pile thread or Fabric, so push the limits.  Only the final products will payoff in terms of Whisker positive thoughts,  cold resistance, and ability to sell the products.
+
+Like all fiber supply chain buildings,  the catalyst for production is scissors.   These cost copper ingots at the Coppersmith.  Given the expense,  the use of this catalyst is heavily dependent on the conditions and resource availability in your colony. 
+
+<br style="clear:both;" />
+==Recipes==
+{| class="wikitable" style="width: 75%;margin: auto;text-align: center;"
+|-
+! style="width: 30%;" | Input
+! style="width: 20%;" | Production time
+! style="width: 25%;" | Output
+|-
+| [[File:Tex MiningIcons 46 t.png|30px]] Fabrics 3
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex ForestIcons 54 t.png|30px]] Tailored Clothes 2
+|- style="background-color: rgb(0 0 0 / 2%)"
+| [[File:Tex MiningIcons 46 t.png|30px]] Fabrics 3
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex MiningIcons 65 t1.png|30px]] Bedding 3
+|-
+|}

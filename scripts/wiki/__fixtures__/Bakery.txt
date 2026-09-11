@@ -1,0 +1,67 @@
+{| class="wikitable floatright" style="text-align:center;width: 40%;"
+|-
+| colspan="6" style="font-size: 30px"| Bakery
+|-
+| colspan="6"|[[File:Bakery.PNG|160px]]
+|-
+! colspan="6"| Research
+|-
+| colspan="6"| Bakery
+|-
+! colspan="6"| Construction Material
+|-
+| colspan="1" style="width: 35%;"|[[File:Tex wood 07.png|30px]]Planks
+| colspan="2" style="width: 15%;"|21
+| colspan="1" style="width: 35%;"|[[File:Tex MiningIcons 14 t.png|30px]]Machinery
+| colspan="2" style="width: 15%;"|1
+|-
+! colspan="6"| EmployeesEmployees
+|-
+| colspan="3" style="width: 50%;"|[[File:Icons8-barley-100.png|30px]] Farming Guild Preference
+| colspan="1" style="width: 30%;"|Requires one apprentice to function and a craftsman for the last slot.
+| colspan="2" style="width: 20%;"|3
+|-
+! colspan="6"| Foot PrintFoot Print
+|-
+| colspan="4" style="width: 66%;"|Bakes fresh bread and pastry. 
+| colspan="2" style="width: 34%;"|2x3x1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex am 09.png|80px]]
+|scope="row" colspan="3"| Salt is made in the [[Sifting Tower]]
+|-
+|}
+The Bakery is used to turn [[Flour]] into [[Bread]] (2-star food quality) and [[Flour]] and [[Berries]] into [[Jam Pastries]] (3-star food quality).
+
+Given the ease of producing [[Berries]], there is currently no good reason to produce [[Bread]] instead of [[Jam Pastries]] while aiming for Tier 3 food production.
+
+The Bakery consumes [[Fuel]] with all of its recipes and produces associated [[Pollution]] while in operation.  It is best to locate it down wind from your Whiskers to limit its impacts. 
+
+The Bakery uses [[Table Salt]] as a production catalyst.  Table salt is obtained via a recipe in the [[Sifting Tower]] which requires piped water and [[Rock Salt]]. It will increase production speed. This is one of the more difficult catalysts to use because of the limited supply of rock salt and the fact that it is also a critical component in [[Saline Solution]] and [[Medicine]].
+
+Despite operating an oven, a heater is still needed to keep this building warm in the winter.
+
+Multiple bakeries are needed to keep up with a single [[Mill]] producing [[Flour]] from an uninterrupted supply of [[Wheat]].  There is not a golden ratio of Bakeries to Mills due to numerous confounding production factors. Increasing the number of Bakeries to keep up with Flour production may cause other supply chain issues like with Fuel. 
+
+==Recipes==
+{| class="wikitable" style="margin: auto;text-align: center;"
+|-
+! colspan="3" style="width: 30%;" | Input
+! style="width: 20%;" | Production time
+! colspan="2" style="width: 25%;" | Output
+|-
+| colspan="2" | [[File:Tex corn 01.png|30px]] Flour 2
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex baking 04.png|30px]] Bread 5
+| High Pollution 
+|- style="background-color: rgb(0 0 0 / 2%)"
+| [[File:Tex corn 01.png|30px|30px]] Flour 3 
+| [[File:Tex berries 05 b.png|30px]] Berries 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex baking 05 edit.png|30px]] Jam Pastries 5
+| High Pollution 
+|-
+|}

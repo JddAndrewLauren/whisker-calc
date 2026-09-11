@@ -1,0 +1,76 @@
+==Blast Furnace==
+{| class="wikitable floatright" style="text-align:center;width: 40%;"
+|-
+|scope="row" colspan="6" style="font-size: 30px"| Blast Furnace
+|-
+|scope="row" colspan="6"| [[File:Blast Furnace.PNG|160px]]
+|-
+! scope="row" colspan="6"| Research
+|-
+| scope="row" colspan="6"| Blast Furnace
+|-
+! scope="row" colspan="6"| Construction Material
+|-
+| scope="row" colspan="1"| [[File:Tex MiningIcons 80 t.png|30px]]Cut stone
+| scope="row" colspan="2"| 21
+| scope="row" colspan="1"| [[File:Tex MiningIcons 14 t.png|30px]]Machinery
+| scope="row" colspan="2"| 1
+|-
+! scope="row" colspan="6"| Employees
+|-
+| scope="row" colspan="3"| [[File:Icons8-gear-100 1 .png|30px]] Engineer's Guild Preference
+| scope="row" colspan="1"| Requires one craftsman for the first slot and unlock the two apprentice for the last two slots.
+| scope="row" colspan="2"| 3
+|-
+! scope="row" colspan="6"| Foot Print
+|-
+| scope="row" colspan="4"|Refines metal ores with high melting points into ingots. 
+| scope="row" colspan="2"|2x2x3
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex tools 11.png|80px]]
+|scope="row" colspan="3"| Fire Tongs are made in the [[Coppersmith]]
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| [[File:Tex_ForestIcons_51_t.png|30px]] Hard Labour
+|}
+The Blast Furnace is required to smelt iron ore into either iron bars or steel bars.  This building has a much larger footprint than the Ore Furnace, but otherwise functions similarly. 
+
+Before you excitedly construct the Blast Furnace to finally begin melting down iron ore,  do consider that it also produces an enormous amount of air pollution.  You should construct this far from and downwind from your colony. 
+
+This building, like other furnaces, does not need to be heated during winter, as its operation is sufficient to keep the building warm.  It will not substitute for a proper heater for your industrial buildings. 
+
+The first recipe available to the Blast Furnace is to make iron bars.   5 iron bars will be produced at the cost of 2 fuel and 1 iron ore.  This makes the Blast Furnace more fuel intensive than its Ore Furnace counterpart.   You may need additional fuel production either via Charcoal Furnaces or a Sifting Tower processing coal to support the additional demand. 
+
+Iron bars are used in late game research and later game construction projects (e.g., rail systems,  steam systems). Unlike the lucrative iron ore from whence it was made, The Claw will not accept iron bars to pay taxes. This likely will not be a concern at this point in the game,  but something you may wish to consider if you're reliant on iron ore to pay the bills. 
+
+Because iron bars cannot be sold, it is a good idea to set a production limit on them to preserve fuel and iron ore.  The Blast Furnace will likely outpace your research consumption of iron bars, so you shouldn't need a large stockpile.
+
+Near the end of the game, an additional recipe to produce steel can be researched.   5 steel bars cost 1 iron ore,  1 coal,  and 2 fuel to produce.   This is extremely energy intensive because a single coal can produce 21 fuel in the Sifting Tower.  Steel bars are used in late game recipes but are not needed for additional research.  Like iron bars,  nobody purchases steel bars.  As such, production limits are encouraged here too.
+
+The catalyst for the Blast Furnace is the fire tongs. These are produced at the Copper Smith at the cost of bronze ingots. Using this catalyst at the Blast Furnace should be carefully considered in the context of bronze supply and needed production speed. 
+
+
+<br style="clear:both;" />
+
+==Recipes==
+{| class="wikitable" style="width: 75%;margin: auto;text-align: center;"
+|-
+! colspan="3" style="width: 30%;" | Input
+! style="width: 20%;" | Production time
+! colspan="2" style="width: 25%;" | Output
+|-
+| colspan="2" | [[File:Tex MiningIcons 35 t.png|30px]] Iron ore 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 2
+| [[File:Icons8-time-machine-96.png|30px]] 233.0s 
+| [[File:Tex in 06.png|30px]] Iron 5
+| High Pollution 
+|- style="background-color: rgb(0 0 0 / 2%)"
+| [[File:Tex MiningIcons 35 t.png|30px]] Iron Ore 1 
+| [[File:Tex MiningIcons 97 t.png|30px]] Coal 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 2
+| [[File:Icons8-time-machine-96.png|30px]] 233.0s 
+| [[File:Tex in 02.png|30px]] Steel Bars 5
+| High Pollution 
+|-
+|}

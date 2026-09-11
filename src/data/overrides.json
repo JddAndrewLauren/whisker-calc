@@ -1,0 +1,18 @@
+{
+  "itemAliases": {
+    "Iron": "Iron Bars",
+    "Mushroom": "Mushrooms"
+  },
+  "buildings": {},
+  "recipes": {
+    "tea-roaster/tea": {
+      "inputs": [{ "item": "Tea Leaves", "qty": 1 }, { "item": "Fuel", "qty": 1 }]
+    },
+    "tea-roaster/fine-tea": {
+      "inputs": [{ "item": "Tea Leaves", "qty": 2 }, { "item": "Spices", "qty": 1 }, { "item": "Fuel", "qty": 1 }]
+    }
+  },
+  "preferredRecipe": {
+    "threads": "cotton-gin/threads"
+  }
+}

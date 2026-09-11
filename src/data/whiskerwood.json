@@ -1,0 +1,1379 @@
+{
+  "generatedAt": "2026-09-11",
+  "source": "https://wiki.hoodedhorse.com/Whiskerwood",
+  "items": [
+    {
+      "id": "bedding",
+      "name": "Bedding"
+    },
+    {
+      "id": "berries",
+      "name": "Berries"
+    },
+    {
+      "id": "berry-soup",
+      "name": "Berry Soup"
+    },
+    {
+      "id": "bread",
+      "name": "Bread"
+    },
+    {
+      "id": "bronze-bars",
+      "name": "Bronze Bars"
+    },
+    {
+      "id": "bronze-nails",
+      "name": "Bronze Nails"
+    },
+    {
+      "id": "canned-food",
+      "name": "Canned Food"
+    },
+    {
+      "id": "coal",
+      "name": "Coal"
+    },
+    {
+      "id": "copper-bars",
+      "name": "Copper Bars"
+    },
+    {
+      "id": "cotton",
+      "name": "Cotton"
+    },
+    {
+      "id": "cut-stone",
+      "name": "Cut Stone"
+    },
+    {
+      "id": "fabrics",
+      "name": "Fabrics"
+    },
+    {
+      "id": "fancy-meals",
+      "name": "Fancy Meals"
+    },
+    {
+      "id": "fertilizer",
+      "name": "Fertilizer"
+    },
+    {
+      "id": "fine-tea",
+      "name": "Fine Tea"
+    },
+    {
+      "id": "fire-tongs",
+      "name": "Fire Tongs"
+    },
+    {
+      "id": "fish",
+      "name": "Fish"
+    },
+    {
+      "id": "fish-skewers",
+      "name": "Fish Skewers"
+    },
+    {
+      "id": "fishing-nets",
+      "name": "Fishing Nets"
+    },
+    {
+      "id": "flax",
+      "name": "Flax"
+    },
+    {
+      "id": "flour",
+      "name": "Flour"
+    },
+    {
+      "id": "fuel",
+      "name": "Fuel"
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture"
+    },
+    {
+      "id": "hearty-meals",
+      "name": "Hearty Meals"
+    },
+    {
+      "id": "iron-bars",
+      "name": "Iron Bars"
+    },
+    {
+      "id": "iron-ore",
+      "name": "Iron Ore"
+    },
+    {
+      "id": "iron-pots",
+      "name": "Iron Pots"
+    },
+    {
+      "id": "jam-pastries",
+      "name": "Jam Pastries"
+    },
+    {
+      "id": "logs",
+      "name": "Logs"
+    },
+    {
+      "id": "machinery",
+      "name": "Machinery"
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine"
+    },
+    {
+      "id": "mushroom-stew",
+      "name": "Mushroom Stew"
+    },
+    {
+      "id": "mushrooms",
+      "name": "Mushrooms"
+    },
+    {
+      "id": "oil",
+      "name": "Oil"
+    },
+    {
+      "id": "peppers",
+      "name": "Peppers"
+    },
+    {
+      "id": "planks",
+      "name": "Planks"
+    },
+    {
+      "id": "potash",
+      "name": "Potash"
+    },
+    {
+      "id": "precision-scales",
+      "name": "Precision Scales"
+    },
+    {
+      "id": "rock-salt",
+      "name": "Rock Salt"
+    },
+    {
+      "id": "ropes",
+      "name": "Ropes"
+    },
+    {
+      "id": "saline-solution",
+      "name": "Saline Solution"
+    },
+    {
+      "id": "savory-meals",
+      "name": "Savory Meals"
+    },
+    {
+      "id": "scissors",
+      "name": "Scissors"
+    },
+    {
+      "id": "smoked-fish",
+      "name": "Smoked Fish"
+    },
+    {
+      "id": "soap",
+      "name": "Soap"
+    },
+    {
+      "id": "spices",
+      "name": "Spices"
+    },
+    {
+      "id": "steam",
+      "name": "Steam"
+    },
+    {
+      "id": "steel-bars",
+      "name": "Steel Bars"
+    },
+    {
+      "id": "steel-plates",
+      "name": "Steel Plates"
+    },
+    {
+      "id": "stone",
+      "name": "Stone"
+    },
+    {
+      "id": "table-salt",
+      "name": "Table Salt"
+    },
+    {
+      "id": "tailored-clothes",
+      "name": "Tailored Clothes"
+    },
+    {
+      "id": "tea",
+      "name": "Tea"
+    },
+    {
+      "id": "tea-leaves",
+      "name": "Tea Leaves"
+    },
+    {
+      "id": "threads",
+      "name": "Threads"
+    },
+    {
+      "id": "water",
+      "name": "Water"
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat"
+    },
+    {
+      "id": "wooden-vises",
+      "name": "Wooden Vises"
+    },
+    {
+      "id": "woven-cloaks",
+      "name": "Woven Cloaks"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "apothecary",
+      "name": "Apothecary",
+      "workers": 2,
+      "guild": "Engineer",
+      "catalyst": "Precision Scales",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Apothecary"
+    },
+    {
+      "id": "bakery",
+      "name": "Bakery",
+      "workers": 3,
+      "guild": "Farmer",
+      "catalyst": "Salt",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Bakery"
+    },
+    {
+      "id": "blacksmith",
+      "name": "Blacksmith",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Wooden Vice",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blacksmith"
+    },
+    {
+      "id": "blast-furnace",
+      "name": "Blast Furnace",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Fire Tongs",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blast_Furnace"
+    },
+    {
+      "id": "cannery",
+      "name": "Cannery",
+      "workers": 3,
+      "guild": "Farmer",
+      "catalyst": "Salt",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannery"
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenter",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Oil",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Carpenter"
+    },
+    {
+      "id": "charcoal-furnace",
+      "name": "Charcoal Furnace",
+      "workers": 2,
+      "guild": "Miner",
+      "catalyst": "Fire Tongs",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Charcoal_Furnace"
+    },
+    {
+      "id": "chemist",
+      "name": "Chemist",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Precision Scales",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Chemist"
+    },
+    {
+      "id": "coppersmith",
+      "name": "Coppersmith",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Wooden Vice",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Coppersmith"
+    },
+    {
+      "id": "cotton-gin",
+      "name": "Cotton Gin",
+      "workers": 2,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cotton_Gin"
+    },
+    {
+      "id": "fine-kitchen",
+      "name": "Fine Kitchen",
+      "workers": 3,
+      "guild": "Farmer",
+      "catalyst": "Salt",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fine_Kitchen"
+    },
+    {
+      "id": "fishing-dock",
+      "name": "Fishing Dock",
+      "workers": 3,
+      "guild": "Farmer",
+      "catalyst": "Net",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fishing_Dock"
+    },
+    {
+      "id": "flax-spinner",
+      "name": "Flax Spinner",
+      "workers": 2,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Flax_Spinner"
+    },
+    {
+      "id": "machinist",
+      "name": "Machinist",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Precision Scales",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Machinist"
+    },
+    {
+      "id": "mill",
+      "name": "Mill",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": null,
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Mill"
+    },
+    {
+      "id": "netter",
+      "name": "Netter",
+      "workers": 3,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Netter"
+    },
+    {
+      "id": "oil-press",
+      "name": "Oil Press",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Iron Pots",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Oil_Press"
+    },
+    {
+      "id": "sawmill",
+      "name": "Sawmill",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Rope",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sawmill"
+    },
+    {
+      "id": "sifting-tower",
+      "name": "Sifting Tower",
+      "workers": 3,
+      "guild": "Miner",
+      "catalyst": "Rope",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sifting_Tower"
+    },
+    {
+      "id": "smokery",
+      "name": "Smokery",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": "Salt",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Smokery"
+    },
+    {
+      "id": "soup-kitchen",
+      "name": "Soup Kitchen",
+      "workers": 3,
+      "guild": "Farmer",
+      "catalyst": "Iron Pots",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Soup_Kitchen"
+    },
+    {
+      "id": "spice-grinder",
+      "name": "Spice Grinder",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": "Oil",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Spice_Grinder"
+    },
+    {
+      "id": "stone-cutter",
+      "name": "Stone Cutter",
+      "workers": 3,
+      "guild": "Engineer",
+      "catalyst": "Rope",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Stone_Cutter"
+    },
+    {
+      "id": "tailor",
+      "name": "Tailor",
+      "workers": 3,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tailor"
+    },
+    {
+      "id": "tea-roaster",
+      "name": "Tea Roaster",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": "Fire Tongs",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tea_Roaster"
+    },
+    {
+      "id": "weaver",
+      "name": "Weaver",
+      "workers": 3,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "cotton-gin/threads",
+      "building": "cotton-gin",
+      "inputs": [
+        {
+          "item": "cotton",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "threads",
+          "qty": 8
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "apothecary/medicine",
+      "building": "apothecary",
+      "inputs": [
+        {
+          "item": "saline-solution",
+          "qty": 3
+        },
+        {
+          "item": "mushrooms",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "medicine",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "bakery/bread",
+      "building": "bakery",
+      "inputs": [
+        {
+          "item": "flour",
+          "qty": 2
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bread",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "bakery/jam-pastries",
+      "building": "bakery",
+      "inputs": [
+        {
+          "item": "flour",
+          "qty": 3
+        },
+        {
+          "item": "berries",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "jam-pastries",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "blacksmith/iron-pots",
+      "building": "blacksmith",
+      "inputs": [
+        {
+          "item": "iron-bars",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "iron-pots",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "blacksmith/precision-scales",
+      "building": "blacksmith",
+      "inputs": [
+        {
+          "item": "steel-bars",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "precision-scales",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "blacksmith/steel-plates",
+      "building": "blacksmith",
+      "inputs": [
+        {
+          "item": "steel-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "steel-plates",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 377
+    },
+    {
+      "id": "blast-furnace/iron-bars",
+      "building": "blast-furnace",
+      "inputs": [
+        {
+          "item": "iron-ore",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "iron-bars",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "blast-furnace/steel-bars",
+      "building": "blast-furnace",
+      "inputs": [
+        {
+          "item": "iron-ore",
+          "qty": 1
+        },
+        {
+          "item": "coal",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "steel-bars",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "cannery/canned-food",
+      "building": "cannery",
+      "inputs": [
+        {
+          "item": "berries",
+          "qty": 1
+        },
+        {
+          "item": "bronze-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "canned-food",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "cannery/canned-food-from-fish",
+      "building": "cannery",
+      "inputs": [
+        {
+          "item": "fish",
+          "qty": 1
+        },
+        {
+          "item": "bronze-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "canned-food",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "cannery/canned-food-from-mushrooms",
+      "building": "cannery",
+      "inputs": [
+        {
+          "item": "mushrooms",
+          "qty": 1
+        },
+        {
+          "item": "bronze-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "canned-food",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "carpenter/wooden-vises",
+      "building": "carpenter",
+      "inputs": [
+        {
+          "item": "planks",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "wooden-vises",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 377
+    },
+    {
+      "id": "carpenter/furniture",
+      "building": "carpenter",
+      "inputs": [
+        {
+          "item": "planks",
+          "qty": 3
+        },
+        {
+          "item": "bronze-nails",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "furniture",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "charcoal-furnace/fuel",
+      "building": "charcoal-furnace",
+      "inputs": [
+        {
+          "item": "logs",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fuel",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "chemist/saline-solution",
+      "building": "chemist",
+      "inputs": [
+        {
+          "item": "rock-salt",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "saline-solution",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "chemist/soap",
+      "building": "chemist",
+      "inputs": [
+        {
+          "item": "oil",
+          "qty": 2
+        },
+        {
+          "item": "potash",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 13
+        }
+      ],
+      "outputs": [
+        {
+          "item": "soap",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "coppersmith/scissors",
+      "building": "coppersmith",
+      "inputs": [
+        {
+          "item": "copper-bars",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "scissors",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "coppersmith/fire-tongs",
+      "building": "coppersmith",
+      "inputs": [
+        {
+          "item": "bronze-bars",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fire-tongs",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "coppersmith/bronze-nails",
+      "building": "coppersmith",
+      "inputs": [
+        {
+          "item": "bronze-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bronze-nails",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "fine-kitchen/savory-meals",
+      "building": "fine-kitchen",
+      "inputs": [
+        {
+          "item": "smoked-fish",
+          "qty": 1
+        },
+        {
+          "item": "mushroom-stew",
+          "qty": 1
+        },
+        {
+          "item": "spices",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "savory-meals",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "fine-kitchen/hearty-meals",
+      "building": "fine-kitchen",
+      "inputs": [
+        {
+          "item": "bread",
+          "qty": 1
+        },
+        {
+          "item": "fish-skewers",
+          "qty": 1
+        },
+        {
+          "item": "spices",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "hearty-meals",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "fine-kitchen/fancy-meals",
+      "building": "fine-kitchen",
+      "inputs": [
+        {
+          "item": "berry-soup",
+          "qty": 1
+        },
+        {
+          "item": "jam-pastries",
+          "qty": 1
+        },
+        {
+          "item": "spices",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fancy-meals",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "fishing-dock/fish",
+      "building": "fishing-dock",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "fish",
+          "qty": 1
+        }
+      ],
+      "timeSeconds": 21
+    },
+    {
+      "id": "flax-spinner/ropes",
+      "building": "flax-spinner",
+      "inputs": [
+        {
+          "item": "flax",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "ropes",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "flax-spinner/threads",
+      "building": "flax-spinner",
+      "inputs": [
+        {
+          "item": "flax",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "threads",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "machinist/machinery",
+      "building": "machinist",
+      "inputs": [
+        {
+          "item": "steel-bars",
+          "qty": 3
+        },
+        {
+          "item": "bronze-bars",
+          "qty": 2
+        },
+        {
+          "item": "oil",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "machinery",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "mill/flour",
+      "building": "mill",
+      "inputs": [
+        {
+          "item": "wheat",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "flour",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "netter/fishing-nets",
+      "building": "netter",
+      "inputs": [
+        {
+          "item": "ropes",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fishing-nets",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "oil-press/oil",
+      "building": "oil-press",
+      "inputs": [
+        {
+          "item": "fish",
+          "qty": 1
+        },
+        {
+          "item": "steam",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "oil",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "sawmill/planks",
+      "building": "sawmill",
+      "inputs": [
+        {
+          "item": "logs",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "planks",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "sifting-tower/fuel",
+      "building": "sifting-tower",
+      "inputs": [
+        {
+          "item": "coal",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fuel",
+          "qty": 21
+        }
+      ],
+      "timeSeconds": 337
+    },
+    {
+      "id": "sifting-tower/table-salt",
+      "building": "sifting-tower",
+      "inputs": [
+        {
+          "item": "rock-salt",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "table-salt",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "sifting-tower/fertilizer",
+      "building": "sifting-tower",
+      "inputs": [
+        {
+          "item": "potash",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 13
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fertilizer",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "smokery/smoked-fish",
+      "building": "smokery",
+      "inputs": [
+        {
+          "item": "fish",
+          "qty": 3
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "smoked-fish",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "smokery/fish-skewers",
+      "building": "smokery",
+      "inputs": [
+        {
+          "item": "fish",
+          "qty": 2
+        },
+        {
+          "item": "mushrooms",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fish-skewers",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "soup-kitchen/berry-soup",
+      "building": "soup-kitchen",
+      "inputs": [
+        {
+          "item": "berries",
+          "qty": 2
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "berry-soup",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "soup-kitchen/mushroom-stew",
+      "building": "soup-kitchen",
+      "inputs": [
+        {
+          "item": "mushrooms",
+          "qty": 1
+        },
+        {
+          "item": "flour",
+          "qty": 2
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "mushroom-stew",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "spice-grinder/spices",
+      "building": "spice-grinder",
+      "inputs": [
+        {
+          "item": "peppers",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "spices",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "stone-cutter/cut-stone",
+      "building": "stone-cutter",
+      "inputs": [
+        {
+          "item": "stone",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "cut-stone",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "tailor/tailored-clothes",
+      "building": "tailor",
+      "inputs": [
+        {
+          "item": "fabrics",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "tailored-clothes",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "tailor/bedding",
+      "building": "tailor",
+      "inputs": [
+        {
+          "item": "fabrics",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bedding",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "tea-roaster/tea",
+      "building": "tea-roaster",
+      "inputs": [
+        {
+          "item": "tea-leaves",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "tea",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "tea-roaster/fine-tea",
+      "building": "tea-roaster",
+      "inputs": [
+        {
+          "item": "tea-leaves",
+          "qty": 2
+        },
+        {
+          "item": "spices",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fine-tea",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 89
+    },
+    {
+      "id": "weaver/woven-cloaks",
+      "building": "weaver",
+      "inputs": [
+        {
+          "item": "flax",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "woven-cloaks",
+          "qty": 2
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "weaver/fabrics",
+      "building": "weaver",
+      "inputs": [
+        {
+          "item": "threads",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fabrics",
+          "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    }
+  ]
+}

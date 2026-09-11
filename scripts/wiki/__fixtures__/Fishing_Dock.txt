@@ -1,0 +1,65 @@
+{| class="wikitable floatright" style="text-align:center; width: 40%;"
+|-
+| colspan="6" tyle="font-size: 30px"| Fishing Dock
+|-
+| colspan="6"|[[File:Fishing Dock.PNG|160px]]
+|-
+! colspan="6"| Research
+|-
+| colspan="6"| Basic Building
+|-
+! colspan="6"| Construction Material
+|-
+| colspan="1" style="width: 35%;"| [[File:Tex wood 03.png|30px]]Logs
+| colspan="2" style="width: 15%;"| 21
+| colspan="1" style="width: 35%;"| [[File:Tex MiningIcons 14 t.png|30px]]Machinery
+| colspan="2" style="width: 15%;"| 1
+|-
+! colspan="6"| Employees
+|-
+| colspan="3" style="width: 50%;"| [[File:Icons8-barley-100.png|30px]] Farming Guild Preference
+| colspan="1" style="width: 30%;"| Requires one apprentice to function.
+| colspan="2" style="width: 20%;"| 3
+|-
+! colspan="6"| Foot Print
+|-
+| colspan="4" style="width: 66%;"|Catches shallow-water fish at the edge of the isle. 
+| colspan="2" style="width: 34%;"|2x2x1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex MiningIcons 47 t.png|80px]]
+|scope="row" colspan="3"| Net is made in the [[Netter]]
+|-
+|}
+The Fishing Dock is used to catch [[Fish]] off the shores of the island. It is required to be connected to water and the base needs to be partly on solid ground. To start producing [[Fish]], you will need an apprentice of any guild before you can use the next two slots for workers.
+
+The Fishing Dock will likely be one of the first sustainable food production buildings you construct. This building will produce [[Fish]] year round and will never deplete the amount of fish in the local waters. During winter, this building should be heated to ensure optimal fish catching rates. Cold Whiskers will have reduced operating speeds which could have unexpected negative impacts to food reserves.   
+
+Additionally, this building will likely be one of the first that costs [[Machinery]].  Buildings requiring machinery will need those components periodically replaced.  Heating the building in winter will also prevent the additional deterioration rate inflicted by the cold.  The Claw is the only source of mechanical parts until very late game, so be judicious in the number of Fishing Docks used in the early game. 
+
+The Fishing Docks are the only building that currently uses [[Nets]] as a catalyst. This increases production speed by +25. A single [[Netter]] building can produce enough Nets for multiple Fishing Docks to nonstop use Nets as a catalyst without trouble. 
+
+Fishing Docks produce a prolific amount of [[Fish]] and much like [[Berries]], can overwhelm available [[Storage and Belts|storage]] in the early game. Just two fully staffed Fishing Docks using Nets as catalysts can produce hundreds of fish and feed a very large colony of Whiskers, especially when fish are up converted to better food in the [[Smokery]]. Depending on your situation,  you may wish to set a production limit to control output, if you have the necessary [[Management Office]]. Fish have little tax value (2 gold coins per Fish) which provides little reward for over producing Fish.
+
+Fish can directly be converted to [[Smoked Fish]] or [[Fish Skewers]] with the addition of other ingredients. In either case, the output is better quality meals in greater quantities than the input Fish. As there is not currently a food variety positive thought bonus, it is best to focus on producing the best quality recipe that you can sustainably afford. 
+
+==Fishing Update 19 Info==
+
+#A fishing docks catchment area is a 360 degree circle but it is converted to a 200% system, so fish dock on a straight coast will get 100%, well out at sea it will be nearly 200%, 200% isn't really possible because the dock requires tiles.
+#The max fish stock for a fishing dock is 200%
+#The range of fishing is about 10 tiles out from the the location the Whiskers are fishing from.
+#If you use a dump to create a fishing zone, it will regenerate up to 1% and never go back to 0% completely. This might be related to normal fishing zones and over fishing not killing the stock, and is just a carry over for generated fishing stocks. (not fully verified)
+#Dumping resources will increase the stock, 1 is around 0.25% per each item, 2 is around 0.50% per each item. This is hard to see on the fishing Dock since the dumping effect area is bigger then a single fishing docks range. So the more you dump into the water the slower it will seem that the fishery's fish stocks are going up.
+
+==Recipes==
+{| class="wikitable" style="margin: auto;text-align: center;"
+|-
+! style="width: 25%;" | Input
+! style="width: 25%;" | Production time
+! colspan="2" style="width: 25%;" | Output
+|-
+| Whisker labor
+| [[File:Icons8-time-machine-96.png|30px]] 21.0s 
+| [[File:Tex meat 05.png|30px]] Fish 1 
+|}
