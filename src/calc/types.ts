@@ -23,9 +23,8 @@ export interface SolveInput {
 /** How the user states the target: a rate, a population to feed, or a number of producing buildings. */
 export type TargetMode = 'rate' | 'population' | 'buildings'
 
-export interface Target extends Omit<SolveInput, 'ratePerMin'> {
+export interface Target extends SolveInput {
   mode: TargetMode
-  ratePerMin: number
   population: number
   buildingCount: number
 }

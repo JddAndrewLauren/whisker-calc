@@ -1,7 +1,7 @@
 import type { DatasetIndex } from '../data/index.ts'
 import type { Recipe } from '../data/types.ts'
 import { speedMultiplier } from './speed.ts'
-import { NO_MODIFIERS, type ModifierSettings, type SolveInput, type SolveResult, type Step } from './types.ts'
+import { NO_MODIFIERS, type SolveInput, type SolveResult, type Step } from './types.ts'
 
 export function producerFor(index: DatasetIndex, itemId: string, choice: Record<string, string>): Recipe | undefined {
   const chosen = choice[itemId]
@@ -18,7 +18,7 @@ export function ratePerBuilding(recipe: Recipe, speed = 1): number {
 }
 
 export function buildingSpeed(input: Pick<SolveInput, 'modifiers'>, buildingId: string): number {
-  return speedMultiplier({ ...NO_MODIFIERS, ...(input.modifiers[buildingId] as Partial<ModifierSettings> | undefined) })
+  return speedMultiplier({ ...NO_MODIFIERS, ...input.modifiers[buildingId] })
 }
 
 export function solve(index: DatasetIndex, input: SolveInput): SolveResult {

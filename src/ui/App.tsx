@@ -41,6 +41,8 @@ export function App() {
   const producer = producerFor(index, state.targetItem, state.recipeChoice)
   const producerName = producer ? (index.buildingsById.get(producer.building)?.name ?? producer.building) : null
   const notFood = state.mode === 'population' && target && !target.food
+  // In feed mode offer only food, but keep a non-food target in the list so its name stays visible next to the warning.
+  const items = state.mode !== 'population' ? producible : notFood ? [target, ...foods] : foods
 
   return (
     <main>
@@ -50,9 +52,9 @@ export function App() {
       </header>
 
       <TargetControls
-        index={index}
-        items={state.mode === 'population' ? foods : producible}
+        items={items}
         state={state}
+        targetName={target?.name ?? state.targetItem}
         producerName={producerName}
         ratePerMin={ratePerMin}
         onChange={(patch) => update((s) => ({ ...s, ...patch }))}
@@ -91,7 +93,8 @@ export function App() {
           Assumptions: recipe times are for a fully staffed building, and speed bonuses stack additively. Farms follow the wiki's
           Farmer's Almanac at maximum yield (about 72 tiles per Farm for cotton, wheat, tea and peppers, 36 for berries, flax,
           mushrooms and trees); use the Extra % field for poorer soil. Feeding assumes one meal per Whisker per 540-second working
-          day; Miners and Heavy Eaters take one more. Water Pump and Steam Boiler rates are estimates. Data scraped{' '}
+          day; Miners and Heavy Eaters take one more. Water Pump and Steam Boiler rates are estimates, editable in overrides.json.
+          Mines are not modeled. Data scraped{' '}
           {index.dataset.generatedAt} from the{' '}
           <a href={index.dataset.source} target="_blank" rel="noreferrer">
             Whiskerwood wiki

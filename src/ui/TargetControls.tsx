@@ -1,13 +1,12 @@
 import type { TargetMode } from '../calc/types.ts'
-import type { DatasetIndex } from '../data/index.ts'
 import type { Item } from '../data/types.ts'
 import { ItemSelect } from './ItemSelect.tsx'
 import type { AppState } from './urlState.ts'
 
 interface Props {
-  index: DatasetIndex
   items: Item[]
   state: AppState
+  targetName: string
   producerName: string | null
   ratePerMin: number
   onChange: (patch: Partial<AppState>) => void
@@ -15,8 +14,7 @@ interface Props {
 
 const nonNegative = (value: string) => Math.max(0, Number(value) || 0)
 
-export function TargetControls({ index, items, state, producerName, ratePerMin, onChange }: Props) {
-  const targetName = index.itemsById.get(state.targetItem)?.name ?? state.targetItem
+export function TargetControls({ items, state, targetName, producerName, ratePerMin, onChange }: Props) {
   return (
     <section className="controls">
       <label>
@@ -26,7 +24,7 @@ export function TargetControls({ index, items, state, producerName, ratePerMin, 
       <select value={state.mode} onChange={(e) => onChange({ mode: e.target.value as TargetMode })} aria-label="Target mode">
         <option value="rate">at a rate of</option>
         <option value="population">to feed</option>
-        <option value="buildings">using</option>
+        <option value="buildings">from</option>
       </select>
       {state.mode === 'rate' && (
         <label>

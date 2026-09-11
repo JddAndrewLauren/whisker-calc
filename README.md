@@ -59,7 +59,8 @@ Requests go through `curl` because the wiki's Cloudflare protection challenges N
 `overrides.json` fixes things the wiki gets wrong or leaves out:
 
 - `itemAliases`: rename items after title-casing ("Iron" -> "Iron Bars", "Copper" -> "Copper Ore").
-- `buildings`: set `workers`, `guild`, `catalyst` or `cost` for a building id.
+- `buildings`: set `workers`, `guild`, `catalyst` or `cost` for a building id (the Oil Press infobox labels its
+  Iron Bars icon as Machinery, so its cost is overridden; "Plank" and "Wood" are aliased to Planks and Logs).
 - `recipes`: replace `inputs`, `outputs` or `timeSeconds` for a recipe id (`building/output-item`).
 - `preferredRecipe`: which recipe is the default producer of an item.
 - `extraBuildings` and `extraRecipes`: buildings with no recipe table on the wiki (Farm, Water Pump,

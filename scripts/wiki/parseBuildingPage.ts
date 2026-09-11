@@ -81,7 +81,7 @@ function parseWorkers(text: string): number | null {
 
 /** Infobox block after the "Construction Material" header: icon+name cells each followed by a quantity cell. */
 function parseCost(text: string): [string, number][] {
-  const m = /^!.*?(?:Construction Material|Building Resources)[^\n]*\n([\s\S]*?)(?=\n!|\n\|\})/m.exec(text)
+  const m = /^!.*?Construction Material[^\n]*\n([\s\S]*?)(?=\n!|\n\|\})/m.exec(text)
   if (!m) return []
   const cost: [string, number][] = []
   let pending: string | null = null
