@@ -1,0 +1,752 @@
+{
+ "ExportDate": "fixture",
+ "TotalTables": 6,
+ "Tables": {
+  "Whiskerwood/Content/Data/GridactorDefs_Sync": {
+   "weaver": {
+    "stringKey": "building.weaver",
+    "maxAgents_contextual": "3",
+    "guildSpecialty": "guild_explorers",
+    "catalyst": "scissors",
+    "cost1": "wood",
+    "ct1": "21",
+    "cost2": "tools",
+    "ct2": "1",
+    "cost3": "None",
+    "ct3": "0",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.simpleclothes",
+     "recipe.weaver"
+    ],
+    "structureType": "Industry"
+   },
+   "cottongin": {
+    "stringKey": "building.cottongin",
+    "maxAgents_contextual": "2",
+    "guildSpecialty": "guild_explorers",
+    "catalyst": "scissors",
+    "cost1": "planks",
+    "ct1": "8",
+    "cost2": "bricks",
+    "ct2": "13",
+    "cost3": "tools",
+    "ct3": "1",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.cotton"
+    ],
+    "structureType": "Industry"
+   },
+   "cannery": {
+    "stringKey": "building.cannery",
+    "maxAgents_contextual": "2",
+    "guildSpecialty": "guild_farmers",
+    "catalyst": "tablesalt",
+    "cost1": "planks",
+    "ct1": "21",
+    "cost2": "bricks",
+    "ct2": "8",
+    "cost3": "tools",
+    "ct3": "1",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.cannedberries",
+     "recipe.cannedfish",
+     "recipe.cannedmushroom"
+    ],
+    "structureType": "Industry"
+   },
+   "waterpump": {
+    "stringKey": "building.waterpump",
+    "maxAgents_contextual": "1",
+    "guildSpecialty": "guild_engineering",
+    "catalyst": "oil",
+    "cost1": "planks",
+    "ct1": "8",
+    "cost2": "bricks",
+    "ct2": "1",
+    "cost3": "copperbar",
+    "ct3": "2",
+    "cost4": "tools",
+    "ct4": "1",
+    "supportedIndustryRecipes": [
+     "recipe.waterpump"
+    ],
+    "structureType": "Industry"
+   },
+   "steamboiler": {
+    "stringKey": "building.steamboiler",
+    "maxAgents_contextual": "0",
+    "guildSpecialty": "None",
+    "catalyst": "None",
+    "cost1": "planks",
+    "ct1": "13",
+    "cost2": "bricks",
+    "ct2": "5",
+    "cost3": "ironbar",
+    "ct3": "2",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [],
+    "structureType": "Other"
+   },
+   "smallShipyard": {
+    "stringKey": "building.smallShipyard",
+    "maxAgents_contextual": "4",
+    "guildSpecialty": "guild_engineering",
+    "catalyst": "None",
+    "cost1": "planks",
+    "ct1": "21",
+    "cost2": "rope",
+    "ct2": "13",
+    "cost3": "tools",
+    "ct3": "3",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.ship_tier1_A",
+     "recipe.ship_tier1_B",
+     "recipe.ship_tier1_C"
+    ],
+    "structureType": "Industry"
+   },
+   "mousewheel": {
+    "stringKey": "building.mousewheel",
+    "maxAgents_contextual": "1",
+    "guildSpecialty": "guild_miners",
+    "catalyst": "None",
+    "cost1": "planks",
+    "ct1": "8",
+    "cost2": "tools",
+    "ct2": "1",
+    "cost3": "None",
+    "ct3": "0",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.mousewheel"
+    ],
+    "structureType": "Industry"
+   },
+   "farm": {
+    "stringKey": "building.farm",
+    "maxAgents_contextual": "2",
+    "guildSpecialty": "guild_farmers",
+    "catalyst": "None",
+    "cost1": "planks",
+    "ct1": "8",
+    "cost2": "None",
+    "ct2": "0",
+    "cost3": "None",
+    "ct3": "0",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [],
+    "structureType": "Gatherer"
+   },
+   "tailor": {
+    "stringKey": "building.tailor",
+    "maxAgents_contextual": "3",
+    "guildSpecialty": "guild_explorers",
+    "catalyst": "scissors",
+    "cost1": "planks",
+    "ct1": "13",
+    "cost2": "bricks",
+    "ct2": "8",
+    "cost3": "tools",
+    "ct3": "1",
+    "cost4": "None",
+    "ct4": "0",
+    "supportedIndustryRecipes": [
+     "recipe.tailor",
+     "recipe.bedding",
+     "recipe.mousetrap_rope"
+    ],
+    "structureType": "Industry"
+   }
+  },
+  "Whiskerwood/Content/Data/AssetLookups/IndustryRecipes": {
+   "recipe.simpleclothes": {
+    "recipeTime": "233",
+    "in1": "flax",
+    "inCt1": "1",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "simpleclothes",
+    "outCt1": "2",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.weaver": {
+    "recipeTime": "233",
+    "in1": "thread",
+    "inCt1": "3",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "fabric",
+    "outCt1": "3",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.cotton": {
+    "recipeTime": "144",
+    "in1": "cotton",
+    "inCt1": "1",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "thread",
+    "outCt1": "8",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.cannedberries": {
+    "recipeTime": "89",
+    "in1": "berries",
+    "inCt1": "1",
+    "in2": "bronze",
+    "inCt2": "1",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "cannedfood",
+    "outCt1": "3",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.cannedfish": {
+    "recipeTime": "89",
+    "in1": "rawfish",
+    "inCt1": "1",
+    "in2": "bronze",
+    "inCt2": "1",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "cannedfood",
+    "outCt1": "3",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.cannedmushroom": {
+    "recipeTime": "89",
+    "in1": "mushroom",
+    "inCt1": "1",
+    "in2": "bronze",
+    "inCt2": "1",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "cannedfood",
+    "outCt1": "3",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.waterpump": {
+    "recipeTime": "8",
+    "in1": "None",
+    "inCt1": "0",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "fluid_water",
+    "outCt1": "5",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.ship_tier1_A": {
+    "recipeTime": "2584",
+    "in1": "planks",
+    "inCt1": "13",
+    "in2": "sail",
+    "inCt2": "13",
+    "in3": "nails",
+    "inCt3": "21",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "None",
+    "outCt1": "0",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "playerShip_tier1_A"
+   },
+   "recipe.ship_tier1_B": {
+    "recipeTime": "2584",
+    "in1": "planks",
+    "inCt1": "21",
+    "in2": "sail",
+    "inCt2": "34",
+    "in3": "nails",
+    "inCt3": "21",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "None",
+    "outCt1": "0",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "playerShip_tier1_B"
+   },
+   "recipe.ship_tier1_C": {
+    "recipeTime": "2584",
+    "in1": "planks",
+    "inCt1": "21",
+    "in2": "sail",
+    "inCt2": "21",
+    "in3": "nails",
+    "inCt3": "34",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "None",
+    "outCt1": "0",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "playerShip_tier1_C"
+   },
+   "recipe.mousewheel": {
+    "recipeTime": "5",
+    "in1": "None",
+    "inCt1": "0",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "None",
+    "outCt1": "0",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.tailor": {
+    "recipeTime": "144",
+    "in1": "fabric",
+    "inCt1": "3",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "clothes",
+    "outCt1": "2",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.bedding": {
+    "recipeTime": "144",
+    "in1": "fabric",
+    "inCt1": "3",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "bedding",
+    "outCt1": "3",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.mousetrap_rope": {
+    "recipeTime": "144",
+    "in1": "rope",
+    "inCt1": "1",
+    "in2": "fabric",
+    "inCt2": "1",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "mousetrap",
+    "outCt1": "5",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   },
+   "recipe.boiler": {
+    "recipeTime": "21",
+    "in1": "fuel",
+    "inCt1": "1",
+    "in2": "None",
+    "inCt2": "0",
+    "in3": "None",
+    "inCt3": "0",
+    "in4": "None",
+    "inCt4": "0",
+    "out1": "fluid_steam",
+    "outCt1": "89",
+    "out2": "None",
+    "outCt2": "0",
+    "out3": "None",
+    "outCt3": "0",
+    "shipToSpawn": "None"
+   }
+  },
+  "Whiskerwood/Content/Data/AssetLookups/ResourceLookup": {
+   "cotton": {
+    "stringKey": "resource.cotton",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Custom/cotton.cotton'"
+   },
+   "berries": {
+    "stringKey": "resource.berries",
+    "Category": "food",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Food_Icon_Pack/Textures/Tex_berries_05_b.Tex_berries_05_b'"
+   },
+   "flax": {
+    "stringKey": "resource.flax",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_herbs_04.Tex_herbs_04'"
+   },
+   "simpleclothes": {
+    "stringKey": "resource.simpleclothes",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Custom/flaxhood.flaxhood'"
+   },
+   "thread": {
+    "stringKey": "resource.thread",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_101_t.Tex_MiningIcons_101_t'"
+   },
+   "fabric": {
+    "stringKey": "resource.fabric",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_46_t.Tex_MiningIcons_46_t'"
+   },
+   "bronze": {
+    "stringKey": "resource.bronze",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_ingots_10.Tex_ingots_10'"
+   },
+   "cannedfood": {
+    "stringKey": "resource.cannedfood",
+    "Category": "food",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_spare_parts_10.Tex_spare_parts_10'"
+   },
+   "rawfish": {
+    "stringKey": "resource.rawfish",
+    "Category": "food",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_meat_05.Tex_meat_05'"
+   },
+   "mushroom": {
+    "stringKey": "resource.mushroom",
+    "Category": "food",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_mushrooms_07.Tex_mushrooms_07'"
+   },
+   "fluid_water": {
+    "stringKey": "resource.fluid_water",
+    "Category": "fluid",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/ForestIcons/Textures/Tex_ForestIcons_34_t.Tex_ForestIcons_34_t'"
+   },
+   "planks": {
+    "stringKey": "resource.planks",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_wood_07.Tex_wood_07'"
+   },
+   "sail": {
+    "stringKey": "resource.sail",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_cs_05.Tex_cs_05'"
+   },
+   "nails": {
+    "stringKey": "resource.nails",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_41_t.Tex_MiningIcons_41_t'"
+   },
+   "clothes": {
+    "stringKey": "resource.clothes",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/ForestIcons/Textures/Tex_ForestIcons_54_t.Tex_ForestIcons_54_t'"
+   },
+   "bedding": {
+    "stringKey": "resource.bedding",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_65_t1.Tex_MiningIcons_65_t1'"
+   },
+   "rope": {
+    "stringKey": "resource.rope",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_12_t.Tex_MiningIcons_12_t'"
+   },
+   "mousetrap": {
+    "stringKey": "resource.mousetrap",
+    "Category": "None",
+    "isNonPhysical": "True",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_loop_01.Tex_loop_01'"
+   },
+   "fuel": {
+    "stringKey": "resource.fuel",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_74_t.Tex_MiningIcons_74_t'"
+   },
+   "fluid_steam": {
+    "stringKey": "resource.fluid_steam",
+    "Category": "fluid",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/SpellBookPage06/Textures/Tex_SpellBook06_21.Tex_SpellBook06_21'"
+   },
+   "wood": {
+    "stringKey": "resource.wood",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_wood_03.Tex_wood_03'"
+   },
+   "tools": {
+    "stringKey": "resource.tools",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_14_t.Tex_MiningIcons_14_t'"
+   },
+   "scissors": {
+    "stringKey": "resource.scissors",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_tongs_01.Tex_tongs_01'"
+   },
+   "bricks": {
+    "stringKey": "resource.bricks",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/MiningIcons/Textures/Tex_MiningIcons_80_t.Tex_MiningIcons_80_t'"
+   },
+   "tablesalt": {
+    "stringKey": "resource.tablesalt",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_am_09.Tex_am_09'"
+   },
+   "copperbar": {
+    "stringKey": "resource.copperbar",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/CraftResourcesIcons/Textures/Tex_ingots_12.Tex_ingots_12'"
+   },
+   "oil": {
+    "stringKey": "resource.oil",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_potion_04.Tex_potion_04'"
+   },
+   "ironbar": {
+    "stringKey": "resource.ironbar",
+    "Category": "drygoods",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Resources_Icons/Textures/Tex_in_06.Tex_in_06'"
+   },
+   "bread": {
+    "stringKey": "resource.bread",
+    "Category": "food",
+    "isNonPhysical": "False",
+    "Icon": "Texture2D'Whiskerwood/Content/ThirdParty/Icon_AssetPacks/Food_Icon_Pack/Textures/Tex_baking_04.Tex_baking_04'"
+   }
+  },
+  "Whiskerwood/Content/Data/TextDB/Loc_En": {
+   "building.weaver": {
+    "Value": "Weaver"
+   },
+   "building.cottongin": {
+    "Value": "Cotton Gin"
+   },
+   "building.cannery": {
+    "Value": "Cannery"
+   },
+   "building.waterpump": {
+    "Value": "Water Pump"
+   },
+   "building.steamboiler": {
+    "Value": "Steam Boiler"
+   },
+   "building.mousewheel": {
+    "Value": "Whisker Wheel"
+   },
+   "building.farm": {
+    "Value": "Farm"
+   },
+   "building.tailor": {
+    "Value": "Tailor"
+   },
+   "resource.cotton": {
+    "Value": "Cotton"
+   },
+   "resource.berries": {
+    "Value": "Berries"
+   },
+   "resource.flax": {
+    "Value": "Flax"
+   },
+   "resource.simpleclothes": {
+    "Value": "Woven Cloaks"
+   },
+   "resource.thread": {
+    "Value": "Threads"
+   },
+   "resource.fabric": {
+    "Value": "Fabrics"
+   },
+   "resource.bronze": {
+    "Value": "Bronze Bars"
+   },
+   "resource.cannedfood": {
+    "Value": "Canned Food"
+   },
+   "resource.rawfish": {
+    "Value": "Fish"
+   },
+   "resource.mushroom": {
+    "Value": "Mushrooms"
+   },
+   "resource.fluid_water": {
+    "Value": "Piped Water"
+   },
+   "resource.planks": {
+    "Value": "Planks"
+   },
+   "resource.sail": {
+    "Value": "Sails"
+   },
+   "resource.nails": {
+    "Value": "Bronze Nails"
+   },
+   "resource.clothes": {
+    "Value": "Tailored Cloaks"
+   },
+   "resource.bedding": {
+    "Value": "Bedding"
+   },
+   "resource.rope": {
+    "Value": "Ropes"
+   },
+   "resource.mousetrap": {
+    "Value": "Bugtraps"
+   },
+   "resource.fuel": {
+    "Value": "Fuel"
+   },
+   "resource.fluid_steam": {
+    "Value": "Piped Steam"
+   },
+   "resource.wood": {
+    "Value": "Logs"
+   },
+   "resource.tools": {
+    "Value": "Machinery"
+   },
+   "resource.scissors": {
+    "Value": "Scissors"
+   },
+   "resource.bricks": {
+    "Value": "Cut Stone"
+   },
+   "resource.tablesalt": {
+    "Value": "Table Salt"
+   },
+   "resource.copperbar": {
+    "Value": "Copper Bars"
+   },
+   "resource.oil": {
+    "Value": "Oil"
+   },
+   "resource.ironbar": {
+    "Value": "Iron Bars"
+   },
+   "resource.bread": {
+    "Value": "Bread"
+   }
+  },
+  "Whiskerwood/Content/Data/AssetLookups/Crops": {
+   "cotton": {
+    "GrowthPeriodInYears": "0.1",
+    "MaximumYield": "2"
+   },
+   "berries": {
+    "GrowthPeriodInYears": "0.05",
+    "MaximumYield": "2"
+   }
+  },
+  "Whiskerwood/Content/Data/SystemTunes": {
+   "SecondsPerYear": {
+    "FloatValue": "17280"
+   },
+   "GlobalCropYieldFactor": {
+    "FloatValue": "1"
+   }
+  }
+ }
+}

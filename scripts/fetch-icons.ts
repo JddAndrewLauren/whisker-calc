@@ -18,13 +18,10 @@ interface Job {
   width: number
 }
 const blank = [...dataset.items, ...dataset.buildings].filter((e) => !e.icon)
-if (blank.length) {
-  console.error('entries without an icon (see the scraper warnings): ' + blank.map((e) => e.id).join(', '))
-  process.exit(1)
-}
+if (blank.length) console.log('warning: entries without an icon name: ' + blank.map((e) => e.id).join(', '))
 const jobs: Job[] = [
-  ...dataset.items.map((i) => ({ file: i.icon!, dest: `icons/items/${i.id}.png`, width: ITEM_PX })),
-  ...dataset.buildings.map((b) => ({ file: b.icon!, dest: `icons/buildings/${b.id}.png`, width: BUILDING_PX })),
+  ...dataset.items.filter((i) => i.icon).map((i) => ({ file: i.icon!, dest: `icons/items/${i.id}.png`, width: ITEM_PX })),
+  ...dataset.buildings.filter((b) => b.icon).map((b) => ({ file: b.icon!, dest: `icons/buildings/${b.id}.png`, width: BUILDING_PX })),
   { file: favicon, dest: 'favicon.png', width: ITEM_PX },
 ]
 
@@ -35,8 +32,14 @@ for (const width of [...new Set(wanted.map((j) => j.width))]) {
   const batch = wanted.filter((j) => j.width === width)
   const urls = fetchImageThumbs([...new Set(batch.map((j) => j.file))], width)
   for (const j of batch) {
+    const url = urls.get(j.file)
+    if (!url) {
+      // The wiki has no art yet for some newer content; the UI hides icons whose PNG is missing.
+      console.log(`warning: the wiki has no file ${j.file} for ${j.dest}`)
+      continue
+    }
     mkdirSync(publicDir + j.dest.replace(/[^/]+$/, ''), { recursive: true })
-    curlDownload(urls.get(j.file)!, publicDir + j.dest)
+    curlDownload(url, publicDir + j.dest)
     console.log(`  ${j.dest}  <-  ${j.file}`)
   }
 }

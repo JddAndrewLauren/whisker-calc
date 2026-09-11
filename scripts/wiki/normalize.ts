@@ -1,4 +1,4 @@
-import type { Building, Dataset, Guild, Ingredient, Item, NamedIngredient, Overrides, Recipe } from '../../src/data/types.ts'
+import type { Building, Dataset, DatasetMeta, Guild, Ingredient, Item, NamedIngredient, Overrides, Recipe } from '../../src/data/types.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 import { WIKI_BASE } from './fetch.ts'
 
@@ -38,7 +38,7 @@ export interface BuildResult {
 
 const wikiUrl = (name: string) => `${WIKI_BASE}/${name.replace(/ /g, '_')}`
 
-export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, generatedAt: string): BuildResult {
+export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, meta: DatasetMeta): BuildResult {
   const warnings: string[] = []
   const items = new Map<string, Item>()
   const ingredient = (name: string, qty: number, icon?: string): Ingredient => {
@@ -69,7 +69,7 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
   for (const p of sorted) {
     const id = slug(p.name)
     const guild = guildFromText(p.guildText)
-    if (!guild) warnings.push(`${p.name}: unknown guild text ${JSON.stringify(p.guildText)}`)
+    if (p.guildText !== null && !guild) warnings.push(`${p.name}: unknown guild text ${JSON.stringify(p.guildText)}`)
     const ov = overrides.buildings[id] ?? {}
     const building: Building = {
       id,
@@ -97,6 +97,8 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
         inputs: rov?.inputs ? named(rov.inputs) : inputs,
         outputs: rov?.outputs ? named(rov.outputs) : outputs,
         timeSeconds: rov?.timeSeconds ?? raw.timeSeconds,
+        ...(raw.tilesPerBuilding !== undefined && { tilesPerBuilding: raw.tilesPerBuilding }),
+        ...(raw.note !== undefined && { note: raw.note }),
       })
     }
   }
@@ -157,8 +159,7 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
 
   return {
     dataset: {
-      generatedAt,
-      source: WIKI_BASE,
+      ...meta,
       items: [...items.values()].sort((a, b) => a.id.localeCompare(b.id)),
       buildings,
       recipes,

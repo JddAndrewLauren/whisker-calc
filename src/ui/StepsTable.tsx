@@ -61,7 +61,7 @@ export function StepsTable({ index, steps }: Props) {
           })}
         </tbody>
       </table>
-      <p className="muted">Hover "est." for where a number comes from when it is not a wiki recipe table.</p>
+      <p className="muted">Hover "est." for where a number comes from when it is not straight from the game's data tables.</p>
     </section>
   )
 }

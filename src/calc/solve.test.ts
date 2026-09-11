@@ -8,7 +8,7 @@ const data = loadDataset()
 const base: SolveInput = { targetItem: 'tailored-clothes', ratePerMin: 1, recipeChoice: {}, modifiers: {} }
 const step = (r: ReturnType<typeof solve>, buildingId: string) => r.steps.find((s) => s.buildingId === buildingId)!
 
-describe('solve: tailored clothes chain from the wiki data', () => {
+describe('solve: tailored clothes chain from the game data', () => {
   it('needs 1.2 tailors, 1.94 weavers, 0.45 cotton gins and 2.7 farm tiles for 1 cloak/min', () => {
     const r = solve(data, base)
     expect(r.warnings).toEqual([])
@@ -40,11 +40,10 @@ describe('solve: tailored clothes chain from the wiki data', () => {
     expect(r.raw.map((x) => x.itemId)).toEqual(['copper-ore', 'tin-ore'])
   })
 
-  it('resolves machinery down to ores, coal and pumped water', () => {
+  it('resolves machinery down to ores, coal and steam', () => {
     const r = solve(data, { ...base, targetItem: 'machinery', ratePerMin: 1 })
     expect(r.warnings).toEqual([])
     expect(r.steps.map((s) => s.buildingId)).toContain('steam-boiler')
-    expect(r.steps.map((s) => s.buildingId)).toContain('water-pump')
     expect(r.raw.map((x) => x.itemId)).toEqual(['coal', 'copper-ore', 'iron-ore', 'tin-ore'])
   })
 
@@ -65,8 +64,14 @@ describe('solve: tailored clothes chain from the wiki data', () => {
   it('handles a recipe with no inputs', () => {
     const r = solve(data, { ...base, targetItem: 'fish', ratePerMin: 10 })
     expect(r.steps).toHaveLength(1)
-    expect(step(r, 'fishing-dock').buildings).toBeCloseTo(10 / (60 / 21), 3)
+    expect(step(r, 'fishing-dock').buildings).toBeCloseTo(10 / (60 / 55), 3)
     expect(r.raw).toEqual([])
+  })
+
+  it('carries the table numbers the wiki lags behind on', () => {
+    expect(data.recipesById.get('tea-roaster/tea')!.timeSeconds).toBe(55)
+    expect(data.recipesById.get('netter/fishing-nets')!.timeSeconds).toBe(377)
+    expect(data.recipesById.get('water-pump/water')).toMatchObject({ outputs: [{ item: 'water', qty: 5 }], timeSeconds: 8 })
   })
 
   it('returns nothing for a zero rate', () => {
@@ -77,7 +82,8 @@ describe('solve: tailored clothes chain from the wiki data', () => {
 describe('solve: synthetic datasets', () => {
   const synthetic: Dataset = {
     generatedAt: 'test',
-    source: 'test',
+    source: 'wiki',
+    gameVersion: 'test',
     items: ['a', 'b', 'c', 'raw'].map((id) => ({ id, name: id })),
     buildings: ['ba', 'bb', 'bc'].map((id) => ({ id, name: id, workers: 1, guild: null, catalyst: null, cost: [], wikiUrl: '' })),
     recipes: [

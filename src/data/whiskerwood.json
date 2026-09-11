@@ -1,6 +1,7 @@
 {
   "generatedAt": "2026-09-11",
-  "source": "https://wiki.hoodedhorse.com/Whiskerwood",
+  "source": "tables",
+  "gameVersion": "0.7.206.0",
   "items": [
     {
       "id": "bedding",
@@ -31,15 +32,30 @@
       "icon": "Tex ingots 10.png"
     },
     {
+      "id": "bronze-cannons",
+      "name": "Bronze Cannons",
+      "icon": "BronzeCannon.png"
+    },
+    {
       "id": "bronze-nails",
       "name": "Bronze Nails",
       "icon": "Tex MiningIcons 41 t.png"
+    },
+    {
+      "id": "bronze-shot",
+      "name": "Bronze Shot",
+      "icon": "Cannonball1.png"
     },
     {
       "id": "canned-food",
       "name": "Canned Food",
       "icon": "Tex spare parts 10.png",
       "food": true
+    },
+    {
+      "id": "cannon-frames",
+      "name": "Cannon Frames",
+      "icon": "Tex BlueLootBox 87 t.png"
     },
     {
       "id": "coal",
@@ -101,7 +117,7 @@
     {
       "id": "fish-skewers",
       "name": "Fish Skewers",
-      "icon": "Tex meat 08.png",
+      "icon": "Tex Meat 08.png",
       "food": true
     },
     {
@@ -140,6 +156,11 @@
       "icon": "Tex MiningIcons 91 t.png"
     },
     {
+      "id": "guano",
+      "name": "Guano",
+      "icon": "Tex MiningIcons 22 t whiter.png"
+    },
+    {
       "id": "hearty-meals",
       "name": "Hearty Meals",
       "icon": "Tex dish 01.png",
@@ -159,6 +180,11 @@
       "id": "iron-pots",
       "name": "Iron Pots",
       "icon": "Tex pt 20.png"
+    },
+    {
+      "id": "iron-shot",
+      "name": "Iron Shot",
+      "icon": "Cannonball2.png"
     },
     {
       "id": "jam-pastries",
@@ -229,6 +255,11 @@
       "icon": "Tex MiningIcons 12 t.png"
     },
     {
+      "id": "sails",
+      "name": "Sails",
+      "icon": "Tex cs 05.png"
+    },
+    {
       "id": "saline-solution",
       "name": "Saline Solution",
       "icon": "Tex potion 07.png"
@@ -247,7 +278,7 @@
     {
       "id": "smoked-fish",
       "name": "Smoked Fish",
-      "icon": "Tex meat 081.png",
+      "icon": "Tex meat 08.png",
       "food": true
     },
     {
@@ -281,6 +312,11 @@
       "icon": "Tex MiningIcons 05 t.png"
     },
     {
+      "id": "stone-shot",
+      "name": "Stone Shot",
+      "icon": "Stoneshot.png"
+    },
+    {
       "id": "table-salt",
       "name": "Table Salt",
       "icon": "Tex am 09.png"
@@ -293,7 +329,7 @@
     {
       "id": "tea",
       "name": "Tea",
-      "icon": "Tex herbs 07.png"
+      "icon": "SilverTea.png"
     },
     {
       "id": "tea-leaves",
@@ -360,7 +396,7 @@
       "name": "Bakery",
       "workers": 3,
       "guild": "Farmer",
-      "catalyst": "Salt",
+      "catalyst": "Table Salt",
       "cost": [
         {
           "item": "planks",
@@ -377,9 +413,9 @@
     {
       "id": "blacksmith",
       "name": "Blacksmith",
-      "workers": 3,
+      "workers": 2,
       "guild": "Engineer",
-      "catalyst": "Wooden Vice",
+      "catalyst": "Wooden Vises",
       "cost": [
         {
           "item": "planks",
@@ -400,8 +436,8 @@
     {
       "id": "blast-furnace",
       "name": "Blast Furnace",
-      "workers": 3,
-      "guild": "Engineer",
+      "workers": 2,
+      "guild": "Miner",
       "catalyst": "Fire Tongs",
       "cost": [
         {
@@ -419,9 +455,9 @@
     {
       "id": "cannery",
       "name": "Cannery",
-      "workers": 3,
+      "workers": 2,
       "guild": "Farmer",
-      "catalyst": "Salt",
+      "catalyst": "Table Salt",
       "cost": [
         {
           "item": "planks",
@@ -438,6 +474,29 @@
       ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannery",
       "icon": "Cannery.PNG"
+    },
+    {
+      "id": "cannon-foundry",
+      "name": "Cannon Foundry",
+      "workers": 2,
+      "guild": "Engineer",
+      "catalyst": "Wooden Vises",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannon_Foundry",
+      "icon": "Cannon Foundry.PNG"
     },
     {
       "id": "carpenter",
@@ -465,13 +524,17 @@
     {
       "id": "charcoal-furnace",
       "name": "Charcoal Furnace",
-      "workers": 2,
-      "guild": "Miner",
+      "workers": 3,
+      "guild": "Explorer",
       "catalyst": "Fire Tongs",
       "cost": [
         {
+          "item": "planks",
+          "qty": 3
+        },
+        {
           "item": "cut-stone",
-          "qty": 13
+          "qty": 8
         },
         {
           "item": "machinery",
@@ -484,7 +547,7 @@
     {
       "id": "chemist",
       "name": "Chemist",
-      "workers": 3,
+      "workers": 2,
       "guild": "Engineer",
       "catalyst": "Precision Scales",
       "cost": [
@@ -513,7 +576,7 @@
       "name": "Coppersmith",
       "workers": 3,
       "guild": "Engineer",
-      "catalyst": "Wooden Vice",
+      "catalyst": "Wooden Vises",
       "cost": [
         {
           "item": "planks",
@@ -555,11 +618,26 @@
       "icon": "Cotton Gin.PNG"
     },
     {
+      "id": "farm",
+      "name": "Farm",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Farm",
+      "icon": "Farm.PNG"
+    },
+    {
       "id": "fine-kitchen",
       "name": "Fine Kitchen",
       "workers": 3,
       "guild": "Farmer",
-      "catalyst": "Salt",
+      "catalyst": "Table Salt",
       "cost": [
         {
           "item": "planks",
@@ -582,7 +660,7 @@
       "name": "Fishing Dock",
       "workers": 3,
       "guild": "Farmer",
-      "catalyst": "Net",
+      "catalyst": "Fishing Nets",
       "cost": [
         {
           "item": "logs",
@@ -618,7 +696,7 @@
     {
       "id": "machinist",
       "name": "Machinist",
-      "workers": 3,
+      "workers": 2,
       "guild": "Engineer",
       "catalyst": "Precision Scales",
       "cost": [
@@ -632,7 +710,7 @@
         },
         {
           "item": "machinery",
-          "qty": 1
+          "qty": 2
         }
       ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Machinist",
@@ -641,9 +719,9 @@
     {
       "id": "mill",
       "name": "Mill",
-      "workers": 2,
+      "workers": 3,
       "guild": "Farmer",
-      "catalyst": null,
+      "catalyst": "Oil",
       "cost": [
         {
           "item": "planks",
@@ -660,7 +738,7 @@
     {
       "id": "netter",
       "name": "Netter",
-      "workers": 3,
+      "workers": 2,
       "guild": "Explorer",
       "catalyst": "Scissors",
       "cost": [
@@ -701,12 +779,12 @@
         }
       ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Oil_Press",
-      "icon": "Oilpress.png"
+      "icon": "Oil Press.PNG"
     },
     {
       "id": "ore-furnace",
       "name": "Ore Furnace",
-      "workers": 2,
+      "workers": 3,
       "guild": "Miner",
       "catalyst": "Fire Tongs",
       "cost": [
@@ -723,11 +801,34 @@
       "icon": "Ore Furnace.PNG"
     },
     {
+      "id": "sail-manufactory",
+      "name": "Sail Manufactory",
+      "workers": 2,
+      "guild": "Engineer",
+      "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sail_Manufactory",
+      "icon": "Sail Manufactory.PNG"
+    },
+    {
       "id": "sawmill",
       "name": "Sawmill",
       "workers": 3,
       "guild": "Engineer",
-      "catalyst": "Rope",
+      "catalyst": "Ropes",
       "cost": [
         {
           "item": "logs",
@@ -746,7 +847,7 @@
       "name": "Sifting Tower",
       "workers": 3,
       "guild": "Miner",
-      "catalyst": "Rope",
+      "catalyst": "Ropes",
       "cost": [
         {
           "item": "planks",
@@ -771,9 +872,9 @@
     {
       "id": "smokery",
       "name": "Smokery",
-      "workers": 2,
+      "workers": 3,
       "guild": "Farmer",
-      "catalyst": "Salt",
+      "catalyst": "Table Salt",
       "cost": [
         {
           "item": "planks",
@@ -785,7 +886,7 @@
         }
       ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Smokery",
-      "icon": "Fishery.PNG"
+      "icon": "Smokery.PNG"
     },
     {
       "id": "soup-kitchen",
@@ -838,11 +939,34 @@
       "icon": "Spice Grinder.PNG"
     },
     {
+      "id": "steam-boiler",
+      "name": "Steam Boiler",
+      "workers": 0,
+      "guild": null,
+      "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 5
+        },
+        {
+          "item": "iron-bars",
+          "qty": 2
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Steam_Boiler",
+      "icon": "Steam Boiler.PNG"
+    },
+    {
       "id": "stone-cutter",
       "name": "Stone Cutter",
       "workers": 3,
       "guild": "Engineer",
-      "catalyst": "Rope",
+      "catalyst": "Ropes",
       "cost": [
         {
           "item": "planks",
@@ -854,7 +978,7 @@
         }
       ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Stone_Cutter",
-      "icon": "Brickmaker.PNG"
+      "icon": "Stone Cutter.PNG"
     },
     {
       "id": "tailor",
@@ -903,45 +1027,11 @@
       "icon": "Tea Roaster.PNG"
     },
     {
-      "id": "weaver",
-      "name": "Weaver",
-      "workers": 3,
-      "guild": "Explorer",
-      "catalyst": "Scissors",
-      "cost": [
-        {
-          "item": "logs",
-          "qty": 21
-        },
-        {
-          "item": "machinery",
-          "qty": 1
-        }
-      ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver",
-      "icon": "Weaver.PNG"
-    },
-    {
-      "id": "farm",
-      "name": "Farm",
-      "workers": 2,
-      "guild": "Farmer",
-      "catalyst": null,
-      "cost": [
-        {
-          "item": "planks",
-          "qty": 8
-        }
-      ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Farm",
-      "icon": "Farm.PNG"
-    },
-    {
       "id": "water-pump",
       "name": "Water Pump",
       "workers": 1,
       "guild": "Engineer",
-      "catalyst": null,
+      "catalyst": "Oil",
       "cost": [
         {
           "item": "planks",
@@ -964,27 +1054,23 @@
       "icon": "Water Pump.PNG"
     },
     {
-      "id": "steam-boiler",
-      "name": "Steam Boiler",
-      "workers": 0,
-      "guild": null,
-      "catalyst": null,
+      "id": "weaver",
+      "name": "Weaver",
+      "workers": 3,
+      "guild": "Explorer",
+      "catalyst": "Scissors",
       "cost": [
         {
-          "item": "planks",
-          "qty": 13
+          "item": "logs",
+          "qty": 21
         },
         {
-          "item": "cut-stone",
-          "qty": 5
-        },
-        {
-          "item": "iron-bars",
-          "qty": 2
+          "item": "machinery",
+          "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Steam_Boiler",
-      "icon": "Steam Boiler.PNG"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver",
+      "icon": "Weaver.PNG"
     }
   ],
   "recipes": [
@@ -1124,6 +1210,40 @@
       "timeSeconds": 377
     },
     {
+      "id": "blacksmith/iron-shot",
+      "building": "blacksmith",
+      "inputs": [
+        {
+          "item": "iron-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "iron-shot",
+          "qty": 4
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "blacksmith/bronze-shot",
+      "building": "blacksmith",
+      "inputs": [
+        {
+          "item": "bronze-bars",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bronze-shot",
+          "qty": 4
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
       "id": "blast-furnace/iron-bars",
       "building": "blast-furnace",
       "inputs": [
@@ -1233,6 +1353,31 @@
       "timeSeconds": 89
     },
     {
+      "id": "cannon-foundry/bronze-cannons",
+      "building": "cannon-foundry",
+      "inputs": [
+        {
+          "item": "bronze-bars",
+          "qty": 5
+        },
+        {
+          "item": "cannon-frames",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bronze-cannons",
+          "qty": 1
+        }
+      ],
+      "timeSeconds": 377
+    },
+    {
       "id": "carpenter/wooden-vises",
       "building": "carpenter",
       "inputs": [
@@ -1266,6 +1411,27 @@
         {
           "item": "furniture",
           "qty": 3
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
+      "id": "carpenter/cannon-frames",
+      "building": "carpenter",
+      "inputs": [
+        {
+          "item": "planks",
+          "qty": 3
+        },
+        {
+          "item": "bronze-nails",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "cannon-frames",
+          "qty": 1
         }
       ],
       "timeSeconds": 233
@@ -1331,7 +1497,7 @@
           "qty": 5
         }
       ],
-      "timeSeconds": 144
+      "timeSeconds": 233
     },
     {
       "id": "coppersmith/scissors",
@@ -1383,6 +1549,118 @@
         }
       ],
       "timeSeconds": 144
+    },
+    {
+      "id": "farm/berries",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "berries",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Crops table: growth 0.05 years (864 s), max yield 2 per tile. 36 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/flax",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "flax",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Crops table: growth 0.05 years (864 s), max yield 2 per tile. 36 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/wheat",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "wheat",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Crops table: growth 0.1 years (1728 s), max yield 2 per tile. 72 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/cotton",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "cotton",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Crops table: growth 0.1 years (1728 s), max yield 2 per tile. 72 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/mushrooms",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "mushrooms",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Crops table: growth 0.05 years (864 s), max yield 2 per tile. 36 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/tea-leaves",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "tea-leaves",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Crops table: growth 0.1 years (1728 s), max yield 2 per tile. 72 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/peppers",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "peppers",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Crops table: growth 0.1 years (1728 s), max yield 2 per tile. 72 tiles per Farm is the Farmer's Almanac estimate."
+    },
+    {
+      "id": "farm/logs",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "logs",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 36,
+      "note": "Crops table: growth 0.1 years (1728 s), max yield 2 per tile. 36 tiles per Farm is the Farmer's Almanac estimate."
     },
     {
       "id": "fine-kitchen/savory-meals",
@@ -1469,7 +1747,7 @@
           "qty": 1
         }
       ],
-      "timeSeconds": 21
+      "timeSeconds": 55
     },
     {
       "id": "flax-spinner/ropes",
@@ -1483,7 +1761,7 @@
       "outputs": [
         {
           "item": "ropes",
-          "qty": 2
+          "qty": 3
         }
       ],
       "timeSeconds": 144
@@ -1562,7 +1840,7 @@
           "qty": 5
         }
       ],
-      "timeSeconds": 233
+      "timeSeconds": 377
     },
     {
       "id": "oil-press/oil",
@@ -1653,6 +1931,27 @@
       "timeSeconds": 377
     },
     {
+      "id": "sail-manufactory/sails",
+      "building": "sail-manufactory",
+      "inputs": [
+        {
+          "item": "fabrics",
+          "qty": 5
+        },
+        {
+          "item": "ropes",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "sails",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 233
+    },
+    {
       "id": "sawmill/planks",
       "building": "sawmill",
       "inputs": [
@@ -1688,7 +1987,7 @@
           "qty": 21
         }
       ],
-      "timeSeconds": 337
+      "timeSeconds": 377
     },
     {
       "id": "sifting-tower/table-salt",
@@ -1731,6 +2030,27 @@
         }
       ],
       "timeSeconds": 144
+    },
+    {
+      "id": "sifting-tower/fertilizer-from-guano",
+      "building": "sifting-tower",
+      "inputs": [
+        {
+          "item": "guano",
+          "qty": 3
+        },
+        {
+          "item": "water",
+          "qty": 25
+        }
+      ],
+      "outputs": [
+        {
+          "item": "fertilizer",
+          "qty": 10
+        }
+      ],
+      "timeSeconds": 233
     },
     {
       "id": "smokery/smoked-fish",
@@ -1850,6 +2170,23 @@
       "timeSeconds": 144
     },
     {
+      "id": "steam-boiler/steam",
+      "building": "steam-boiler",
+      "inputs": [
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "steam",
+          "qty": 89
+        }
+      ],
+      "timeSeconds": 21
+    },
+    {
       "id": "stone-cutter/cut-stone",
       "building": "stone-cutter",
       "inputs": [
@@ -1865,6 +2202,23 @@
         }
       ],
       "timeSeconds": 233
+    },
+    {
+      "id": "stone-cutter/stone-shot",
+      "building": "stone-cutter",
+      "inputs": [
+        {
+          "item": "stone",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "stone-shot",
+          "qty": 4
+        }
+      ],
+      "timeSeconds": 89
     },
     {
       "id": "tailor/tailored-clothes",
@@ -1919,7 +2273,7 @@
           "qty": 5
         }
       ],
-      "timeSeconds": 89
+      "timeSeconds": 55
     },
     {
       "id": "tea-roaster/fine-tea",
@@ -1941,10 +2295,22 @@
       "outputs": [
         {
           "item": "fine-tea",
-          "qty": 5
+          "qty": 8
         }
       ],
       "timeSeconds": 89
+    },
+    {
+      "id": "water-pump/water",
+      "building": "water-pump",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 8
     },
     {
       "id": "weaver/woven-cloaks",
@@ -1979,153 +2345,6 @@
         }
       ],
       "timeSeconds": 233
-    },
-    {
-      "id": "farm/cotton",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "cotton",
-          "qty": 144
-        }
-      ],
-      "timeSeconds": 1728,
-      "tilesPerBuilding": 72,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/wheat",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "wheat",
-          "qty": 144
-        }
-      ],
-      "timeSeconds": 1728,
-      "tilesPerBuilding": 72,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/tea-leaves",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "tea-leaves",
-          "qty": 144
-        }
-      ],
-      "timeSeconds": 1728,
-      "tilesPerBuilding": 72,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/peppers",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "peppers",
-          "qty": 144
-        }
-      ],
-      "timeSeconds": 1728,
-      "tilesPerBuilding": 72,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/berries",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "berries",
-          "qty": 72
-        }
-      ],
-      "timeSeconds": 864,
-      "tilesPerBuilding": 36,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/flax",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "flax",
-          "qty": 72
-        }
-      ],
-      "timeSeconds": 864,
-      "tilesPerBuilding": 36,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/mushrooms",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "mushrooms",
-          "qty": 72
-        }
-      ],
-      "timeSeconds": 864,
-      "tilesPerBuilding": 36,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
-    },
-    {
-      "id": "farm/logs",
-      "building": "farm",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "logs",
-          "qty": 72
-        }
-      ],
-      "timeSeconds": 1728,
-      "tilesPerBuilding": 36,
-      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles of Trees (90 s of work per tile); growth 0.10 years (1728 s), max yield 2 per tile."
-    },
-    {
-      "id": "water-pump/water",
-      "building": "water-pump",
-      "inputs": [],
-      "outputs": [
-        {
-          "item": "water",
-          "qty": 5
-        }
-      ],
-      "timeSeconds": 30,
-      "note": "Estimate. Wiki: the pump delivers 5 units per trip; the 30 s trip time is a guess."
-    },
-    {
-      "id": "steam-boiler/steam",
-      "building": "steam-boiler",
-      "inputs": [
-        {
-          "item": "fuel",
-          "qty": 1
-        },
-        {
-          "item": "water",
-          "qty": 3
-        }
-      ],
-      "outputs": [
-        {
-          "item": "steam",
-          "qty": 50
-        }
-      ],
-      "timeSeconds": 30,
-      "note": "Estimate. Wiki: burns about 1 fuel per 30 s and releases 50-100 steam per burst; water and steam quantities are guesses."
     }
   ]
 }

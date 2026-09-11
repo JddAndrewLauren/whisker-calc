@@ -50,7 +50,7 @@ export function App() {
           <img className="icon" src={`${import.meta.env.BASE_URL}favicon.png`} alt="" width={36} height={36} />
           Whiskerwood production calculator
         </h1>
-        <p className="muted">How many of each building you need to sustain a target output, using base recipe times from the wiki.</p>
+        <p className="muted">How many of each building you need to sustain a target output, using base recipe times from the game's data tables.</p>
       </header>
 
       <TargetControls
@@ -96,17 +96,17 @@ export function App() {
           Assumptions: recipe times are for a fully staffed building, and speed bonuses stack additively. Farms follow the wiki's
           Farmer's Almanac at maximum yield (about 72 tiles per Farm for cotton, wheat, tea and peppers, 36 for berries, flax,
           mushrooms and trees); use the Extra % field for poorer soil. Feeding assumes one meal per Whisker per 540-second working
-          day; Miners and Heavy Eaters take one more. Water Pump and Steam Boiler rates are estimates, editable in overrides.json.
-          Mines are not modeled. Data scraped{' '}
-          {index.dataset.generatedAt} from the{' '}
-          <a href={index.dataset.source} target="_blank" rel="noreferrer">
+          day; Miners and Heavy Eaters take one more. The Steam Boiler's water intake is not part of its recipe. Mines are not
+          modeled. Data from {index.dataset.source === 'tables' ? `the game's data tables, version ${index.dataset.gameVersion},` : 'the wiki,'}{' '}
+          imported {index.dataset.generatedAt}; building names link to the{' '}
+          <a href="https://wiki.hoodedhorse.com/Whiskerwood/" target="_blank" rel="noreferrer">
             Whiskerwood wiki
           </a>
           . The link in your address bar reproduces this calculation.
         </p>
         <p>
           Item and building images are game art by Minakata Dynamics, published by Hooded Horse, served from the{' '}
-          <a href={index.dataset.source} target="_blank" rel="noreferrer">
+          <a href="https://wiki.hoodedhorse.com/Whiskerwood/" target="_blank" rel="noreferrer">
             official wiki
           </a>
           . This is an unofficial fan tool.

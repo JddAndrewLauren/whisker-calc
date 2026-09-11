@@ -55,7 +55,7 @@ export async function fetchWikitext(titles: string[]): Promise<Map<string, strin
   return out
 }
 
-/** Resolve wiki file names ("Tex wood 07.png") to thumbnail URLs of the given width. Throws if any file is missing. */
+/** Resolve wiki file names ("Tex wood 07.png") to thumbnail URLs of the given width; files the wiki lacks are left out. */
 export function fetchImageThumbs(files: string[], width: number): Map<string, string> {
   const out = new Map<string, string>()
   for (let i = 0; i < files.length; i += 50) {
@@ -79,8 +79,6 @@ export function fetchImageThumbs(files: string[], width: number): Map<string, st
       if (file && url && !page.missing) out.set(file, url)
     }
   }
-  const missing = files.filter((f) => !out.has(f))
-  if (missing.length) throw new Error(`wiki files not found: ${missing.join(', ')}`)
   return out
 }
 

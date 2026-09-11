@@ -1,66 +1,27 @@
 {
   "itemAliases": {
-    "Copper": "Copper Ore",
-    "Iron": "Iron Bars",
-    "Mushroom": "Mushrooms",
-    "Plank": "Planks",
-    "Wood": "Logs"
+    "Piped Steam": "Steam",
+    "Piped Water": "Water",
+    "Tailored Cloaks": "Tailored Clothes"
   },
-  "buildings": {
-    "oil-press": {
-      "cost": [{ "item": "Planks", "qty": 13 }, { "item": "Cut Stone", "qty": 13 }, { "item": "Iron Bars", "qty": 3 }, { "item": "Machinery", "qty": 1 }]
-    }
-  },
-  "recipes": {
-    "tea-roaster/tea": {
-      "inputs": [{ "item": "Tea Leaves", "qty": 1 }, { "item": "Fuel", "qty": 1 }]
-    },
-    "tea-roaster/fine-tea": {
-      "inputs": [{ "item": "Tea Leaves", "qty": 2 }, { "item": "Spices", "qty": 1 }, { "item": "Fuel", "qty": 1 }]
-    }
-  },
+  "buildings": {},
+  "recipes": {},
   "preferredRecipe": {
     "threads": "cotton-gin/threads"
   },
-  "extraBuildings": {
-    "farm": { "name": "Farm", "workers": 2, "guild": "Farmer", "catalyst": null, "cost": [{ "item": "Planks", "qty": 8 }], "icon": "Farm.PNG" },
-    "water-pump": {
-      "name": "Water Pump",
-      "workers": 1,
-      "guild": "Engineer",
-      "catalyst": null,
-      "cost": [{ "item": "Planks", "qty": 8 }, { "item": "Cut Stone", "qty": 1 }, { "item": "Copper Bars", "qty": 2 }, { "item": "Machinery", "qty": 1 }],
-      "icon": "Water Pump.PNG"
-    },
-    "steam-boiler": {
-      "name": "Steam Boiler",
-      "workers": 0,
-      "guild": null,
-      "catalyst": null,
-      "cost": [{ "item": "Planks", "qty": 13 }, { "item": "Cut Stone", "qty": 5 }, { "item": "Iron Bars", "qty": 2 }],
-      "icon": "Steam Boiler.PNG"
-    }
+  "extraBuildings": {},
+  "extraRecipes": [],
+  "farmTiles": {
+    "Cotton": 72,
+    "Wheat": 72,
+    "Tea Leaves": 72,
+    "Peppers": 72,
+    "Berries": 36,
+    "Flax": 36,
+    "Mushrooms": 36,
+    "Logs": 36
   },
-  "extraRecipes": [
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Cotton", "qty": 144 }], "timeSeconds": 1728, "tilesPerBuilding": 72, "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Wheat", "qty": 144 }], "timeSeconds": 1728, "tilesPerBuilding": 72, "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Tea Leaves", "qty": 144 }], "timeSeconds": 1728, "tilesPerBuilding": 72, "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Peppers", "qty": 144 }], "timeSeconds": 1728, "tilesPerBuilding": 72, "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Berries", "qty": 72 }], "timeSeconds": 864, "tilesPerBuilding": 36, "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Flax", "qty": 72 }], "timeSeconds": 864, "tilesPerBuilding": 36, "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Mushrooms", "qty": 72 }], "timeSeconds": 864, "tilesPerBuilding": 36, "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile." },
-    { "building": "farm", "inputs": [], "outputs": [{ "item": "Logs", "qty": 72 }], "timeSeconds": 1728, "tilesPerBuilding": 36, "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles of Trees (90 s of work per tile); growth 0.10 years (1728 s), max yield 2 per tile." },
-    { "building": "water-pump", "inputs": [], "outputs": [{ "item": "Water", "qty": 5 }], "timeSeconds": 30, "note": "Estimate. Wiki: the pump delivers 5 units per trip; the 30 s trip time is a guess." },
-    { "building": "steam-boiler", "inputs": [{ "item": "Fuel", "qty": 1 }, { "item": "Water", "qty": 3 }], "outputs": [{ "item": "Steam", "qty": 50 }], "timeSeconds": 30, "note": "Estimate. Wiki: burns about 1 fuel per 30 s and releases 50-100 steam per burst; water and steam quantities are guesses." }
-  ],
-  "foods": [
-    "Berries", "Fish", "Mushrooms", "Canned Food", "Berry Soup", "Smoked Fish", "Bread", "Mushroom Stew",
-    "Fish Skewers", "Jam Pastries", "Hearty Meals", "Savory Meals", "Fancy Meals"
-  ],
-  "itemIcons": {
-    "Water": "Tex ForestIcons 34 t.png",
-    "Steam": "Tex SpellBook06 21.png",
-    "Tea Leaves": "Tex herbs 07.png"
-  },
+  "foods": [],
+  "itemIcons": {},
   "favicon": "Tex MiningIcons 14 t.png"
 }
