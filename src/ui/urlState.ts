@@ -10,6 +10,7 @@ export const DEFAULT_STATE: AppState = {
   ratePerMin: 1,
   population: 100,
   buildingCount: 1,
+  quality: 3,
   recipeChoice: {},
   modifiers: {},
 }
@@ -27,13 +28,16 @@ function decodeModifier(s: string): ModifierSettings | null {
 
 const isDefault = (m: ModifierSettings) => encodeModifier(m) === ''
 
-/** Encode state as a URL hash (without the leading '#'). Defaults are omitted; `pop` or `n` selects the mode. */
+/** Encode state as a URL hash (without the leading '#'). Defaults are omitted; `q`, `pop` or `n` selects the mode. */
 export function encodeState(s: AppState): string {
   const p = new URLSearchParams()
-  p.set('i', s.targetItem)
+  if (s.mode === 'quality') {
+    p.set('q', String(s.quality))
+    p.set('pop', String(s.population))
+  } else p.set('i', s.targetItem)
   if (s.mode === 'population') p.set('pop', String(s.population))
   else if (s.mode === 'buildings') p.set('n', String(s.buildingCount))
-  else if (s.ratePerMin !== DEFAULT_STATE.ratePerMin) p.set('rate', String(s.ratePerMin))
+  else if (s.mode === 'rate' && s.ratePerMin !== DEFAULT_STATE.ratePerMin) p.set('rate', String(s.ratePerMin))
   const r = Object.entries(s.recipeChoice).map(([item, recipe]) => `${item}:${recipe}`)
   if (r.length) p.set('r', r.join(';'))
   const m = Object.entries(s.modifiers)
@@ -52,10 +56,15 @@ export function decodeState(hash: string): AppState {
     const n = Number(p.get(key))
     return p.has(key) && Number.isFinite(n) && n >= 0 ? n : null
   }
+  const q = numberParam('q')
   const pop = numberParam('pop')
   const n = numberParam('n')
   const rate = numberParam('rate')
-  if (pop !== null) {
+  if (q !== null && Number.isInteger(q)) {
+    state.mode = 'quality'
+    state.quality = q
+    if (pop !== null) state.population = pop
+  } else if (pop !== null) {
     state.mode = 'population'
     state.population = pop
   } else if (n !== null) {

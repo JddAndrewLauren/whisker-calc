@@ -33,3 +33,10 @@ it('falls back to defaults on an empty or garbled hash', () => {
   expect(decodeState('')).toEqual(DEFAULT_STATE)
   expect(decodeState('#rate=abc&pop=-1&m=weaver:zz;nope')).toEqual(DEFAULT_STATE)
 })
+
+it('encodes the quality mode as stars plus population, without an item', () => {
+  const q: AppState = { ...DEFAULT_STATE, mode: 'quality', quality: 2, population: 120, ratePerMin: 7 }
+  expect(encodeState(q)).toBe('q=2&pop=120')
+  expect(decodeState(encodeState(q))).toEqual({ ...q, ratePerMin: DEFAULT_STATE.ratePerMin })
+  expect(decodeState('#q=2.5&pop=5')).toEqual({ ...DEFAULT_STATE, mode: 'population', population: 5 })
+})
