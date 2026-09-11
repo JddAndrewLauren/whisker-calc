@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Step } from '../calc/types.ts'
 import type { DatasetIndex } from '../data/index.ts'
 import { BuildingLabel } from './Icon.tsx'
@@ -6,15 +7,18 @@ import { RecipeLine } from './RecipeLine.tsx'
 interface Props {
   index: DatasetIndex
   steps: Step[]
+  title?: ReactNode
+  /** Replaces the default note under the table. */
+  footer?: ReactNode
 }
 
 const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2))
 
-export function StepsTable({ index, steps }: Props) {
+export function StepsTable({ index, steps, title = 'Buildings needed', footer }: Props) {
   const hasTiles = steps.some((s) => s.tiles !== undefined)
   return (
     <section>
-      <h2>Buildings needed</h2>
+      <h2>{title}</h2>
       <table>
         <thead>
           <tr>
@@ -61,7 +65,7 @@ export function StepsTable({ index, steps }: Props) {
           })}
         </tbody>
       </table>
-      <p className="muted">Hover "est." for where a number comes from when it is not a wiki recipe table.</p>
+      {footer === undefined ? <p className="muted">Hover "est." for where a number comes from when it is not a wiki recipe table.</p> : footer}
     </section>
   )
 }

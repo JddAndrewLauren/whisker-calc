@@ -5,7 +5,7 @@ import { targetRate } from './target.ts'
 import type { Target } from './types.ts'
 
 const data = loadDataset()
-const base: Target = { mode: 'rate', targetItem: 'bread', ratePerMin: 1, population: 0, buildingCount: 0, recipeChoice: {}, modifiers: {} }
+const base: Target = { mode: 'rate', targetItem: 'bread', ratePerMin: 1, population: 0, buildingCount: 0, quality: 3, recipeChoice: {}, modifiers: {} }
 
 describe('targetRate', () => {
   it('passes a rate through', () => {
@@ -14,6 +14,10 @@ describe('targetRate', () => {
 
   it('feeds one meal per whisker per 540 s day', () => {
     expect(targetRate(data, { ...base, mode: 'population', population: 90 })).toBeCloseTo(10, 9)
+  })
+
+  it('feeds a population the same way in quality mode', () => {
+    expect(targetRate(data, { ...base, mode: 'quality', population: 90 })).toBeCloseTo(10, 9)
   })
 
   it('turns a building count into the rate the solver would assign it', () => {

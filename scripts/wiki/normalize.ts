@@ -136,10 +136,12 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
     recipes.unshift(r)
   }
 
-  for (const name of overrides.foods) {
+  for (const [name, quality] of Object.entries(overrides.foods)) {
     const item = items.get(slug(canonicalItemName(name, overrides.itemAliases)))
-    if (item) item.food = true
-    else warnings.push(`food ${name} is not an item`)
+    if (item) {
+      item.food = true
+      item.quality = quality
+    } else warnings.push(`food ${name} is not an item`)
   }
 
   for (const [name, icon] of Object.entries(overrides.itemIcons)) {

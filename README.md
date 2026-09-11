@@ -17,8 +17,10 @@ at `src/data/whiskerwood.json`. Item and building icons are the game's own art a
   864 s; trees 1728 s), at the maximum yield of 2 per tile. Farm steps show both buildings and tiles.
 - Water Pump and Steam Boiler, with estimated rates (the wiki gives hints only). They are marked "est."
   in the table and are one-line edits in `overrides.json`.
-- Three ways to state the target: a rate per minute, a population to feed (one meal per Whisker per
-  540-second working day), or a number of producing buildings you already own.
+- Four ways to state the target: a rate per minute, a population to feed (one meal per Whisker per
+  540-second working day), a number of producing buildings you already own, or a population to feed
+  with food of a given quality, which compares every food of that star rating (0-4, from the game's
+  meal table) and ranks them by the workers needed, each with its full building tree.
 - A "Materials to build" panel summing construction costs from every building's infobox.
 
 Ores, coal, stone, rock salt and potash stop the chain: Mining Camps have no steady rate, so they are
@@ -78,7 +80,7 @@ while any entry has no icon, and a test fails if any entry has no PNG, so run bo
 - `extraBuildings` and `extraRecipes`: buildings with no recipe table on the wiki (Farm, Water Pump,
   Steam Boiler), each with the wiki file name of its picture (`icon`). A recipe may carry
   `tilesPerBuilding` (farm land at base speed) and a `note` that the UI shows as the source of the numbers.
-- `foods`: items that satisfy hunger, offered in the "to feed" mode.
+- `foods`: items that satisfy hunger with their quality in stars (0-4), offered in the "to feed" modes.
 - `itemIcons`: wiki icon file for items that never appear with an icon in a scraped table (Water, Steam,
   and Tea Leaves, which only enters through a recipe override). It only fills gaps: the scraper warns
   when an entry clashes with an icon the wiki shows, and about any item still without one.

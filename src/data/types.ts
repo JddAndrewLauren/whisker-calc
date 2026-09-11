@@ -11,6 +11,8 @@ export interface Item {
   name: string
   /** Satisfies hunger when eaten (tea does not). */
   food?: true
+  /** Food quality in stars, 0-4, from the game's meal table; present when `food` is. */
+  quality?: number
   /** Wiki file name of the in-game icon, e.g. "Tex wood 07.png"; absent when the scraper found none. */
   icon?: string
 }
@@ -78,8 +80,8 @@ export interface Overrides {
     tilesPerBuilding?: number
     note?: string
   }[]
-  /** Display names of items that satisfy hunger. */
-  foods: string[]
+  /** Display name -> quality in stars (0-4) of every item that satisfies hunger. */
+  foods: Record<string, number>
   /** Display name -> wiki icon file, for items that never appear in a scraped recipe table. */
   itemIcons: Record<string, string>
   /** Wiki icon file used as the site favicon. */

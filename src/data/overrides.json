@@ -53,10 +53,13 @@
     { "building": "water-pump", "inputs": [], "outputs": [{ "item": "Water", "qty": 5 }], "timeSeconds": 30, "note": "Estimate. Wiki: the pump delivers 5 units per trip; the 30 s trip time is a guess." },
     { "building": "steam-boiler", "inputs": [{ "item": "Fuel", "qty": 1 }, { "item": "Water", "qty": 3 }], "outputs": [{ "item": "Steam", "qty": 50 }], "timeSeconds": 30, "note": "Estimate. Wiki: burns about 1 fuel per 30 s and releases 50-100 steam per burst; water and steam quantities are guesses." }
   ],
-  "foods": [
-    "Berries", "Fish", "Mushrooms", "Canned Food", "Berry Soup", "Smoked Fish", "Bread", "Mushroom Stew",
-    "Fish Skewers", "Jam Pastries", "Hearty Meals", "Savory Meals", "Fancy Meals"
-  ],
+  "foods": {
+    "Fish": 0, "Canned Food": 0,
+    "Berries": 1, "Mushrooms": 1,
+    "Bread": 2, "Smoked Fish": 2, "Berry Soup": 2,
+    "Mushroom Stew": 3, "Fish Skewers": 3, "Jam Pastries": 3,
+    "Hearty Meals": 4, "Savory Meals": 4, "Fancy Meals": 4
+  },
   "itemIcons": {
     "Water": "Tex ForestIcons 34 t.png",
     "Steam": "Tex SpellBook06 21.png",
