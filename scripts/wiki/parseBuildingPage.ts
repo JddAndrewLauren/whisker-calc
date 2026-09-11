@@ -2,6 +2,10 @@ export interface RawRecipe {
   inputs: [name: string, qty: number][]
   outputs: [name: string, qty: number][]
   timeSeconds: number
+  /** Farm land one building tends at base speed, for crop recipes. */
+  tilesPerBuilding?: number
+  /** Where the numbers come from when they are not a plain recipe row. */
+  note?: string
 }
 
 export interface ParsedBuilding {

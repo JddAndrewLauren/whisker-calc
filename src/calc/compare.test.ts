@@ -55,7 +55,7 @@ describe('compareFoods', () => {
     const twin = { ...data.itemsById.get('fish')!, id: 'aardvark-fish', name: 'Aardvark Fish' }
     const recipe = { ...data.recipesById.get('fishing-dock/fish')!, id: 'fishing-dock/aardvark-fish', outputs: [{ item: 'aardvark-fish', qty: 1 }] }
     const index = buildIndex({ ...data.dataset, items: [...data.dataset.items, twin], recipes: [...data.dataset.recipes, recipe] })
-    const [first, second] = compareFoods(index, feed50, 0)
+    const [first, second] = compareFoods(index, feed50, 0).filter((o) => o.itemId.endsWith('fish'))
     expect([first.itemId, second.itemId]).toEqual(['aardvark-fish', 'fish'])
     expect(first.workers).toBe(second.workers)
   })

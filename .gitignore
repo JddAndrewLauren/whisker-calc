@@ -25,3 +25,10 @@ dist-ssr
 
 # scraper scratch
 .cache/
+
+# game data tooling (binaries and probe logs live outside the repo)
+tools/tablegraph/
+*.pak
+*.usmap
+*.jmap
+ue4ss/

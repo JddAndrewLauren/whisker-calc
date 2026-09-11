@@ -65,7 +65,7 @@ export function StepsTable({ index, steps, title = 'Buildings needed', footer }:
           })}
         </tbody>
       </table>
-      {footer === undefined ? <p className="muted">Hover "est." for where a number comes from when it is not a wiki recipe table.</p> : footer}
+      {footer === undefined ? <p className="muted">Hover "est." for where a number comes from when it is not straight from the game's data tables.</p> : footer}
     </section>
   )
 }

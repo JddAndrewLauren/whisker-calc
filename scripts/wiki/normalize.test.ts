@@ -3,7 +3,8 @@ import type { Overrides } from '../../src/data/types.ts'
 import { buildDataset, canonicalItemName, guildFromText, slug } from './normalize.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 
-const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], foods: {}, itemIcons: {}, favicon: '' }
+const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], farmTiles: {}, foods: {}, itemIcons: {}, favicon: '' }
+const meta = { generatedAt: 'now', source: 'wiki' as const, gameVersion: 'unknown' }
 /** A parsed page whose every item carries an icon named after it, unless `extra` says otherwise. */
 const building = (name: string, recipes: ParsedBuilding['recipes'], extra: Partial<ParsedBuilding> = {}): ParsedBuilding => {
   const cost = extra.cost ?? [['Logs', 3]]
@@ -53,7 +54,7 @@ describe('buildDataset', () => {
     const { dataset, rawItems, warnings } = buildDataset(
       [building('Cotton Gin', [{ inputs: [['Cotton', 1]], outputs: [['Threads', 8]], timeSeconds: 144 }])],
       noOverrides,
-      'now',
+      meta,
     )
     expect(warnings).toEqual([])
     expect(dataset.buildings[0]).toMatchObject({ id: 'cotton-gin', workers: 2, guild: 'Explorer', cost: [{ item: 'logs', qty: 3 }], icon: 'Cotton Gin.PNG' })
@@ -80,7 +81,7 @@ describe('buildDataset', () => {
         extraRecipes: [{ building: 'mill', inputs: [{ item: 'Water', qty: 1 }], outputs: [{ item: 'Flour', qty: 1 }], timeSeconds: 1 }],
         itemIcons: { Water: 'Tex water.png', Cake: 'x.png', Bread: 'Other.png' },
       },
-      'now',
+      meta,
     )
     expect(dataset.items.find((i) => i.id === 'flour')!.icon).toBe('Tex corn.png')
     expect(dataset.items.find((i) => i.id === 'water')!.icon).toBe('Tex water.png')
@@ -96,7 +97,7 @@ describe('buildDataset', () => {
     const { warnings } = buildDataset(
       [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 2]], timeSeconds: 89 }], { image: null, icons: { Logs: 'Logs.png', Wheat: 'Wheat.png' } })],
       noOverrides,
-      'now',
+      meta,
     )
     expect(warnings).toEqual(['Mill: no infobox image', 'Flour: no icon (add it to itemIcons)'])
   })
@@ -110,7 +111,7 @@ describe('buildDataset', () => {
         ]),
       ],
       noOverrides,
-      'now',
+      meta,
     )
     expect(dataset.recipes.map((r) => r.id)).toEqual(['cannery/canned-food', 'cannery/canned-food-from-fish'])
   })
@@ -133,7 +134,7 @@ describe('buildDataset', () => {
         building('Smokery', [{ inputs: [['Fish', 2]], outputs: [['Smoked Fish', 1]], timeSeconds: 89 }], { workers: null }),
       ],
       overrides,
-      'now',
+      meta,
     )
     expect(warnings).toEqual([])
     expect(dataset.recipes[0].id).toBe('flax-spinner/threads')
@@ -156,7 +157,7 @@ describe('buildDataset', () => {
         extraRecipes: [{ building: 'ghost', inputs: [], outputs: [{ item: 'Water', qty: 1 }], timeSeconds: 1 }],
         foods: { Cake: 1 },
       },
-      'now',
+      meta,
     )
     expect(dataset.recipes.map((r) => r.id)).toEqual(['mill/flour'])
     expect(warnings).toEqual([
@@ -183,7 +184,7 @@ describe('buildDataset', () => {
         foods: { Berries: 1 },
         itemIcons: { Berries: 'Tex berries.png', Planks: 'Tex planks.png' },
       },
-      'now',
+      meta,
     )
     expect(warnings).toEqual([])
     expect(dataset.buildings.map((b) => b.id)).toEqual(['mill', 'farm'])
@@ -204,4 +205,14 @@ describe('buildDataset', () => {
     expect(dataset.items.find((i) => i.id === 'wheat')).not.toHaveProperty('food')
     expect(rawItems).toEqual(['logs', 'planks'])
   })
+})
+
+it('keeps tiles and notes that the parser attached to a recipe', () => {
+  const { dataset } = buildDataset(
+    [building('Farm', [{ inputs: [], outputs: [['Wheat', 144]], timeSeconds: 1728, tilesPerBuilding: 72, note: 'crops table' }])],
+    noOverrides,
+    { generatedAt: 'now', source: 'tables', gameVersion: '0.7.206.0' },
+  )
+  expect(dataset).toMatchObject({ generatedAt: 'now', source: 'tables', gameVersion: '0.7.206.0' })
+  expect(dataset.recipes[0]).toMatchObject({ id: 'farm/wheat', tilesPerBuilding: 72, note: 'crops table' })
 })

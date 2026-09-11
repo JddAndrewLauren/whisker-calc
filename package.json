@@ -11,6 +11,10 @@
     "test": "vitest run",
     "typecheck": "tsc -b",
     "scrape": "node scripts/scrape-wiki.ts",
+    "dump": "node scripts/dump-tables.ts",
+    "import": "node scripts/build-dataset.ts",
+    "compare": "node scripts/tables/compare.ts",
+    "patches": "node scripts/patch-notes.ts",
     "icons": "node scripts/fetch-icons.ts"
   },
   "dependencies": {

@@ -6,7 +6,8 @@ type Kind = 'items' | 'buildings'
 const iconUrl = (kind: Kind, id: string) => `${import.meta.env.BASE_URL}icons/${kind}/${id}.png`
 
 function Icon({ kind, id, size }: { kind: Kind; id: string; size: number }) {
-  return <img className="icon" src={iconUrl(kind, id)} alt="" width={size} height={size} loading="lazy" />
+  // Newer content can lack a PNG until the wiki hosts its art; show nothing rather than a broken image.
+  return <img className="icon" src={iconUrl(kind, id)} alt="" width={size} height={size} loading="lazy" onError={(e) => (e.currentTarget.hidden = true)} />
 }
 
 export const ItemIcon = ({ id, size = 20 }: { id: string; size?: number }) => <Icon kind="items" id={id} size={size} />

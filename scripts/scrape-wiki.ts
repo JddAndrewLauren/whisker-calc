@@ -19,7 +19,7 @@ if (problems.length) {
   process.exit(1)
 }
 
-const { dataset, warnings, rawItems } = buildDataset(parsed, overrides, new Date().toISOString().slice(0, 10))
+const { dataset, warnings, rawItems } = buildDataset(parsed, overrides, { generatedAt: new Date().toISOString().slice(0, 10), source: 'wiki', gameVersion: 'unknown' })
 writeFileSync(outputPath, JSON.stringify(dataset, null, 2) + '\n')
 
 console.log(`buildings: ${dataset.buildings.length}, recipes: ${dataset.recipes.length}, items: ${dataset.items.length}`)
