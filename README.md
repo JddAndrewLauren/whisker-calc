@@ -6,7 +6,8 @@ you how many of each building the chain needs, down to farm tiles and mined ore,
 Gins per Weaver when making Tailored Clothes, or how many Farms and Bakeries feed 100 Whiskers on Bread.
 
 Recipe data comes from the [official wiki](https://wiki.hoodedhorse.com/Whiskerwood/) and is checked in
-at `src/data/whiskerwood.json`.
+at `src/data/whiskerwood.json`. Item and building icons are the game's own art as hosted by the wiki
+(copyright Minakata Dynamics / Hooded Horse); this is an unofficial fan tool and credits them in its footer.
 
 ## What it covers
 
@@ -41,20 +42,31 @@ recipes), and choosing a different producer per consumer.
 ```
 npm install
 npm run dev        # local dev server
-npm test           # unit tests (parser, normalizer, solver, target modes, costs, URL state)
+npm test           # unit tests (parser, normalizer, solver, target modes, costs, URL state) and an icon-file check
 npm run build      # type-check and build to dist/
+npm run icons      # download any icons missing from public/icons (see below)
 ```
+
+The page is styled after the game's HUD (parchment panels on navy) and loads Alegreya SC and Nunito from Google
+Fonts, falling back to system fonts offline.
 
 ## Refreshing the wiki data
 
 ```
 npm run scrape
+npm run icons
 ```
 
-This fetches the building pages listed in `scripts/wiki/buildings.ts`, parses their recipe tables (any
+`scrape` fetches the building pages listed in `scripts/wiki/buildings.ts`, parses their recipe tables (any
 table with a production-time cell) and infoboxes, applies `src/data/overrides.json`, and rewrites
 `src/data/whiskerwood.json`. It exits non-zero and lists the offending cells if the wiki layout changes.
 Requests go through `curl` because the wiki's Cloudflare protection challenges Node's built-in fetch.
+
+Every item and building in the dataset carries the wiki file name of its icon (`icon`), taken from the
+`[[File:...]]` next to it in the recipe tables and from the infobox picture. `icons` downloads those files
+as 64px item and 96px building thumbnails into `public/icons/` (plus `public/favicon.png`, the file named
+by `favicon` in `overrides.json`), skipping ones already present (`--force` refetches). It refuses to run
+while any entry has no icon, and a test fails if any entry has no PNG, so run both after a scrape adds items.
 
 `overrides.json` fixes things the wiki gets wrong or leaves out:
 
@@ -64,9 +76,13 @@ Requests go through `curl` because the wiki's Cloudflare protection challenges N
 - `recipes`: replace `inputs`, `outputs` or `timeSeconds` for a recipe id (`building/output-item`).
 - `preferredRecipe`: which recipe is the default producer of an item.
 - `extraBuildings` and `extraRecipes`: buildings with no recipe table on the wiki (Farm, Water Pump,
-  Steam Boiler). A recipe may carry `tilesPerBuilding` (farm land at base speed) and a `note` that the
-  UI shows as the source of the numbers.
+  Steam Boiler), each with the wiki file name of its picture (`icon`). A recipe may carry
+  `tilesPerBuilding` (farm land at base speed) and a `note` that the UI shows as the source of the numbers.
 - `foods`: items that satisfy hunger, offered in the "to feed" mode.
+- `itemIcons`: wiki icon file for items that never appear with an icon in a scraped table (Water, Steam,
+  and Tea Leaves, which only enters through a recipe override). It only fills gaps: the scraper warns
+  when an entry clashes with an icon the wiki shows, and about any item still without one.
+- `favicon`: the wiki icon file downloaded as the site favicon.
 
 Recipe ids derive from item names, so keep aliases stable once links to the site are in circulation.
 

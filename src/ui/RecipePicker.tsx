@@ -1,5 +1,6 @@
 import type { DatasetIndex } from '../data/index.ts'
 import { describeRecipe } from './describe.ts'
+import { ItemLabel } from './Icon.tsx'
 
 interface Props {
   index: DatasetIndex
@@ -18,7 +19,7 @@ export function RecipePicker({ index, itemIds, choice, onChange }: Props) {
         const options = index.recipesByOutput.get(itemId) ?? []
         return (
           <label key={itemId} className="row">
-            <span>{index.itemsById.get(itemId)?.name ?? itemId}</span>
+            <ItemLabel index={index} id={itemId} />
             <select value={choice[itemId] ?? options[0]?.id} onChange={(e) => onChange(itemId, e.target.value)}>
               {options.map((r) => (
                 <option key={r.id} value={r.id}>

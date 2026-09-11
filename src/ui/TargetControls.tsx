@@ -1,20 +1,23 @@
 import type { TargetMode } from '../calc/types.ts'
+import type { DatasetIndex } from '../data/index.ts'
 import type { Item } from '../data/types.ts'
+import { BuildingLabel, ItemLabel } from './Icon.tsx'
 import { ItemSelect } from './ItemSelect.tsx'
 import type { AppState } from './urlState.ts'
 
 interface Props {
+  index: DatasetIndex
   items: Item[]
   state: AppState
-  targetName: string
-  producerName: string | null
+  /** Building id of the target item's producer, when it has one. */
+  producerId: string | null
   ratePerMin: number
   onChange: (patch: Partial<AppState>) => void
 }
 
 const nonNegative = (value: string) => Math.max(0, Number(value) || 0)
 
-export function TargetControls({ items, state, targetName, producerName, ratePerMin, onChange }: Props) {
+export function TargetControls({ index, items, state, producerId, ratePerMin, onChange }: Props) {
   return (
     <section className="controls">
       <label>
@@ -41,12 +44,12 @@ export function TargetControls({ items, state, targetName, producerName, ratePer
       {state.mode === 'buildings' && (
         <label>
           <input type="number" min="0" step="1" value={state.buildingCount} onChange={(e) => onChange({ buildingCount: nonNegative(e.target.value) })} />
-          {producerName ?? 'buildings'}
+          {producerId ? <BuildingLabel index={index} id={producerId} /> : 'buildings'}
         </label>
       )}
       {state.mode !== 'rate' && (
         <span className="muted">
-          = {ratePerMin.toFixed(2)} {targetName} per minute
+          = {ratePerMin.toFixed(2)} <ItemLabel index={index} id={state.targetItem} /> per minute
         </span>
       )}
     </section>

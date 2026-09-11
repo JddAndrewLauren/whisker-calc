@@ -1,14 +1,17 @@
 import { speedMultiplier } from '../calc/speed.ts'
 import { NO_MODIFIERS, type ModifierSettings } from '../calc/types.ts'
+import type { DatasetIndex } from '../data/index.ts'
 import type { Building } from '../data/types.ts'
+import { BuildingLabel } from './Icon.tsx'
 
 interface Props {
+  index: DatasetIndex
   buildings: Building[]
   modifiers: Record<string, ModifierSettings>
   onChange: (buildingId: string, next: ModifierSettings) => void
 }
 
-export function BuildingModifiers({ buildings, modifiers, onChange }: Props) {
+export function BuildingModifiers({ index, buildings, modifiers, onChange }: Props) {
   if (buildings.length === 0) return null
   return (
     <section>
@@ -30,7 +33,9 @@ export function BuildingModifiers({ buildings, modifiers, onChange }: Props) {
             const set = (patch: Partial<ModifierSettings>) => onChange(b.id, { ...m, ...patch })
             return (
               <tr key={b.id}>
-                <td>{b.name}</td>
+                <td>
+                  <BuildingLabel index={index} id={b.id} />
+                </td>
                 <td>
                   <input type="checkbox" checked={m.guild} onChange={(e) => set({ guild: e.target.checked })} />{' '}
                   {b.guild ? `${b.guild}s` : 'n/a'}

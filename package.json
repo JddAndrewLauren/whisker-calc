@@ -10,7 +10,8 @@
     "lint": "oxlint",
     "test": "vitest run",
     "typecheck": "tsc -b",
-    "scrape": "node scripts/scrape-wiki.ts"
+    "scrape": "node scripts/scrape-wiki.ts",
+    "icons": "node scripts/fetch-icons.ts"
   },
   "dependencies": {
     "react": "^19.2.8",

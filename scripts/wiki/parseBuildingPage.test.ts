@@ -40,6 +40,27 @@ describe('parseBuildingPage', () => {
     ])
   })
 
+  it('keeps the infobox picture and the icon file next to every item (Bakery)', () => {
+    const b = parse('Bakery')
+    expect(b.image).toBe('Bakery.PNG')
+    expect(b.icons).toEqual({
+      Planks: 'Tex wood 07.png',
+      Machinery: 'Tex MiningIcons 14 t.png',
+      Flour: 'Tex corn 01.png',
+      Fuel: 'Tex MiningIcons 74 t.png',
+      Bread: 'Tex baking 04.png',
+      Berries: 'Tex berries 05 b.png',
+      'Jam Pastries': 'Tex baking 05 edit.png',
+    })
+  })
+
+  it('normalises underscores in file names and finds a scope-prefixed infobox picture (Ore Furnace)', () => {
+    const b = parse('Ore_Furnace')
+    expect(b.image).toBe('Ore Furnace.PNG')
+    expect(b.icons['Cut stone']).toBe('Tex MiningIcons 80 t.png')
+    expect(b.icons['Copper Bars']).toBe('Tex ingots 12.png')
+  })
+
   it('handles a recipe with no item inputs (Fishing Dock)', () => {
     const b = parse('Fishing_Dock')
     expect(b.problems).toEqual([])
@@ -76,6 +97,11 @@ describe('parseBuildingPage', () => {
       { inputs: [['Tea', 1], ['Fuel', 1]], outputs: [['Tea', 5]], timeSeconds: 89 },
       { inputs: [['Tea', 2], ['Spices', 1], ['Fuel', 1]], outputs: [['Fine tea', 5]], timeSeconds: 89 },
     ])
+  })
+
+  it('does not take an Icons8 UI glyph as an item icon', () => {
+    const text = '{|\n|-\n| [[File:Icons8-barley-100.png|30px]] Wheat 1\n| [[File:Icons8-time-machine-96.png|30px]] 10.0s\n| [[File:Tex corn 01.png|30px]] Flour 1\n|}'
+    expect(parseBuildingPage('X', text).icons).toEqual({ Flour: 'Tex corn 01.png' })
   })
 
   it('reports unparsed item cells instead of silently dropping them', () => {

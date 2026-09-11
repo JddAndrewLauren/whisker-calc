@@ -11,6 +11,8 @@ export interface Item {
   name: string
   /** Satisfies hunger when eaten (tea does not). */
   food?: true
+  /** Wiki file name of the in-game icon, e.g. "Tex wood 07.png"; absent when the scraper found none. */
+  icon?: string
 }
 
 export interface Building {
@@ -24,6 +26,8 @@ export interface Building {
   /** Construction materials. */
   cost: Ingredient[]
   wikiUrl: string
+  /** Wiki file name of the infobox picture, e.g. "Bakery.PNG"; absent when the page has none. */
+  icon?: string
 }
 
 export interface Recipe {
@@ -64,7 +68,7 @@ export interface Overrides {
   /** Item id -> recipe id that should be the default producer. */
   preferredRecipe: Record<string, string>
   /** Buildings whose wiki page has no recipe table; keyed by building id. */
-  extraBuildings: Record<string, { name: string; workers: number; guild: Guild | null; catalyst: string | null; cost: NamedIngredient[] }>
+  extraBuildings: Record<string, { name: string; workers: number; guild: Guild | null; catalyst: string | null; cost: NamedIngredient[]; icon: string }>
   /** Hand-authored recipes for extra buildings. */
   extraRecipes: {
     building: string
@@ -76,4 +80,8 @@ export interface Overrides {
   }[]
   /** Display names of items that satisfy hunger. */
   foods: string[]
+  /** Display name -> wiki icon file, for items that never appear in a scraped recipe table. */
+  itemIcons: Record<string, string>
+  /** Wiki icon file used as the site favicon. */
+  favicon: string
 }

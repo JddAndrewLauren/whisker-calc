@@ -23,20 +23,22 @@
     "threads": "cotton-gin/threads"
   },
   "extraBuildings": {
-    "farm": { "name": "Farm", "workers": 2, "guild": "Farmer", "catalyst": null, "cost": [{ "item": "Planks", "qty": 8 }] },
+    "farm": { "name": "Farm", "workers": 2, "guild": "Farmer", "catalyst": null, "cost": [{ "item": "Planks", "qty": 8 }], "icon": "Farm.PNG" },
     "water-pump": {
       "name": "Water Pump",
       "workers": 1,
       "guild": "Engineer",
       "catalyst": null,
-      "cost": [{ "item": "Planks", "qty": 8 }, { "item": "Cut Stone", "qty": 1 }, { "item": "Copper Bars", "qty": 2 }, { "item": "Machinery", "qty": 1 }]
+      "cost": [{ "item": "Planks", "qty": 8 }, { "item": "Cut Stone", "qty": 1 }, { "item": "Copper Bars", "qty": 2 }, { "item": "Machinery", "qty": 1 }],
+      "icon": "Water Pump.PNG"
     },
     "steam-boiler": {
       "name": "Steam Boiler",
       "workers": 0,
       "guild": null,
       "catalyst": null,
-      "cost": [{ "item": "Planks", "qty": 13 }, { "item": "Cut Stone", "qty": 5 }, { "item": "Iron Bars", "qty": 2 }]
+      "cost": [{ "item": "Planks", "qty": 13 }, { "item": "Cut Stone", "qty": 5 }, { "item": "Iron Bars", "qty": 2 }],
+      "icon": "Steam Boiler.PNG"
     }
   },
   "extraRecipes": [
@@ -54,5 +56,11 @@
   "foods": [
     "Berries", "Fish", "Mushrooms", "Canned Food", "Berry Soup", "Smoked Fish", "Bread", "Mushroom Stew",
     "Fish Skewers", "Jam Pastries", "Hearty Meals", "Savory Meals", "Fancy Meals"
-  ]
+  ],
+  "itemIcons": {
+    "Water": "Tex ForestIcons 34 t.png",
+    "Steam": "Tex SpellBook06 21.png",
+    "Tea Leaves": "Tex herbs 07.png"
+  },
+  "favicon": "Tex MiningIcons 14 t.png"
 }

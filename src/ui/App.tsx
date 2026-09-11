@@ -39,7 +39,6 @@ export function App() {
 
   const target = index.itemsById.get(state.targetItem)
   const producer = producerFor(index, state.targetItem, state.recipeChoice)
-  const producerName = producer ? (index.buildingsById.get(producer.building)?.name ?? producer.building) : null
   const notFood = state.mode === 'population' && target && !target.food
   // In feed mode offer only food, but keep a non-food target in the list so its name stays visible next to the warning.
   const items = state.mode !== 'population' ? producible : notFood ? [target, ...foods] : foods
@@ -47,15 +46,18 @@ export function App() {
   return (
     <main>
       <header>
-        <h1>Whiskerwood production calculator</h1>
+        <h1>
+          <img className="icon" src={`${import.meta.env.BASE_URL}favicon.png`} alt="" width={36} height={36} />
+          Whiskerwood production calculator
+        </h1>
         <p className="muted">How many of each building you need to sustain a target output, using base recipe times from the wiki.</p>
       </header>
 
       <TargetControls
+        index={index}
         items={items}
         state={state}
-        targetName={target?.name ?? state.targetItem}
-        producerName={producerName}
+        producerId={producer?.building ?? null}
         ratePerMin={ratePerMin}
         onChange={(patch) => update((s) => ({ ...s, ...patch }))}
       />
@@ -79,6 +81,7 @@ export function App() {
             onChange={(itemId, recipeId) => update((s) => ({ ...s, recipeChoice: { ...s.recipeChoice, [itemId]: recipeId } }))}
           />
           <BuildingModifiers
+            index={index}
             buildings={buildings}
             modifiers={state.modifiers}
             onChange={(buildingId, next) => update((s) => ({ ...s, modifiers: { ...s.modifiers, [buildingId]: next } }))}
@@ -100,6 +103,13 @@ export function App() {
             Whiskerwood wiki
           </a>
           . The link in your address bar reproduces this calculation.
+        </p>
+        <p>
+          Item and building images are game art by Minakata Dynamics, published by Hooded Horse, served from the{' '}
+          <a href={index.dataset.source} target="_blank" rel="noreferrer">
+            official wiki
+          </a>
+          . This is an unofficial fan tool.
         </p>
       </footer>
     </main>

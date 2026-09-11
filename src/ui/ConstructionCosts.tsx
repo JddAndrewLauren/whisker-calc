@@ -1,5 +1,6 @@
 import type { DatasetIndex } from '../data/index.ts'
 import type { Ingredient } from '../data/types.ts'
+import { ItemLabel } from './Icon.tsx'
 
 interface Props {
   index: DatasetIndex
@@ -21,7 +22,9 @@ export function ConstructionCosts({ index, cost }: Props) {
         <tbody>
           {cost.map((c) => (
             <tr key={c.item}>
-              <td>{index.itemsById.get(c.item)?.name ?? c.item}</td>
+              <td>
+                <ItemLabel index={index} id={c.item} />
+              </td>
               <td>{c.qty}</td>
             </tr>
           ))}

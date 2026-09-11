@@ -8,7 +8,13 @@ const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 
 interface QueryResponse {
   query?: {
-    pages?: { title: string; missing?: boolean; revisions?: { slots: { main: { content: string } } }[] }[]
+    normalized?: { from: string; to: string }[]
+    pages?: {
+      title: string
+      missing?: boolean
+      revisions?: { slots: { main: { content: string } } }[]
+      imageinfo?: { thumburl?: string }[]
+    }[]
   }
 }
 
@@ -47,4 +53,42 @@ export async function fetchWikitext(titles: string[]): Promise<Map<string, strin
   const missing = titles.filter((t) => !out.has(t))
   if (missing.length) throw new Error(`wiki pages not returned: ${missing.join(', ')}`)
   return out
+}
+
+/** Resolve wiki file names ("Tex wood 07.png") to thumbnail URLs of the given width. Throws if any file is missing. */
+export function fetchImageThumbs(files: string[], width: number): Map<string, string> {
+  const out = new Map<string, string>()
+  for (let i = 0; i < files.length; i += 50) {
+    const batch = files.slice(i, i + 50)
+    const params = new URLSearchParams({
+      action: 'query',
+      prop: 'imageinfo',
+      iiprop: 'url',
+      iiurlwidth: String(width),
+      format: 'json',
+      formatversion: '2',
+      titles: batch.map((f) => `File:${f}`).join('|'),
+    })
+    const body = curlJson(`${API}?${params}`) as QueryResponse
+    // The API answers with canonical titles; map them back to the names we asked for.
+    const asked = new Map(batch.map((f) => [`File:${f}`, f]))
+    for (const n of body.query?.normalized ?? []) asked.set(n.to, asked.get(n.from) ?? n.from)
+    for (const page of body.query?.pages ?? []) {
+      const url = page.imageinfo?.[0]?.thumburl
+      const file = asked.get(page.title)
+      if (file && url && !page.missing) out.set(file, url)
+    }
+  }
+  const missing = files.filter((f) => !out.has(f))
+  if (missing.length) throw new Error(`wiki files not found: ${missing.join(', ')}`)
+  return out
+}
+
+/** Download a URL to a file through curl (same Cloudflare caveat as above). */
+export function curlDownload(url: string, dest: string): void {
+  try {
+    execFileSync('curl', ['--silent', '--show-error', '--fail', '--location', '-A', USER_AGENT, '-o', dest, url])
+  } catch (e) {
+    throw new Error(`curl failed for ${url}: ${(e as Error).message}`)
+  }
 }

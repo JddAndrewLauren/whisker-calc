@@ -41,10 +41,15 @@ const wikiUrl = (name: string) => `${WIKI_BASE}/${name.replace(/ /g, '_')}`
 export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, generatedAt: string): BuildResult {
   const warnings: string[] = []
   const items = new Map<string, Item>()
-  const ingredient = (name: string, qty: number): Ingredient => {
+  const ingredient = (name: string, qty: number, icon?: string): Ingredient => {
     const display = canonicalItemName(name, overrides.itemAliases)
     const id = slug(display)
-    items.set(id, { id, name: display })
+    const item = items.get(id) ?? { id, name: display }
+    items.set(id, item)
+    if (icon) {
+      if (item.icon === undefined) item.icon = icon
+      else if (item.icon !== icon) warnings.push(`${display}: icon ${icon} differs from ${item.icon}`)
+    }
     return { item: id, qty }
   }
   const named = (list: NamedIngredient[]) => list.map((i) => ingredient(i.item, i.qty))
@@ -72,16 +77,18 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
       workers: ov.workers ?? p.workers,
       guild: ov.guild ?? guild,
       catalyst: ov.catalyst ?? p.catalyst,
-      cost: ov.cost ? named(ov.cost) : p.cost.map(([n, q]) => ingredient(n, q)),
+      cost: ov.cost ? named(ov.cost) : p.cost.map(([n, q]) => ingredient(n, q, p.icons[n])),
       wikiUrl: wikiUrl(p.name),
+      ...(p.image !== null && { icon: p.image }),
     }
     if (building.workers === null) warnings.push(`${p.name}: no worker count`)
+    if (p.image === null) warnings.push(`${p.name}: no infobox image`)
     if (building.cost.length === 0) warnings.push(`${p.name}: no construction cost`)
     buildings.push(building)
 
     for (const raw of p.recipes) {
-      const inputs = raw.inputs.map(([n, q]) => ingredient(n, q))
-      const outputs = raw.outputs.map(([n, q]) => ingredient(n, q))
+      const inputs = raw.inputs.map(([n, q]) => ingredient(n, q, p.icons[n]))
+      const outputs = raw.outputs.map(([n, q]) => ingredient(n, q, p.icons[n]))
       const rid = recipeId(id, inputs, outputs)
       const rov = overrides.recipes[rid]
       recipes.push({
@@ -99,7 +106,7 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
 
   for (const [id, b] of Object.entries(overrides.extraBuildings)) {
     if (buildings.some((x) => x.id === id)) warnings.push(`extra building ${id} duplicates a scraped building`)
-    buildings.push({ id, name: b.name, workers: b.workers, guild: b.guild, catalyst: b.catalyst, cost: named(b.cost), wikiUrl: wikiUrl(b.name) })
+    buildings.push({ id, name: b.name, workers: b.workers, guild: b.guild, catalyst: b.catalyst, cost: named(b.cost), wikiUrl: wikiUrl(b.name), icon: b.icon })
   }
   for (const r of overrides.extraRecipes) {
     if (!buildings.some((b) => b.id === r.building)) {
@@ -133,6 +140,16 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
     const item = items.get(slug(canonicalItemName(name, overrides.itemAliases)))
     if (item) item.food = true
     else warnings.push(`food ${name} is not an item`)
+  }
+
+  for (const [name, icon] of Object.entries(overrides.itemIcons)) {
+    const item = items.get(slug(canonicalItemName(name, overrides.itemAliases)))
+    if (!item) warnings.push(`itemIcons ${name} is not an item`)
+    else if (item.icon === undefined) item.icon = icon
+    else if (item.icon !== icon) warnings.push(`itemIcons ${name} ignored: the wiki shows ${item.icon}`)
+  }
+  for (const item of items.values()) {
+    if (item.icon === undefined) warnings.push(`${item.name}: no icon (add it to itemIcons)`)
   }
 
   const produced = new Set(recipes.flatMap((r) => r.outputs.map((o) => o.item)))

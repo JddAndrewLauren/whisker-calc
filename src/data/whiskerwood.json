@@ -4,268 +4,331 @@
   "items": [
     {
       "id": "bedding",
-      "name": "Bedding"
+      "name": "Bedding",
+      "icon": "Tex MiningIcons 65 t1.png"
     },
     {
       "id": "berries",
       "name": "Berries",
+      "icon": "Tex berries 05 b.png",
       "food": true
     },
     {
       "id": "berry-soup",
       "name": "Berry Soup",
+      "icon": "Tex ForestIcons 97 t.png",
       "food": true
     },
     {
       "id": "bread",
       "name": "Bread",
+      "icon": "Tex baking 04.png",
       "food": true
     },
     {
       "id": "bronze-bars",
-      "name": "Bronze Bars"
+      "name": "Bronze Bars",
+      "icon": "Tex ingots 10.png"
     },
     {
       "id": "bronze-nails",
-      "name": "Bronze Nails"
+      "name": "Bronze Nails",
+      "icon": "Tex MiningIcons 41 t.png"
     },
     {
       "id": "canned-food",
       "name": "Canned Food",
+      "icon": "Tex spare parts 10.png",
       "food": true
     },
     {
       "id": "coal",
-      "name": "Coal"
+      "name": "Coal",
+      "icon": "Tex MiningIcons 97 t.png"
     },
     {
       "id": "copper-bars",
-      "name": "Copper Bars"
+      "name": "Copper Bars",
+      "icon": "Tex ingots 12.png"
     },
     {
       "id": "copper-ore",
-      "name": "Copper Ore"
+      "name": "Copper Ore",
+      "icon": "Tex MiningIcons 84 t.png"
     },
     {
       "id": "cotton",
-      "name": "Cotton"
+      "name": "Cotton",
+      "icon": "Cotton.png"
     },
     {
       "id": "cut-stone",
-      "name": "Cut Stone"
+      "name": "Cut Stone",
+      "icon": "Tex MiningIcons 80 t.png"
     },
     {
       "id": "fabrics",
-      "name": "Fabrics"
+      "name": "Fabrics",
+      "icon": "Tex MiningIcons 46 t.png"
     },
     {
       "id": "fancy-meals",
       "name": "Fancy Meals",
+      "icon": "Tex dish 02.png",
       "food": true
     },
     {
       "id": "fertilizer",
-      "name": "Fertilizer"
+      "name": "Fertilizer",
+      "icon": "Tex reagent 09.png"
     },
     {
       "id": "fine-tea",
-      "name": "Fine Tea"
+      "name": "Fine Tea",
+      "icon": "Tex ForestIcons 20 t.png"
     },
     {
       "id": "fire-tongs",
-      "name": "Fire Tongs"
+      "name": "Fire Tongs",
+      "icon": "Tex tools 11.png"
     },
     {
       "id": "fish",
       "name": "Fish",
+      "icon": "Tex meat 05.png",
       "food": true
     },
     {
       "id": "fish-skewers",
       "name": "Fish Skewers",
+      "icon": "Tex meat 08.png",
       "food": true
     },
     {
       "id": "fishing-nets",
-      "name": "Fishing Nets"
+      "name": "Fishing Nets",
+      "icon": "Tex MiningIcons 47 t.png"
     },
     {
       "id": "flax",
-      "name": "Flax"
+      "name": "Flax",
+      "icon": "Tex herbs 04.png"
     },
     {
       "id": "flour",
-      "name": "Flour"
+      "name": "Flour",
+      "icon": "Tex corn 01.png"
     },
     {
       "id": "fuel",
-      "name": "Fuel"
+      "name": "Fuel",
+      "icon": "Tex MiningIcons 74 t.png"
     },
     {
       "id": "furniture",
-      "name": "Furniture"
+      "name": "Furniture",
+      "icon": "Tex container 05.png"
     },
     {
       "id": "gold-bullion",
-      "name": "Gold Bullion"
+      "name": "Gold Bullion",
+      "icon": "Tex in 01.png"
     },
     {
       "id": "gold-ore",
-      "name": "Gold Ore"
+      "name": "Gold Ore",
+      "icon": "Tex MiningIcons 91 t.png"
     },
     {
       "id": "hearty-meals",
       "name": "Hearty Meals",
+      "icon": "Tex dish 01.png",
       "food": true
     },
     {
       "id": "iron-bars",
-      "name": "Iron Bars"
+      "name": "Iron Bars",
+      "icon": "Tex in 06.png"
     },
     {
       "id": "iron-ore",
-      "name": "Iron Ore"
+      "name": "Iron Ore",
+      "icon": "Tex MiningIcons 35 t.png"
     },
     {
       "id": "iron-pots",
-      "name": "Iron Pots"
+      "name": "Iron Pots",
+      "icon": "Tex pt 20.png"
     },
     {
       "id": "jam-pastries",
       "name": "Jam Pastries",
+      "icon": "Tex baking 05 edit.png",
       "food": true
     },
     {
       "id": "logs",
-      "name": "Logs"
+      "name": "Logs",
+      "icon": "Tex wood 03.png"
     },
     {
       "id": "machinery",
-      "name": "Machinery"
+      "name": "Machinery",
+      "icon": "Tex MiningIcons 14 t.png"
     },
     {
       "id": "medicine",
-      "name": "Medicine"
+      "name": "Medicine",
+      "icon": "Tex bottle 01.png"
     },
     {
       "id": "mushroom-stew",
       "name": "Mushroom Stew",
+      "icon": "Tex soup.png",
       "food": true
     },
     {
       "id": "mushrooms",
       "name": "Mushrooms",
+      "icon": "Tex mushrooms 07.png",
       "food": true
     },
     {
       "id": "oil",
-      "name": "Oil"
+      "name": "Oil",
+      "icon": "Tex potion 04.png"
     },
     {
       "id": "peppers",
-      "name": "Peppers"
+      "name": "Peppers",
+      "icon": "Tex pepper.png"
     },
     {
       "id": "planks",
-      "name": "Planks"
+      "name": "Planks",
+      "icon": "Tex wood 07.png"
     },
     {
       "id": "potash",
-      "name": "Potash"
+      "name": "Potash",
+      "icon": "Tex gemstone 09.png"
     },
     {
       "id": "precision-scales",
-      "name": "Precision Scales"
+      "name": "Precision Scales",
+      "icon": "Tex pt 22.png"
     },
     {
       "id": "rock-salt",
-      "name": "Rock Salt"
+      "name": "Rock Salt",
+      "icon": "Tex MiningIcons 71 t.png"
     },
     {
       "id": "ropes",
-      "name": "Ropes"
+      "name": "Ropes",
+      "icon": "Tex MiningIcons 12 t.png"
     },
     {
       "id": "saline-solution",
-      "name": "Saline Solution"
+      "name": "Saline Solution",
+      "icon": "Tex potion 07.png"
     },
     {
       "id": "savory-meals",
       "name": "Savory Meals",
+      "icon": "Tex MiningIcons 111 t.png",
       "food": true
     },
     {
       "id": "scissors",
-      "name": "Scissors"
+      "name": "Scissors",
+      "icon": "Tex tongs 01.png"
     },
     {
       "id": "smoked-fish",
       "name": "Smoked Fish",
+      "icon": "Tex meat 081.png",
       "food": true
     },
     {
       "id": "soap",
-      "name": "Soap"
+      "name": "Soap",
+      "icon": "Tex soap.png"
     },
     {
       "id": "spices",
-      "name": "Spices"
+      "name": "Spices",
+      "icon": "Tex reagent 04.png"
     },
     {
       "id": "steam",
-      "name": "Steam"
+      "name": "Steam",
+      "icon": "Tex SpellBook06 21.png"
     },
     {
       "id": "steel-bars",
-      "name": "Steel Bars"
+      "name": "Steel Bars",
+      "icon": "Tex in 02.png"
     },
     {
       "id": "steel-plates",
-      "name": "Steel Plates"
+      "name": "Steel Plates",
+      "icon": "Tex pt 26.png"
     },
     {
       "id": "stone",
-      "name": "Stone"
+      "name": "Stone",
+      "icon": "Tex MiningIcons 05 t.png"
     },
     {
       "id": "table-salt",
-      "name": "Table Salt"
+      "name": "Table Salt",
+      "icon": "Tex am 09.png"
     },
     {
       "id": "tailored-clothes",
-      "name": "Tailored Clothes"
+      "name": "Tailored Clothes",
+      "icon": "Tex ForestIcons 54 t.png"
     },
     {
       "id": "tea",
-      "name": "Tea"
+      "name": "Tea",
+      "icon": "Tex herbs 07.png"
     },
     {
       "id": "tea-leaves",
-      "name": "Tea Leaves"
+      "name": "Tea Leaves",
+      "icon": "Tex herbs 07.png"
     },
     {
       "id": "threads",
-      "name": "Threads"
+      "name": "Threads",
+      "icon": "Tex MiningIcons 101 t.png"
     },
     {
       "id": "tin-ore",
-      "name": "Tin Ore"
+      "name": "Tin Ore",
+      "icon": "Tex MiningIcons 98 t.png"
     },
     {
       "id": "water",
-      "name": "Water"
+      "name": "Water",
+      "icon": "Tex ForestIcons 34 t.png"
     },
     {
       "id": "wheat",
-      "name": "Wheat"
+      "name": "Wheat",
+      "icon": "Tex ForestIcons 03 t.png"
     },
     {
       "id": "wooden-vises",
-      "name": "Wooden Vises"
+      "name": "Wooden Vises",
+      "icon": "Tex spare parts 12.png"
     },
     {
       "id": "woven-cloaks",
-      "name": "Woven Cloaks"
+      "name": "Woven Cloaks",
+      "icon": "Flaxhood.png"
     }
   ],
   "buildings": [
@@ -289,7 +352,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Apothecary"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Apothecary",
+      "icon": "Apothecary.PNG"
     },
     {
       "id": "bakery",
@@ -307,7 +371,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Bakery"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Bakery",
+      "icon": "Bakery.PNG"
     },
     {
       "id": "blacksmith",
@@ -329,7 +394,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blacksmith"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blacksmith",
+      "icon": "Blacksmith.PNG"
     },
     {
       "id": "blast-furnace",
@@ -347,7 +413,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blast_Furnace"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blast_Furnace",
+      "icon": "Blast Furnace.PNG"
     },
     {
       "id": "cannery",
@@ -369,7 +436,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannery"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannery",
+      "icon": "Cannery.PNG"
     },
     {
       "id": "carpenter",
@@ -391,7 +459,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Carpenter"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Carpenter",
+      "icon": "Carpenter.PNG"
     },
     {
       "id": "charcoal-furnace",
@@ -409,7 +478,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Charcoal_Furnace"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Charcoal_Furnace",
+      "icon": "Charcoal Furnace.PNG"
     },
     {
       "id": "chemist",
@@ -435,7 +505,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Chemist"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Chemist",
+      "icon": "Chemist.PNG"
     },
     {
       "id": "coppersmith",
@@ -457,7 +528,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Coppersmith"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Coppersmith",
+      "icon": "Coppersmith.PNG"
     },
     {
       "id": "cotton-gin",
@@ -479,7 +551,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cotton_Gin"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cotton_Gin",
+      "icon": "Cotton Gin.PNG"
     },
     {
       "id": "fine-kitchen",
@@ -501,7 +574,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fine_Kitchen"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fine_Kitchen",
+      "icon": "Fine Kitchen.PNG"
     },
     {
       "id": "fishing-dock",
@@ -519,7 +593,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fishing_Dock"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fishing_Dock",
+      "icon": "Fishing Dock.PNG"
     },
     {
       "id": "flax-spinner",
@@ -537,7 +612,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Flax_Spinner"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Flax_Spinner",
+      "icon": "Flax Spinner.PNG"
     },
     {
       "id": "machinist",
@@ -559,7 +635,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Machinist"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Machinist",
+      "icon": "Machinist.PNG"
     },
     {
       "id": "mill",
@@ -577,7 +654,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Mill"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Mill",
+      "icon": "Mill.PNG"
     },
     {
       "id": "netter",
@@ -595,7 +673,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Netter"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Netter",
+      "icon": "Netter.PNG"
     },
     {
       "id": "oil-press",
@@ -621,7 +700,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Oil_Press"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Oil_Press",
+      "icon": "Oilpress.png"
     },
     {
       "id": "ore-furnace",
@@ -639,7 +719,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Ore_Furnace"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Ore_Furnace",
+      "icon": "Ore Furnace.PNG"
     },
     {
       "id": "sawmill",
@@ -657,7 +738,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sawmill"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sawmill",
+      "icon": "Sawmill.PNG"
     },
     {
       "id": "sifting-tower",
@@ -683,7 +765,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sifting_Tower"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sifting_Tower",
+      "icon": "Sifting Tower.PNG"
     },
     {
       "id": "smokery",
@@ -701,7 +784,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Smokery"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Smokery",
+      "icon": "Fishery.PNG"
     },
     {
       "id": "soup-kitchen",
@@ -727,7 +811,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Soup_Kitchen"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Soup_Kitchen",
+      "icon": "Soup Kitchen.PNG"
     },
     {
       "id": "spice-grinder",
@@ -749,7 +834,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Spice_Grinder"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Spice_Grinder",
+      "icon": "Spice Grinder.PNG"
     },
     {
       "id": "stone-cutter",
@@ -767,7 +853,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Stone_Cutter"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Stone_Cutter",
+      "icon": "Brickmaker.PNG"
     },
     {
       "id": "tailor",
@@ -789,7 +876,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tailor"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tailor",
+      "icon": "Tailor.PNG"
     },
     {
       "id": "tea-roaster",
@@ -811,7 +899,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tea_Roaster"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tea_Roaster",
+      "icon": "Tea Roaster.PNG"
     },
     {
       "id": "weaver",
@@ -829,7 +918,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver",
+      "icon": "Weaver.PNG"
     },
     {
       "id": "farm",
@@ -843,7 +933,8 @@
           "qty": 8
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Farm"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Farm",
+      "icon": "Farm.PNG"
     },
     {
       "id": "water-pump",
@@ -869,7 +960,8 @@
           "qty": 1
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Water_Pump"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Water_Pump",
+      "icon": "Water Pump.PNG"
     },
     {
       "id": "steam-boiler",
@@ -891,7 +983,8 @@
           "qty": 2
         }
       ],
-      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Steam_Boiler"
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Steam_Boiler",
+      "icon": "Steam Boiler.PNG"
     }
   ],
   "recipes": [

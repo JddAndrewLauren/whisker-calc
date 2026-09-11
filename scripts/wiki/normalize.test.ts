@@ -3,17 +3,24 @@ import type { Overrides } from '../../src/data/types.ts'
 import { buildDataset, canonicalItemName, guildFromText, slug } from './normalize.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 
-const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], foods: [] }
-const building = (name: string, recipes: ParsedBuilding['recipes'], extra: Partial<ParsedBuilding> = {}): ParsedBuilding => ({
-  name,
-  workers: 2,
-  guildText: "Explorer's",
-  catalyst: null,
-  cost: [['Logs', 3]],
-  recipes,
-  problems: [],
-  ...extra,
-})
+const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], foods: [], itemIcons: {}, favicon: '' }
+/** A parsed page whose every item carries an icon named after it, unless `extra` says otherwise. */
+const building = (name: string, recipes: ParsedBuilding['recipes'], extra: Partial<ParsedBuilding> = {}): ParsedBuilding => {
+  const cost = extra.cost ?? [['Logs', 3]]
+  const names = [...cost.map(([n]) => n), ...recipes.flatMap((r) => [...r.inputs, ...r.outputs].map(([n]) => n))]
+  return {
+    name,
+    workers: 2,
+    guildText: "Explorer's",
+    catalyst: null,
+    cost,
+    recipes,
+    image: `${name}.PNG`,
+    icons: Object.fromEntries(names.map((n) => [n, `${n}.png`])),
+    problems: [],
+    ...extra,
+  }
+}
 
 describe('canonicalItemName', () => {
   it('title-cases and collapses whitespace', () => {
@@ -49,7 +56,7 @@ describe('buildDataset', () => {
       'now',
     )
     expect(warnings).toEqual([])
-    expect(dataset.buildings[0]).toMatchObject({ id: 'cotton-gin', workers: 2, guild: 'Explorer', cost: [{ item: 'logs', qty: 3 }] })
+    expect(dataset.buildings[0]).toMatchObject({ id: 'cotton-gin', workers: 2, guild: 'Explorer', cost: [{ item: 'logs', qty: 3 }], icon: 'Cotton Gin.PNG' })
     expect(dataset.recipes[0]).toEqual({
       id: 'cotton-gin/threads',
       building: 'cotton-gin',
@@ -58,7 +65,40 @@ describe('buildDataset', () => {
       timeSeconds: 144,
     })
     expect(dataset.items.map((i) => i.id)).toEqual(['cotton', 'logs', 'threads'])
+    expect(dataset.items[0]).toEqual({ id: 'cotton', name: 'Cotton', icon: 'Cotton.png' })
     expect(rawItems).toEqual(['cotton', 'logs'])
+  })
+
+  it('keeps the first icon per item (pages in name order), warns when pages disagree, and fills gaps from itemIcons', () => {
+    const { dataset, warnings } = buildDataset(
+      [
+        building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 2]], timeSeconds: 89 }]),
+        building('Bakery', [{ inputs: [['Flour', 2]], outputs: [['Bread', 5]], timeSeconds: 144 }], { icons: { Flour: 'Tex corn.png', Bread: 'Bread.png', Logs: 'Logs.png' } }),
+      ],
+      {
+        ...noOverrides,
+        extraRecipes: [{ building: 'mill', inputs: [{ item: 'Water', qty: 1 }], outputs: [{ item: 'Flour', qty: 1 }], timeSeconds: 1 }],
+        itemIcons: { Water: 'Tex water.png', Cake: 'x.png', Bread: 'Other.png' },
+      },
+      'now',
+    )
+    expect(dataset.items.find((i) => i.id === 'flour')!.icon).toBe('Tex corn.png')
+    expect(dataset.items.find((i) => i.id === 'water')!.icon).toBe('Tex water.png')
+    expect(dataset.items.find((i) => i.id === 'bread')!.icon).toBe('Bread.png')
+    expect(warnings).toEqual([
+      'Flour: icon Flour.png differs from Tex corn.png',
+      'itemIcons Cake is not an item',
+      'itemIcons Bread ignored: the wiki shows Bread.png',
+    ])
+  })
+
+  it('warns for a building without a picture and an item without an icon', () => {
+    const { warnings } = buildDataset(
+      [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 2]], timeSeconds: 89 }], { image: null, icons: { Logs: 'Logs.png', Wheat: 'Wheat.png' } })],
+      noOverrides,
+      'now',
+    )
+    expect(warnings).toEqual(['Mill: no infobox image', 'Flour: no icon (add it to itemIcons)'])
   })
 
   it('suffixes colliding recipe ids with the first input', () => {
@@ -82,6 +122,7 @@ describe('buildDataset', () => {
       buildings: { smokery: { workers: 4, cost: [{ item: 'Planks', qty: 21 }] } },
       recipes: { 'tea-roaster/tea': { inputs: [{ item: 'Tea Leaves', qty: 1 }] } },
       preferredRecipe: { threads: 'flax-spinner/threads' },
+      itemIcons: { Planks: 'Tex wood 07.png', 'Tea Leaves': 'Tex herbs 07.png' },
     }
     const { dataset, warnings } = buildDataset(
       [
@@ -134,12 +175,13 @@ describe('buildDataset', () => {
       [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 5]], timeSeconds: 89 }])],
       {
         ...noOverrides,
-        extraBuildings: { farm: { name: 'Farm', workers: 2, guild: 'Farmer', catalyst: null, cost: [{ item: 'Planks', qty: 8 }] } },
+        extraBuildings: { farm: { name: 'Farm', workers: 2, guild: 'Farmer', catalyst: null, cost: [{ item: 'Planks', qty: 8 }], icon: 'Farm.PNG' } },
         extraRecipes: [
           { building: 'farm', inputs: [], outputs: [{ item: 'Wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' },
           { building: 'farm', inputs: [], outputs: [{ item: 'Berries', qty: 72 }], timeSeconds: 864, tilesPerBuilding: 36 },
         ],
         foods: ['Berries'],
+        itemIcons: { Berries: 'Tex berries.png', Planks: 'Tex planks.png' },
       },
       'now',
     )
@@ -153,11 +195,12 @@ describe('buildDataset', () => {
       catalyst: null,
       cost: [{ item: 'planks', qty: 8 }],
       wikiUrl: 'https://wiki.hoodedhorse.com/Whiskerwood/Farm',
+      icon: 'Farm.PNG',
     })
     expect(dataset.recipes.map((r) => r.id)).toEqual(['mill/flour', 'farm/wheat', 'farm/berries'])
     expect(dataset.recipes[1]).toMatchObject({ outputs: [{ item: 'wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' })
     expect(dataset.recipes[2]).not.toHaveProperty('note')
-    expect(dataset.items.find((i) => i.id === 'berries')).toEqual({ id: 'berries', name: 'Berries', food: true })
+    expect(dataset.items.find((i) => i.id === 'berries')).toEqual({ id: 'berries', name: 'Berries', icon: 'Tex berries.png', food: true })
     expect(dataset.items.find((i) => i.id === 'wheat')).not.toHaveProperty('food')
     expect(rawItems).toEqual(['logs', 'planks'])
   })

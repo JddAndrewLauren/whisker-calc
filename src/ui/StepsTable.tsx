@@ -1,6 +1,7 @@
 import type { Step } from '../calc/types.ts'
 import type { DatasetIndex } from '../data/index.ts'
-import { describeRecipe } from './describe.ts'
+import { BuildingLabel } from './Icon.tsx'
+import { RecipeLine } from './RecipeLine.tsx'
 
 interface Props {
   index: DatasetIndex
@@ -30,16 +31,13 @@ export function StepsTable({ index, steps }: Props) {
         <tbody>
           {steps.map((s) => {
             const recipe = index.recipesById.get(s.recipeId)!
-            const building = index.buildingsById.get(s.buildingId)
             return (
               <tr key={s.recipeId}>
                 <td style={{ paddingLeft: `${0.5 + s.depth}rem` }}>
-                  <a href={building?.wikiUrl} target="_blank" rel="noreferrer">
-                    {building?.name ?? s.buildingId}
-                  </a>
+                  <BuildingLabel index={index} id={s.buildingId} link />
                 </td>
                 <td className="muted">
-                  {describeRecipe(index, recipe).replace(/^[^:]+: /, '')}
+                  <RecipeLine index={index} recipe={recipe} />
                   {recipe.note && (
                     <>
                       {' '}

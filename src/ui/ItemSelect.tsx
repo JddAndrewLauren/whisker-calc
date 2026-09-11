@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Item } from '../data/types.ts'
+import { ItemIcon } from './Icon.tsx'
 
 interface Props {
   items: Item[]
@@ -23,7 +24,8 @@ export function ItemSelect({ items, value, onChange }: Props) {
     if (match) onChange(match.id)
   }
   return (
-    <>
+    <span className="item-select">
+      {selected && <ItemIcon id={selected.id} size={24} />}
       <input
         list="item-names"
         value={text}
@@ -37,6 +39,6 @@ export function ItemSelect({ items, value, onChange }: Props) {
           <option key={i.id} value={i.name} />
         ))}
       </datalist>
-    </>
+    </span>
   )
 }

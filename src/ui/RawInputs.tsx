@@ -1,5 +1,6 @@
 import type { SolveResult } from '../calc/types.ts'
 import type { DatasetIndex } from '../data/index.ts'
+import { ItemLabel } from './Icon.tsx'
 
 interface Props {
   index: DatasetIndex
@@ -21,7 +22,9 @@ export function RawInputs({ index, raw }: Props) {
         <tbody>
           {raw.map((r) => (
             <tr key={r.itemId}>
-              <td>{index.itemsById.get(r.itemId)?.name ?? r.itemId}</td>
+              <td>
+                <ItemLabel index={index} id={r.itemId} />
+              </td>
               <td>{r.perMin.toFixed(3)}</td>
             </tr>
           ))}
