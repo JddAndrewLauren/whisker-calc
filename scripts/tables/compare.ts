@@ -30,7 +30,7 @@ const wikiOverrides: Overrides = {
 const pages = await fetchWikitext(BUILDING_TITLES)
 const wiki = buildDataset(BUILDING_TITLES.map((t) => parseBuildingPage(t, pages.get(t)!)), wikiOverrides, { ...meta, source: 'wiki' }).dataset
 const { parsed, foods } = tablesToParsed(readIndex(new URL(`${gameVersion}/DataTableIndex.json`, dumpsDir)), overrides.farmTiles)
-const tables = buildDataset(parsed, { ...overrides, foods: [...overrides.foods, ...foods] }, { ...meta, source: 'tables' }).dataset
+const tables = buildDataset(parsed, { ...overrides, foods: { ...foods, ...overrides.foods } }, { ...meta, source: 'tables' }).dataset
 
 const show = (v: unknown) => (Array.isArray(v) ? v.map((i: { item: string; qty: number }) => `${i.qty} ${i.item}`).join(' + ') : String(v))
 const rows: { id: string; field: string; wiki: string; tables: string }[] = []

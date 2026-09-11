@@ -23,7 +23,7 @@ if (problems.length) {
 
 const { dataset, warnings, rawItems } = buildDataset(
   parsed,
-  { ...overrides, foods: [...overrides.foods, ...foods] },
+  { ...overrides, foods: { ...foods, ...overrides.foods } },
   { generatedAt: new Date().toISOString().slice(0, 10), source: 'tables', gameVersion },
 )
 writeFileSync(outputPath, JSON.stringify(dataset, null, 2) + '\n')

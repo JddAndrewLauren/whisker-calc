@@ -1,3 +1,4 @@
+import { foodTiers } from '../calc/compare.ts'
 import type { TargetMode } from '../calc/types.ts'
 import type { DatasetIndex } from '../data/index.ts'
 import type { Item } from '../data/types.ts'
@@ -18,16 +19,28 @@ interface Props {
 const nonNegative = (value: string) => Math.max(0, Number(value) || 0)
 
 export function TargetControls({ index, items, state, producerId, ratePerMin, onChange }: Props) {
+  const quality = state.mode === 'quality'
   return (
     <section className="controls">
       <label>
         Produce
-        <ItemSelect items={items} value={state.targetItem} onChange={(targetItem) => onChange({ targetItem })} />
+        {quality ? (
+          <select value={state.quality} onChange={(e) => onChange({ quality: Number(e.target.value) })} aria-label="Food quality">
+            {foodTiers(index).map(([stars, foods]) => (
+              <option key={stars} value={stars}>
+                {stars}-star: {foods.map((f) => f.name).join(', ')}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <ItemSelect items={items} value={state.targetItem} onChange={(targetItem) => onChange({ targetItem })} />
+        )}
       </label>
       <select value={state.mode} onChange={(e) => onChange({ mode: e.target.value as TargetMode })} aria-label="Target mode">
         <option value="rate">at a rate of</option>
         <option value="population">to feed</option>
         <option value="buildings">from</option>
+        <option value="quality">food to feed</option>
       </select>
       {state.mode === 'rate' && (
         <label>
@@ -35,7 +48,7 @@ export function TargetControls({ index, items, state, producerId, ratePerMin, on
           per minute
         </label>
       )}
-      {state.mode === 'population' && (
+      {(state.mode === 'population' || quality) && (
         <label>
           <input type="number" min="0" step="1" value={state.population} onChange={(e) => onChange({ population: nonNegative(e.target.value) })} />
           Whiskers, one meal a day
@@ -49,7 +62,7 @@ export function TargetControls({ index, items, state, producerId, ratePerMin, on
       )}
       {state.mode !== 'rate' && (
         <span className="muted">
-          = {ratePerMin.toFixed(2)} <ItemLabel index={index} id={state.targetItem} /> per minute
+          = {ratePerMin.toFixed(2)} {quality ? 'meals' : <ItemLabel index={index} id={state.targetItem} />} per minute
         </span>
       )}
     </section>

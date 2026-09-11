@@ -6,8 +6,8 @@ const EXTRA_RECIPE_LINKS: Record<string, string[]> = { steamboiler: ['recipe.boi
 
 export interface ImportResult {
   parsed: ParsedBuilding[]
-  /** Display names of every physical resource the game files as food. */
-  foods: string[]
+  /** Display name -> quality in stars (mealTierGroup, 0-4) of every food the recipes touch. */
+  foods: Record<string, number>
   problems: string[]
 }
 
@@ -24,6 +24,7 @@ export function tablesToParsed(index: TableIndex, farmTiles: Record<string, numb
   const loc = table(index, 'TextDB/Loc_En')
   const crops = table(index, 'AssetLookups/Crops')
   const tunes = table(index, 'SystemTunes')
+  const meals = table(index, 'AssetLookups/Meals_Lookup')
 
   const str = (row: Row, col: string): string | null => {
     const v = row[col]
@@ -137,9 +138,11 @@ export function tablesToParsed(index: TableIndex, farmTiles: Record<string, numb
   if (defs.farm) parsed.push(building('farm', defs.farm, farmRecipes))
   else problems.push('farm: no GridactorDefs_Sync row')
 
-  const foods = Object.entries(resources)
-    .filter(([id, r]) => r.Category === 'food' && used.has(id))
-    .map(([id]) => resourceName(id))
+  const foods: Record<string, number> = {}
+  for (const [key, meal] of Object.entries(meals)) {
+    const id = str(meal, 'associatedResource')
+    if (id && used.has(id)) foods[resourceName(id)] = num(meal, 'mealTierGroup', key)
+  }
 
   return { parsed, foods, problems }
 }

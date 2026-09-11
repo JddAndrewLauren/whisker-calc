@@ -20,13 +20,18 @@ export interface SolveInput {
   modifiers: Record<string, Partial<ModifierSettings>>
 }
 
-/** How the user states the target: a rate, a population to feed, or a number of producing buildings. */
-export type TargetMode = 'rate' | 'population' | 'buildings'
+/**
+ * How the user states the target: a rate, a population to feed, a number of producing buildings,
+ * or a population to feed with any food of a given quality (compares every such food).
+ */
+export type TargetMode = 'rate' | 'population' | 'buildings' | 'quality'
 
 export interface Target extends SolveInput {
   mode: TargetMode
   population: number
   buildingCount: number
+  /** Food quality in stars, for the quality mode. */
+  quality: number
 }
 
 export interface Step {

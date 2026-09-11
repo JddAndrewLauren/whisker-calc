@@ -1,6 +1,6 @@
 {
  "ExportDate": "fixture",
- "TotalTables": 6,
+ "TotalTables": 7,
  "Tables": {
   "Whiskerwood/Content/Data/GridactorDefs_Sync": {
    "weaver": {
@@ -746,6 +746,28 @@
    },
    "GlobalCropYieldFactor": {
     "FloatValue": "1"
+   }
+  },
+  "Whiskerwood/Content/Data/AssetLookups/Meals_Lookup": {
+   "meal_berries": {
+    "mealTierGroup": "1",
+    "associatedResource": "berries"
+   },
+   "meal_rawfish": {
+    "mealTierGroup": "0",
+    "associatedResource": "rawfish"
+   },
+   "meal_mushroom": {
+    "mealTierGroup": "1",
+    "associatedResource": "mushroom"
+   },
+   "meal_cannedfood": {
+    "mealTierGroup": "0",
+    "associatedResource": "cannedfood"
+   },
+   "meal_bread": {
+    "mealTierGroup": "2",
+    "associatedResource": "bread"
    }
   }
  }

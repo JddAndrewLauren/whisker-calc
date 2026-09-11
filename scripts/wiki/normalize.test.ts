@@ -3,7 +3,7 @@ import type { Overrides } from '../../src/data/types.ts'
 import { buildDataset, canonicalItemName, guildFromText, slug } from './normalize.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 
-const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], farmTiles: {}, foods: [], itemIcons: {}, favicon: '' }
+const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], farmTiles: {}, foods: {}, itemIcons: {}, favicon: '' }
 const meta = { generatedAt: 'now', source: 'wiki' as const, gameVersion: 'unknown' }
 /** A parsed page whose every item carries an icon named after it, unless `extra` says otherwise. */
 const building = (name: string, recipes: ParsedBuilding['recipes'], extra: Partial<ParsedBuilding> = {}): ParsedBuilding => {
@@ -155,7 +155,7 @@ describe('buildDataset', () => {
         recipes: { 'nope/x': {} },
         preferredRecipe: { flour: 'nope/x' },
         extraRecipes: [{ building: 'ghost', inputs: [], outputs: [{ item: 'Water', qty: 1 }], timeSeconds: 1 }],
-        foods: ['Cake'],
+        foods: { Cake: 1 },
       },
       meta,
     )
@@ -181,7 +181,7 @@ describe('buildDataset', () => {
           { building: 'farm', inputs: [], outputs: [{ item: 'Wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' },
           { building: 'farm', inputs: [], outputs: [{ item: 'Berries', qty: 72 }], timeSeconds: 864, tilesPerBuilding: 36 },
         ],
-        foods: ['Berries'],
+        foods: { Berries: 1 },
         itemIcons: { Berries: 'Tex berries.png', Planks: 'Tex planks.png' },
       },
       meta,
@@ -201,7 +201,7 @@ describe('buildDataset', () => {
     expect(dataset.recipes.map((r) => r.id)).toEqual(['mill/flour', 'farm/wheat', 'farm/berries'])
     expect(dataset.recipes[1]).toMatchObject({ outputs: [{ item: 'wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' })
     expect(dataset.recipes[2]).not.toHaveProperty('note')
-    expect(dataset.items.find((i) => i.id === 'berries')).toEqual({ id: 'berries', name: 'Berries', icon: 'Tex berries.png', food: true })
+    expect(dataset.items.find((i) => i.id === 'berries')).toEqual({ id: 'berries', name: 'Berries', icon: 'Tex berries.png', food: true, quality: 1 })
     expect(dataset.items.find((i) => i.id === 'wheat')).not.toHaveProperty('food')
     expect(rawItems).toEqual(['logs', 'planks'])
   })

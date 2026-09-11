@@ -12,19 +12,22 @@
       "id": "berries",
       "name": "Berries",
       "icon": "Tex berries 05 b.png",
-      "food": true
+      "food": true,
+      "quality": 1
     },
     {
       "id": "berry-soup",
       "name": "Berry Soup",
       "icon": "Tex ForestIcons 97 t.png",
-      "food": true
+      "food": true,
+      "quality": 2
     },
     {
       "id": "bread",
       "name": "Bread",
       "icon": "Tex baking 04.png",
-      "food": true
+      "food": true,
+      "quality": 2
     },
     {
       "id": "bronze-bars",
@@ -50,7 +53,8 @@
       "id": "canned-food",
       "name": "Canned Food",
       "icon": "Tex spare parts 10.png",
-      "food": true
+      "food": true,
+      "quality": 0
     },
     {
       "id": "cannon-frames",
@@ -91,7 +95,8 @@
       "id": "fancy-meals",
       "name": "Fancy Meals",
       "icon": "Tex dish 02.png",
-      "food": true
+      "food": true,
+      "quality": 4
     },
     {
       "id": "fertilizer",
@@ -112,13 +117,15 @@
       "id": "fish",
       "name": "Fish",
       "icon": "Tex meat 05.png",
-      "food": true
+      "food": true,
+      "quality": 0
     },
     {
       "id": "fish-skewers",
       "name": "Fish Skewers",
       "icon": "Tex Meat 08.png",
-      "food": true
+      "food": true,
+      "quality": 3
     },
     {
       "id": "fishing-nets",
@@ -164,7 +171,8 @@
       "id": "hearty-meals",
       "name": "Hearty Meals",
       "icon": "Tex dish 01.png",
-      "food": true
+      "food": true,
+      "quality": 4
     },
     {
       "id": "iron-bars",
@@ -190,7 +198,8 @@
       "id": "jam-pastries",
       "name": "Jam Pastries",
       "icon": "Tex baking 05 edit.png",
-      "food": true
+      "food": true,
+      "quality": 3
     },
     {
       "id": "logs",
@@ -211,13 +220,15 @@
       "id": "mushroom-stew",
       "name": "Mushroom Stew",
       "icon": "Tex soup.png",
-      "food": true
+      "food": true,
+      "quality": 3
     },
     {
       "id": "mushrooms",
       "name": "Mushrooms",
       "icon": "Tex mushrooms 07.png",
-      "food": true
+      "food": true,
+      "quality": 1
     },
     {
       "id": "oil",
@@ -268,7 +279,8 @@
       "id": "savory-meals",
       "name": "Savory Meals",
       "icon": "Tex MiningIcons 111 t.png",
-      "food": true
+      "food": true,
+      "quality": 4
     },
     {
       "id": "scissors",
@@ -279,7 +291,8 @@
       "id": "smoked-fish",
       "name": "Smoked Fish",
       "icon": "Tex meat 08.png",
-      "food": true
+      "food": true,
+      "quality": 2
     },
     {
       "id": "soap",

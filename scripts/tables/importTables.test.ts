@@ -55,8 +55,8 @@ describe('tablesToParsed', () => {
     expect(byName('Farm').recipes[0].note).toContain('0.1 years (1728 s)')
   })
 
-  it('lists the food resources the recipes touch', () => {
-    expect(foods.sort()).toEqual(['Berries', 'Canned Food', 'Fish', 'Mushrooms'])
+  it('grades the foods the recipes touch by the meal table tier', () => {
+    expect(foods).toEqual({ Berries: 1, 'Canned Food': 0, Fish: 0, Mushrooms: 1 })
   })
 
   it('reports a crop with no tiles override and a missing text key instead of guessing', () => {

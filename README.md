@@ -21,8 +21,10 @@ Horse); this is an unofficial fan tool and credits them in its footer.
   trees, 0.05 years (864 s) for berries, flax and mushrooms, at the maximum yield of 2 per tile. How much
   land one 2-worker Farm tends (72 or 36 tiles, from the wiki's Farmer's Almanac) is not in any table and
   lives in `overrides.json`; those recipes carry an "est." tag. Farm steps show both buildings and tiles.
-- Three ways to state the target: a rate per minute, a population to feed (one meal per Whisker per
-  540-second working day), or a number of producing buildings you already own.
+- Four ways to state the target: a rate per minute, a population to feed (one meal per Whisker per
+  540-second working day), a number of producing buildings you already own, or a population to feed
+  with food of a given quality, which compares every food of that star rating (0-4, from the game's
+  meal table) and ranks them by the workers needed, each with its full building tree.
 - A "Materials to build" panel summing construction costs from every building's infobox.
 
 Ores, coal, stone, rock salt, potash and guano stop the chain: Mining Camps have no steady rate, so
@@ -102,8 +104,10 @@ input side of `npm run compare`.
 - `recipes`: replace `inputs`, `outputs` or `timeSeconds` for a recipe id (`building/output-item`).
 - `preferredRecipe`: which recipe is the default producer of an item.
 - `farmTiles`: crop display name -> land one Farm tends at base speed.
-- `extraBuildings`, `extraRecipes` and `foods`: hand-authored additions; empty since the tables cover
-  them. A recipe may carry `tilesPerBuilding` and a `note` that the UI shows as the source of the numbers.
+- `extraBuildings` and `extraRecipes`: hand-authored additions; empty since the tables cover them. A
+  recipe may carry `tilesPerBuilding` and a `note` that the UI shows as the source of the numbers.
+- `foods`: display name -> quality in stars (0-4) for items the game's meal table does not list; empty
+  since `Meals_Lookup` covers every food.
 - `itemIcons`: wiki icon file for items whose icon the tables do not name; it only fills gaps.
 - `favicon`: the wiki icon file downloaded as the site favicon.
 
