@@ -1,13 +1,18 @@
-import { NO_MODIFIERS, type ModifierSettings } from '../calc/types.ts'
+import { NO_MODIFIERS, type ModifierSettings, type Target } from '../calc/types.ts'
 
-export interface AppState {
-  targetItem: string
-  ratePerMin: number
-  recipeChoice: Record<string, string>
+export interface AppState extends Target {
   modifiers: Record<string, ModifierSettings>
 }
 
-export const DEFAULT_STATE: AppState = { targetItem: 'tailored-clothes', ratePerMin: 1, recipeChoice: {}, modifiers: {} }
+export const DEFAULT_STATE: AppState = {
+  mode: 'rate',
+  targetItem: 'tailored-clothes',
+  ratePerMin: 1,
+  population: 100,
+  buildingCount: 1,
+  recipeChoice: {},
+  modifiers: {},
+}
 
 function encodeModifier(m: ModifierSettings): string {
   const flags = (m.guild ? 'g' : '') + (m.catalyst ? 'c' : '') + (m.steam ? 's' : '')
@@ -22,11 +27,13 @@ function decodeModifier(s: string): ModifierSettings | null {
 
 const isDefault = (m: ModifierSettings) => encodeModifier(m) === ''
 
-/** Encode state as a URL hash (without the leading '#'). Defaults are omitted. */
+/** Encode state as a URL hash (without the leading '#'). Defaults are omitted; `pop` or `n` selects the mode. */
 export function encodeState(s: AppState): string {
   const p = new URLSearchParams()
   p.set('i', s.targetItem)
-  if (s.ratePerMin !== DEFAULT_STATE.ratePerMin) p.set('rate', String(s.ratePerMin))
+  if (s.mode === 'population') p.set('pop', String(s.population))
+  else if (s.mode === 'buildings') p.set('n', String(s.buildingCount))
+  else if (s.ratePerMin !== DEFAULT_STATE.ratePerMin) p.set('rate', String(s.ratePerMin))
   const r = Object.entries(s.recipeChoice).map(([item, recipe]) => `${item}:${recipe}`)
   if (r.length) p.set('r', r.join(';'))
   const m = Object.entries(s.modifiers)
@@ -41,8 +48,20 @@ export function decodeState(hash: string): AppState {
   const state: AppState = { ...DEFAULT_STATE, recipeChoice: {}, modifiers: {} }
   const item = p.get('i')
   if (item) state.targetItem = item
-  const rate = Number(p.get('rate'))
-  if (p.has('rate') && Number.isFinite(rate) && rate >= 0) state.ratePerMin = rate
+  const numberParam = (key: string) => {
+    const n = Number(p.get(key))
+    return p.has(key) && Number.isFinite(n) && n >= 0 ? n : null
+  }
+  const pop = numberParam('pop')
+  const n = numberParam('n')
+  const rate = numberParam('rate')
+  if (pop !== null) {
+    state.mode = 'population'
+    state.population = pop
+  } else if (n !== null) {
+    state.mode = 'buildings'
+    state.buildingCount = n
+  } else if (rate !== null) state.ratePerMin = rate
   for (const pair of (p.get('r') ?? '').split(';').filter(Boolean)) {
     const idx = pair.indexOf(':')
     if (idx > 0) state.recipeChoice[pair.slice(0, idx)] = pair.slice(idx + 1)

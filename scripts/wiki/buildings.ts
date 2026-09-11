@@ -17,6 +17,7 @@ export const BUILDING_TITLES = [
   'Mill',
   'Netter',
   'Oil Press',
+  'Ore Furnace',
   'Sawmill',
   'Sifting Tower',
   'Smokery',

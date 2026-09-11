@@ -1,7 +1,7 @@
 import type { DatasetIndex } from '../data/index.ts'
 import type { Recipe } from '../data/types.ts'
 import { speedMultiplier } from './speed.ts'
-import { NO_MODIFIERS, type SolveInput, type SolveResult, type Step } from './types.ts'
+import { NO_MODIFIERS, type ModifierSettings, type SolveInput, type SolveResult, type Step } from './types.ts'
 
 export function producerFor(index: DatasetIndex, itemId: string, choice: Record<string, string>): Recipe | undefined {
   const chosen = choice[itemId]
@@ -10,6 +10,15 @@ export function producerFor(index: DatasetIndex, itemId: string, choice: Record<
     if (r && r.outputs.some((o) => o.item === itemId)) return r
   }
   return index.recipesByOutput.get(itemId)?.[0]
+}
+
+/** Output units one building makes per minute at the given speed. */
+export function ratePerBuilding(recipe: Recipe, speed = 1): number {
+  return (recipe.outputs[0].qty * 60 * speed) / recipe.timeSeconds
+}
+
+export function buildingSpeed(input: Pick<SolveInput, 'modifiers'>, buildingId: string): number {
+  return speedMultiplier({ ...NO_MODIFIERS, ...(input.modifiers[buildingId] as Partial<ModifierSettings> | undefined) })
 }
 
 export function solve(index: DatasetIndex, input: SolveInput): SolveResult {
@@ -42,21 +51,21 @@ export function solve(index: DatasetIndex, input: SolveInput): SolveResult {
   for (const [recipeId, demandPerMin] of demand) {
     const recipe = index.recipesById.get(recipeId)!
     const building = index.buildingsById.get(recipe.building)
-    const speed = speedMultiplier({ ...NO_MODIFIERS, ...input.modifiers[recipe.building] })
-    const itemId = recipe.outputs[0].item
-    const ratePerBuilding = (recipe.outputs[0].qty * 60 * speed) / recipe.timeSeconds
-    const buildings = demandPerMin / ratePerBuilding
+    const speed = buildingSpeed(input, recipe.building)
+    const perBuilding = ratePerBuilding(recipe, speed)
+    const buildings = demandPerMin / perBuilding
     steps.push({
       recipeId,
       buildingId: recipe.building,
-      itemId,
+      itemId: recipe.outputs[0].item,
       demandPerMin,
-      ratePerBuilding,
+      ratePerBuilding: perBuilding,
       buildings,
       buildingsCeil: Math.ceil(buildings - 1e-9),
       workers: building?.workers ?? null,
       speedMultiplier: speed,
       depth: depthOf.get(recipeId) ?? 0,
+      ...(recipe.tilesPerBuilding !== undefined && { tiles: (demandPerMin / ratePerBuilding(recipe)) * recipe.tilesPerBuilding }),
     })
   }
   steps.sort((a, b) => a.depth - b.depth || a.buildingId.localeCompare(b.buildingId))

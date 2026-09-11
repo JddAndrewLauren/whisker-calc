@@ -11,6 +11,12 @@ interface Props {
 export function ItemSelect({ items, value, onChange }: Props) {
   const selected = items.find((i) => i.id === value)
   const [text, setText] = useState(selected?.name ?? '')
+  const [shownValue, setShownValue] = useState(value)
+  // Follow the value when it changes from outside (hash navigation, mode switch).
+  if (value !== shownValue) {
+    setShownValue(value)
+    setText(selected?.name ?? '')
+  }
   const commit = (name: string) => {
     setText(name)
     const match = items.find((i) => i.name.toLowerCase() === name.trim().toLowerCase())

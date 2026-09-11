@@ -1,19 +1,25 @@
 import { useMemo } from 'react'
-import { solve } from '../calc/solve.ts'
+import { chainCost } from '../calc/cost.ts'
+import { producerFor, solve } from '../calc/solve.ts'
+import { targetRate } from '../calc/target.ts'
 import { loadDataset } from '../data/index.ts'
 import { BuildingModifiers } from './BuildingModifiers.tsx'
-import { ItemSelect } from './ItemSelect.tsx'
+import { ConstructionCosts } from './ConstructionCosts.tsx'
 import { RawInputs } from './RawInputs.tsx'
 import { RecipePicker } from './RecipePicker.tsx'
 import { StepsTable } from './StepsTable.tsx'
+import { TargetControls } from './TargetControls.tsx'
 import { useHashState } from './useHashState.ts'
 
 const index = loadDataset()
 const producible = index.dataset.items.filter((i) => index.recipesByOutput.has(i.id)).sort((a, b) => a.name.localeCompare(b.name))
+const foods = producible.filter((i) => i.food)
 
 export function App() {
   const [state, update] = useHashState()
-  const result = useMemo(() => solve(index, state), [state])
+  const ratePerMin = useMemo(() => targetRate(index, state), [state])
+  const result = useMemo(() => solve(index, { ...state, ratePerMin }), [state, ratePerMin])
+  const cost = useMemo(() => chainCost(index, result.steps), [result])
 
   const choosableItems = useMemo(() => {
     const seen = new Set<string>()
@@ -31,6 +37,11 @@ export function App() {
     [result],
   )
 
+  const target = index.itemsById.get(state.targetItem)
+  const producer = producerFor(index, state.targetItem, state.recipeChoice)
+  const producerName = producer ? (index.buildingsById.get(producer.building)?.name ?? producer.building) : null
+  const notFood = state.mode === 'population' && target && !target.food
+
   return (
     <main>
       <header>
@@ -38,24 +49,16 @@ export function App() {
         <p className="muted">How many of each building you need to sustain a target output, using base recipe times from the wiki.</p>
       </header>
 
-      <section className="controls">
-        <label>
-          Produce
-          <ItemSelect items={producible} value={state.targetItem} onChange={(targetItem) => update((s) => ({ ...s, targetItem }))} />
-        </label>
-        <label>
-          at
-          <input
-            type="number"
-            min="0"
-            step="0.1"
-            value={state.ratePerMin}
-            onChange={(e) => update((s) => ({ ...s, ratePerMin: Math.max(0, Number(e.target.value) || 0) }))}
-          />
-          per minute
-        </label>
-      </section>
+      <TargetControls
+        index={index}
+        items={state.mode === 'population' ? foods : producible}
+        state={state}
+        producerName={producerName}
+        ratePerMin={ratePerMin}
+        onChange={(patch) => update((s) => ({ ...s, ...patch }))}
+      />
 
+      {notFood && <p className="warning">{target.name} does not satisfy hunger. Pick a food item to feed Whiskers.</p>}
       {result.warnings.map((w) => (
         <p key={w} className="warning">
           {w}
@@ -63,7 +66,7 @@ export function App() {
       ))}
 
       {result.steps.length === 0 ? (
-        <p>Pick an item and a rate above.</p>
+        <p>Pick an item and a target above.</p>
       ) : (
         <>
           <StepsTable index={index} steps={result.steps} />
@@ -79,12 +82,16 @@ export function App() {
             onChange={(buildingId, next) => update((s) => ({ ...s, modifiers: { ...s.modifiers, [buildingId]: next } }))}
           />
           <RawInputs index={index} raw={result.raw} />
+          <ConstructionCosts index={index} cost={cost} />
         </>
       )}
 
       <footer className="muted">
         <p>
-          Assumptions: recipe times are for a fully staffed building, and speed bonuses stack additively. Data scraped{' '}
+          Assumptions: recipe times are for a fully staffed building, and speed bonuses stack additively. Farms follow the wiki's
+          Farmer's Almanac at maximum yield (about 72 tiles per Farm for cotton, wheat, tea and peppers, 36 for berries, flax,
+          mushrooms and trees); use the Extra % field for poorer soil. Feeding assumes one meal per Whisker per 540-second working
+          day; Miners and Heavy Eaters take one more. Water Pump and Steam Boiler rates are estimates. Data scraped{' '}
           {index.dataset.generatedAt} from the{' '}
           <a href={index.dataset.source} target="_blank" rel="noreferrer">
             Whiskerwood wiki

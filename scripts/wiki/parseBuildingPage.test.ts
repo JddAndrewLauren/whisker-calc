@@ -12,6 +12,7 @@ describe('parseBuildingPage', () => {
     expect(b.workers).toBe(3)
     expect(b.guildText).toBe("Explorer's")
     expect(b.catalyst).toBe('Scissors')
+    expect(b.cost).toEqual([['Logs', 21], ['Machinery', 1]])
     expect(b.recipes).toEqual([
       { inputs: [['Flax', 1]], outputs: [['Woven Cloaks', 2]], timeSeconds: 233 },
       { inputs: [['Threads', 3]], outputs: [['Fabrics', 3]], timeSeconds: 233 },
@@ -44,7 +45,22 @@ describe('parseBuildingPage', () => {
     expect(b.problems).toEqual([])
     expect(b.name).toBe('Fishing Dock')
     expect(b.workers).toBe(3)
+    expect(b.cost).toEqual([['Logs', 21], ['Machinery', 1]])
     expect(b.recipes).toEqual([{ inputs: [], outputs: [['Fish', 1]], timeSeconds: 21 }])
+  })
+
+  it('finds a recipe table that has no ==Recipes== heading (Ore Furnace)', () => {
+    const b = parse('Ore_Furnace')
+    expect(b.problems).toEqual([])
+    expect(b.workers).toBe(2)
+    expect(b.guildText).toBe("Miner's")
+    expect(b.catalyst).toBe('Fire Tongs')
+    expect(b.cost).toEqual([['Cut stone', 13], ['Machinery', 1]])
+    expect(b.recipes).toEqual([
+      { inputs: [['Copper', 1], ['Fuel', 1]], outputs: [['Copper Bars', 5]], timeSeconds: 144 },
+      { inputs: [['Copper', 1], ['Tin Ore', 1], ['Fuel', 1]], outputs: [['Bronze Bars', 5]], timeSeconds: 144 },
+      { inputs: [['Gold Ore', 1], ['Fuel', 1]], outputs: [['Gold Bullion', 1]], timeSeconds: 377 },
+    ])
   })
 
   it('keeps raw item names untouched (Blast Furnace)', () => {

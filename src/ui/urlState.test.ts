@@ -3,6 +3,7 @@ import { DEFAULT_STATE, decodeState, encodeState, type AppState } from './urlSta
 
 it('round-trips state through the hash', () => {
   const s: AppState = {
+    ...DEFAULT_STATE,
     targetItem: 'bedding',
     ratePerMin: 2.5,
     recipeChoice: { threads: 'flax-spinner/threads', fuel: 'sifting-tower/fuel' },
@@ -18,7 +19,17 @@ it('round-trips state through the hash', () => {
   expect(decodeState('#' + encoded)).toEqual({ ...s, modifiers: expectedModifiers })
 })
 
+it('encodes the population and buildings modes by their own parameter', () => {
+  const pop: AppState = { ...DEFAULT_STATE, mode: 'population', targetItem: 'bread', population: 90 }
+  expect(encodeState(pop)).toBe('i=bread&pop=90')
+  expect(decodeState(encodeState(pop))).toEqual(pop)
+
+  const n: AppState = { ...DEFAULT_STATE, mode: 'buildings', buildingCount: 3 }
+  expect(encodeState(n)).toBe('i=tailored-clothes&n=3')
+  expect(decodeState(encodeState(n))).toEqual(n)
+})
+
 it('falls back to defaults on an empty or garbled hash', () => {
   expect(decodeState('')).toEqual(DEFAULT_STATE)
-  expect(decodeState('#rate=abc&m=weaver:zz;nope')).toEqual(DEFAULT_STATE)
+  expect(decodeState('#rate=abc&pop=-1&m=weaver:zz;nope')).toEqual(DEFAULT_STATE)
 })

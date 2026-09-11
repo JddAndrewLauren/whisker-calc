@@ -10,6 +10,7 @@ interface Props {
 const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2))
 
 export function StepsTable({ index, steps }: Props) {
+  const hasTiles = steps.some((s) => s.tiles !== undefined)
   return (
     <section>
       <h2>Buildings needed</h2>
@@ -23,6 +24,7 @@ export function StepsTable({ index, steps }: Props) {
             <th>Buildings</th>
             <th>Rounded up</th>
             <th>Workers</th>
+            {hasTiles && <th>Farm tiles</th>}
           </tr>
         </thead>
         <tbody>
@@ -36,7 +38,17 @@ export function StepsTable({ index, steps }: Props) {
                     {building?.name ?? s.buildingId}
                   </a>
                 </td>
-                <td className="muted">{describeRecipe(index, recipe).replace(/^[^:]+: /, '')}</td>
+                <td className="muted">
+                  {describeRecipe(index, recipe).replace(/^[^:]+: /, '')}
+                  {recipe.note && (
+                    <>
+                      {' '}
+                      <abbr className="tag" title={recipe.note}>
+                        est.
+                      </abbr>
+                    </>
+                  )}
+                </td>
                 <td>{fmt(s.demandPerMin)}</td>
                 <td>{fmt(s.ratePerBuilding)}</td>
                 <td>
@@ -45,11 +57,13 @@ export function StepsTable({ index, steps }: Props) {
                 </td>
                 <td>{s.buildingsCeil}</td>
                 <td>{s.workers === null ? '?' : s.buildingsCeil * s.workers}</td>
+                {hasTiles && <td>{s.tiles === undefined ? '' : fmt(s.tiles)}</td>}
               </tr>
             )
           })}
         </tbody>
       </table>
+      <p className="muted">Hover "est." for where a number comes from when it is not a wiki recipe table.</p>
     </section>
   )
 }

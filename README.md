@@ -1,20 +1,39 @@
 # whisker-calc
 
 A production-ratio calculator for [Whiskerwood](https://store.steampowered.com/app/2489330/Whiskerwood/),
-in the spirit of [FactorioLab](https://factoriolab.github.io/). Pick an item and a target rate and it
-tells you how many of each building the chain needs, e.g. how many Cotton Gins per Weaver when making
-Tailored Clothes.
+in the spirit of [FactorioLab](https://factoriolab.github.io/). Pick an item and a target and it tells
+you how many of each building the chain needs, down to farm tiles and mined ore, e.g. how many Cotton
+Gins per Weaver when making Tailored Clothes, or how many Farms and Bakeries feed 100 Whiskers on Bread.
 
 Recipe data comes from the [official wiki](https://wiki.hoodedhorse.com/Whiskerwood/) and is checked in
 at `src/data/whiskerwood.json`.
+
+## What it covers
+
+- Every wiki building with a recipe table (27 buildings), including the Ore Furnace.
+- Farms, from the wiki's Farmer's Almanac: a 2-worker Farm tends about 72 tiles of cotton, wheat, tea or
+  peppers (growth 0.10 years = 1728 s) or 36 tiles of berries, flax, mushrooms or trees (0.05 years =
+  864 s; trees 1728 s), at the maximum yield of 2 per tile. Farm steps show both buildings and tiles.
+- Water Pump and Steam Boiler, with estimated rates (the wiki gives hints only). They are marked "est."
+  in the table and are one-line edits in `overrides.json`.
+- Three ways to state the target: a rate per minute, a population to feed (one meal per Whisker per
+  540-second working day), or a number of producing buildings you already own.
+- A "Materials to build" panel summing construction costs from every building's infobox.
+
+Ores, coal, stone, rock salt and potash stop the chain: Mining Camps have no steady rate, so they are
+reported as units per minute. Not modeled: catalyst and machinery consumption (no wiki numbers),
+Woodcutter and Forage Hut (finite wild resources), Hardtack, Ration Meals, Trinkets and guano (no
+recipes), and choosing a different producer per consumer.
 
 ## Assumptions
 
 - Recipe times on the wiki are taken to be for a fully staffed building.
 - Speed bonuses stack additively: guild match +50%, catalyst +25%, adjacent Steam Engine +100%,
   plus a free-form extra percentage for traits, food, temperature and the like.
-- Farms, mines, foraging, water and steam have no fixed rate on the wiki, so the chain stops at those
-  items and reports how many units per minute you need.
+- Farm tiles are land, so a Farmer's Guild bonus reduces Farms needed but not tiles.
+- Miners and Whiskers with the Heavy Eater trait eat one extra meal; tea does not count as food.
+- Where the wiki disagrees with itself the building page wins (Fishing Dock: 1 Fish per 21 s, not the
+  overview table's 2 per 89 s).
 - Choosing a producer (e.g. Cotton Gin vs Flax Spinner for Threads) applies to every consumer of that item.
 
 ## Development
@@ -22,7 +41,7 @@ at `src/data/whiskerwood.json`.
 ```
 npm install
 npm run dev        # local dev server
-npm test           # unit tests (parser, normalizer, solver, URL state)
+npm test           # unit tests (parser, normalizer, solver, target modes, costs, URL state)
 npm run build      # type-check and build to dist/
 ```
 
@@ -32,17 +51,21 @@ npm run build      # type-check and build to dist/
 npm run scrape
 ```
 
-This fetches the 26 building pages listed in `scripts/wiki/buildings.ts`, parses their Recipes tables and
-infoboxes, applies `src/data/overrides.json`, and rewrites `src/data/whiskerwood.json`. It exits non-zero
-and lists the offending cells if the wiki layout changes. Requests go through `curl` because the wiki's
-Cloudflare protection challenges Node's built-in fetch.
+This fetches the building pages listed in `scripts/wiki/buildings.ts`, parses their recipe tables (any
+table with a production-time cell) and infoboxes, applies `src/data/overrides.json`, and rewrites
+`src/data/whiskerwood.json`. It exits non-zero and lists the offending cells if the wiki layout changes.
+Requests go through `curl` because the wiki's Cloudflare protection challenges Node's built-in fetch.
 
 `overrides.json` fixes things the wiki gets wrong or leaves out:
 
-- `itemAliases`: rename items after title-casing ("Iron" -> "Iron Bars").
-- `buildings`: set `workers`, `guild` or `catalyst` for a building id.
+- `itemAliases`: rename items after title-casing ("Iron" -> "Iron Bars", "Copper" -> "Copper Ore").
+- `buildings`: set `workers`, `guild`, `catalyst` or `cost` for a building id.
 - `recipes`: replace `inputs`, `outputs` or `timeSeconds` for a recipe id (`building/output-item`).
 - `preferredRecipe`: which recipe is the default producer of an item.
+- `extraBuildings` and `extraRecipes`: buildings with no recipe table on the wiki (Farm, Water Pump,
+  Steam Boiler). A recipe may carry `tilesPerBuilding` (farm land at base speed) and a `note` that the
+  UI shows as the source of the numbers.
+- `foods`: items that satisfy hunger, offered in the "to feed" mode.
 
 Recipe ids derive from item names, so keep aliases stable once links to the site are in circulation.
 

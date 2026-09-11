@@ -20,6 +20,16 @@ export interface SolveInput {
   modifiers: Record<string, Partial<ModifierSettings>>
 }
 
+/** How the user states the target: a rate, a population to feed, or a number of producing buildings. */
+export type TargetMode = 'rate' | 'population' | 'buildings'
+
+export interface Target extends Omit<SolveInput, 'ratePerMin'> {
+  mode: TargetMode
+  ratePerMin: number
+  population: number
+  buildingCount: number
+}
+
 export interface Step {
   recipeId: string
   buildingId: string
@@ -33,6 +43,8 @@ export interface Step {
   workers: number | null
   speedMultiplier: number
   depth: number
+  /** Farm land needed, for crop recipes. Independent of speed modifiers. */
+  tiles?: number
 }
 
 export interface SolveResult {

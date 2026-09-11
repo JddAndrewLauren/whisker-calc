@@ -1,4 +1,4 @@
-import type { Building, Dataset, Guild, Ingredient, Item, Overrides, Recipe } from '../../src/data/types.ts'
+import type { Building, Dataset, Guild, Ingredient, Item, NamedIngredient, Overrides, Recipe } from '../../src/data/types.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 import { WIKI_BASE } from './fetch.ts'
 
@@ -36,6 +36,8 @@ export interface BuildResult {
   rawItems: string[]
 }
 
+const wikiUrl = (name: string) => `${WIKI_BASE}/${name.replace(/ /g, '_')}`
+
 export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, generatedAt: string): BuildResult {
   const warnings: string[] = []
   const items = new Map<string, Item>()
@@ -45,9 +47,19 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
     items.set(id, { id, name: display })
     return { item: id, qty }
   }
+  const named = (list: NamedIngredient[]) => list.map((i) => ingredient(i.item, i.qty))
 
   const buildings: Building[] = []
   const recipes: Recipe[] = []
+  const used = new Set<string>()
+  const recipeId = (buildingId: string, inputs: Ingredient[], outputs: Ingredient[]) => {
+    let rid = `${buildingId}/${outputs[0].item}`
+    if (used.has(rid) && inputs.length) rid += `-from-${inputs[0].item}`
+    for (let n = 2; used.has(rid); n++) rid = `${buildingId}/${outputs[0].item}-${n}`
+    used.add(rid)
+    return rid
+  }
+
   const sorted = [...parsed].sort((a, b) => a.name.localeCompare(b.name))
   for (const p of sorted) {
     const id = slug(p.name)
@@ -60,31 +72,51 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
       workers: ov.workers ?? p.workers,
       guild: ov.guild ?? guild,
       catalyst: ov.catalyst ?? p.catalyst,
-      wikiUrl: `${WIKI_BASE}/${p.name.replace(/ /g, '_')}`,
+      cost: ov.cost ? named(ov.cost) : p.cost.map(([n, q]) => ingredient(n, q)),
+      wikiUrl: wikiUrl(p.name),
     }
     if (building.workers === null) warnings.push(`${p.name}: no worker count`)
+    if (building.cost.length === 0) warnings.push(`${p.name}: no construction cost`)
     buildings.push(building)
 
-    const used = new Set<string>()
     for (const raw of p.recipes) {
       const inputs = raw.inputs.map(([n, q]) => ingredient(n, q))
       const outputs = raw.outputs.map(([n, q]) => ingredient(n, q))
-      let rid = `${id}/${outputs[0].item}`
-      if (used.has(rid) && inputs.length) rid += `-from-${inputs[0].item}`
-      for (let n = 2; used.has(rid); n++) rid = `${id}/${outputs[0].item}-${n}`
-      used.add(rid)
+      const rid = recipeId(id, inputs, outputs)
       const rov = overrides.recipes[rid]
       recipes.push({
         id: rid,
         building: id,
-        inputs: rov?.inputs ? rov.inputs.map((i) => ingredient(i.item, i.qty)) : inputs,
-        outputs: rov?.outputs ? rov.outputs.map((i) => ingredient(i.item, i.qty)) : outputs,
+        inputs: rov?.inputs ? named(rov.inputs) : inputs,
+        outputs: rov?.outputs ? named(rov.outputs) : outputs,
         timeSeconds: rov?.timeSeconds ?? raw.timeSeconds,
       })
     }
   }
   for (const rid of Object.keys(overrides.recipes)) {
     if (!recipes.some((r) => r.id === rid)) warnings.push(`override for unknown recipe ${rid}`)
+  }
+
+  for (const [id, b] of Object.entries(overrides.extraBuildings)) {
+    if (buildings.some((x) => x.id === id)) warnings.push(`extra building ${id} duplicates a scraped building`)
+    buildings.push({ id, name: b.name, workers: b.workers, guild: b.guild, catalyst: b.catalyst, cost: named(b.cost), wikiUrl: wikiUrl(b.name) })
+  }
+  for (const r of overrides.extraRecipes) {
+    if (!buildings.some((b) => b.id === r.building)) {
+      warnings.push(`extra recipe for unknown building ${r.building} skipped`)
+      continue
+    }
+    const inputs = named(r.inputs)
+    const outputs = named(r.outputs)
+    recipes.push({
+      id: recipeId(r.building, inputs, outputs),
+      building: r.building,
+      inputs,
+      outputs,
+      timeSeconds: r.timeSeconds,
+      ...(r.tilesPerBuilding !== undefined && { tilesPerBuilding: r.tilesPerBuilding }),
+      ...(r.note !== undefined && { note: r.note }),
+    })
   }
 
   for (const [itemId, rid] of Object.entries(overrides.preferredRecipe)) {
@@ -95,6 +127,12 @@ export function buildDataset(parsed: ParsedBuilding[], overrides: Overrides, gen
     }
     const [r] = recipes.splice(idx, 1)
     recipes.unshift(r)
+  }
+
+  for (const name of overrides.foods) {
+    const item = items.get(slug(canonicalItemName(name, overrides.itemAliases)))
+    if (item) item.food = true
+    else warnings.push(`food ${name} is not an item`)
   }
 
   const produced = new Set(recipes.flatMap((r) => r.outputs.map((o) => o.item)))

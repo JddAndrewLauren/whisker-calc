@@ -3,12 +3,13 @@ import type { Overrides } from '../../src/data/types.ts'
 import { buildDataset, canonicalItemName, guildFromText, slug } from './normalize.ts'
 import type { ParsedBuilding } from './parseBuildingPage.ts'
 
-const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {} }
+const noOverrides: Overrides = { itemAliases: {}, buildings: {}, recipes: {}, preferredRecipe: {}, extraBuildings: {}, extraRecipes: [], foods: [] }
 const building = (name: string, recipes: ParsedBuilding['recipes'], extra: Partial<ParsedBuilding> = {}): ParsedBuilding => ({
   name,
   workers: 2,
   guildText: "Explorer's",
   catalyst: null,
+  cost: [['Logs', 3]],
   recipes,
   problems: [],
   ...extra,
@@ -48,7 +49,7 @@ describe('buildDataset', () => {
       'now',
     )
     expect(warnings).toEqual([])
-    expect(dataset.buildings[0]).toMatchObject({ id: 'cotton-gin', workers: 2, guild: 'Explorer' })
+    expect(dataset.buildings[0]).toMatchObject({ id: 'cotton-gin', workers: 2, guild: 'Explorer', cost: [{ item: 'logs', qty: 3 }] })
     expect(dataset.recipes[0]).toEqual({
       id: 'cotton-gin/threads',
       building: 'cotton-gin',
@@ -56,8 +57,8 @@ describe('buildDataset', () => {
       outputs: [{ item: 'threads', qty: 8 }],
       timeSeconds: 144,
     })
-    expect(dataset.items.map((i) => i.id)).toEqual(['cotton', 'threads'])
-    expect(rawItems).toEqual(['cotton'])
+    expect(dataset.items.map((i) => i.id)).toEqual(['cotton', 'logs', 'threads'])
+    expect(rawItems).toEqual(['cotton', 'logs'])
   })
 
   it('suffixes colliding recipe ids with the first input', () => {
@@ -76,8 +77,9 @@ describe('buildDataset', () => {
 
   it('applies aliases, recipe overrides and preferred ordering', () => {
     const overrides: Overrides = {
+      ...noOverrides,
       itemAliases: { Iron: 'Iron Bars' },
-      buildings: { smokery: { workers: 4 } },
+      buildings: { smokery: { workers: 4, cost: [{ item: 'Planks', qty: 21 }] } },
       recipes: { 'tea-roaster/tea': { inputs: [{ item: 'Tea Leaves', qty: 1 }] } },
       preferredRecipe: { threads: 'flax-spinner/threads' },
     }
@@ -99,21 +101,64 @@ describe('buildDataset', () => {
     expect(furnace.inputs).toEqual([{ item: 'iron-ore', qty: 1 }])
     const tea = dataset.recipes.find((r) => r.id === 'tea-roaster/tea')!
     expect(tea.inputs).toEqual([{ item: 'tea-leaves', qty: 1 }])
-    expect(dataset.buildings.find((b) => b.id === 'smokery')!.workers).toBe(4)
+    expect(dataset.buildings.find((b) => b.id === 'smokery')).toMatchObject({ workers: 4, cost: [{ item: 'planks', qty: 21 }] })
     expect(dataset.items.find((i) => i.id === 'iron-bars')!.name).toBe('Iron Bars')
   })
 
   it('warns on missing workers, unknown guild and dangling overrides', () => {
-    const { warnings } = buildDataset(
-      [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 2]], timeSeconds: 89 }], { workers: null, guildText: 'Cooks' })],
-      { ...noOverrides, recipes: { 'nope/x': {} }, preferredRecipe: { flour: 'nope/x' } },
+    const { dataset, warnings } = buildDataset(
+      [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 2]], timeSeconds: 89 }], { workers: null, guildText: 'Cooks', cost: [] })],
+      {
+        ...noOverrides,
+        recipes: { 'nope/x': {} },
+        preferredRecipe: { flour: 'nope/x' },
+        extraRecipes: [{ building: 'ghost', inputs: [], outputs: [{ item: 'Water', qty: 1 }], timeSeconds: 1 }],
+        foods: ['Cake'],
+      },
       'now',
     )
+    expect(dataset.recipes.map((r) => r.id)).toEqual(['mill/flour'])
     expect(warnings).toEqual([
       'Mill: unknown guild text "Cooks"',
       'Mill: no worker count',
+      'Mill: no construction cost',
       'override for unknown recipe nope/x',
+      'extra recipe for unknown building ghost skipped',
       'preferredRecipe flour -> nope/x not found',
+      'food Cake is not an item',
     ])
+  })
+
+  it('merges extra buildings, extra recipes and food flags', () => {
+    const { dataset, rawItems, warnings } = buildDataset(
+      [building('Mill', [{ inputs: [['Wheat', 1]], outputs: [['Flour', 5]], timeSeconds: 89 }])],
+      {
+        ...noOverrides,
+        extraBuildings: { farm: { name: 'Farm', workers: 2, guild: 'Farmer', catalyst: null, cost: [{ item: 'Planks', qty: 8 }] } },
+        extraRecipes: [
+          { building: 'farm', inputs: [], outputs: [{ item: 'Wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' },
+          { building: 'farm', inputs: [], outputs: [{ item: 'Berries', qty: 72 }], timeSeconds: 864, tilesPerBuilding: 36 },
+        ],
+        foods: ['Berries'],
+      },
+      'now',
+    )
+    expect(warnings).toEqual([])
+    expect(dataset.buildings.map((b) => b.id)).toEqual(['mill', 'farm'])
+    expect(dataset.buildings[1]).toEqual({
+      id: 'farm',
+      name: 'Farm',
+      workers: 2,
+      guild: 'Farmer',
+      catalyst: null,
+      cost: [{ item: 'planks', qty: 8 }],
+      wikiUrl: 'https://wiki.hoodedhorse.com/Whiskerwood/Farm',
+    })
+    expect(dataset.recipes.map((r) => r.id)).toEqual(['mill/flour', 'farm/wheat', 'farm/berries'])
+    expect(dataset.recipes[1]).toMatchObject({ outputs: [{ item: 'wheat', qty: 144 }], timeSeconds: 1728, tilesPerBuilding: 72, note: 'almanac' })
+    expect(dataset.recipes[2]).not.toHaveProperty('note')
+    expect(dataset.items.find((i) => i.id === 'berries')).toEqual({ id: 'berries', name: 'Berries', food: true })
+    expect(dataset.items.find((i) => i.id === 'wheat')).not.toHaveProperty('food')
+    expect(rawItems).toEqual(['logs', 'planks'])
   })
 })

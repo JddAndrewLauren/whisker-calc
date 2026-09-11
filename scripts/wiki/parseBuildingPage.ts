@@ -10,6 +10,8 @@ export interface ParsedBuilding {
   /** Raw guild text from the infobox, e.g. "Explorer's". */
   guildText: string | null
   catalyst: string | null
+  /** Construction materials from the infobox, raw names. */
+  cost: [name: string, qty: number][]
   recipes: RawRecipe[]
   /** Cells that looked like items but did not parse. Non-empty means the wiki layout changed. */
   problems: string[]
@@ -17,6 +19,7 @@ export interface ParsedBuilding {
 
 const ITEM_CELL = /\]\]\s*([A-Za-z][A-Za-z' -]*?)\s+(\d+(?:\.\d+)?)\s*$/
 const TIME = /(\d+(?:\.\d+)?)\s*s\b/
+const TABLE = /\{\|[^\n]*\n([\s\S]*?)\n\|\}/g
 
 /** Strip a leading `attr="..." |` prefix from a table cell. Pipes inside [[File:...]] are untouched. */
 function cellContent(cell: string): string {
@@ -31,14 +34,15 @@ function splitCells(row: string): string[] {
     .filter((c) => c.length > 0)
 }
 
+/** Recipes live in whichever tables have a production-time cell; not every page puts them under ==Recipes==. */
 function parseRecipes(text: string, problems: string[]): RawRecipe[] {
-  const section = /==\s*Recipes\s*==([\s\S]*?)\|\}/.exec(text)
-  if (!section) {
-    problems.push('no Recipes section')
+  const tables = [...text.matchAll(TABLE)].map((m) => m[1]).filter((t) => t.includes('time-machine'))
+  if (tables.length === 0) {
+    problems.push('no recipe table')
     return []
   }
   const recipes: RawRecipe[] = []
-  for (const row of section[1].split(/\n\|-[^\n]*\n/)) {
+  for (const row of tables.flatMap((t) => t.split(/\n\|-[^\n]*\n/))) {
     const trimmed = row.trim()
     if (!trimmed.startsWith('|')) continue
     const recipe: RawRecipe = { inputs: [], outputs: [], timeSeconds: NaN }
@@ -75,6 +79,25 @@ function parseWorkers(text: string): number | null {
   return n ? Number(n[1]) : null
 }
 
+/** Infobox block after the "Construction Material" header: icon+name cells each followed by a quantity cell. */
+function parseCost(text: string): [string, number][] {
+  const m = /^!.*?(?:Construction Material|Building Resources)[^\n]*\n([\s\S]*?)(?=\n!|\n\|\})/m.exec(text)
+  if (!m) return []
+  const cost: [string, number][] = []
+  let pending: string | null = null
+  for (const line of m[1].split('\n')) {
+    if (!line.startsWith('|') || line.startsWith('|-')) continue
+    const cell = cellContent(line.slice(1))
+    const item = /\[\[File:[^\]]*\]\]\s*([A-Za-z][A-Za-z' -]*?)\s*$/.exec(cell)
+    if (item) pending = item[1]
+    else if (pending && /^\d+$/.test(cell)) {
+      cost.push([pending, Number(cell)])
+      pending = null
+    }
+  }
+  return cost
+}
+
 export function parseBuildingPage(title: string, text: string): ParsedBuilding {
   const problems: string[] = []
   const guild = /([A-Za-z']+) Guild Pref/.exec(text)
@@ -84,6 +107,7 @@ export function parseBuildingPage(title: string, text: string): ParsedBuilding {
     workers: parseWorkers(text),
     guildText: guild ? guild[1] : null,
     catalyst: catalyst ? catalyst[1].trim() : null,
+    cost: parseCost(text),
     recipes: parseRecipes(text, problems),
     problems,
   }

@@ -85,3 +85,11 @@ footer {
   margin-top: 2rem;
   font-size: 0.9rem;
 }
+.tag {
+  font-size: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  padding: 0 0.3rem;
+  text-decoration: none;
+  cursor: help;
+}

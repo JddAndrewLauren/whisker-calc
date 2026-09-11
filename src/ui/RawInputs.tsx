@@ -10,7 +10,7 @@ export function RawInputs({ index, raw }: Props) {
   if (raw.length === 0) return null
   return (
     <section>
-      <h2>Raw inputs</h2>
+      <h2>Mined inputs</h2>
       <table>
         <thead>
           <tr>
@@ -28,8 +28,8 @@ export function RawInputs({ index, raw }: Props) {
         </tbody>
       </table>
       <p className="muted">
-        Farms, mines, foraging, water and steam are not modeled; the wiki has no fixed rate for them. Copper and bronze bars also
-        show here because their furnace pages have no recipe table yet.
+        Ores, coal, stone, rock salt and potash come from Mining Camps, which have no steady rate. Wild woodcutting and foraging run
+        out, so logs, berries and flax are assumed to be farmed.
       </p>
     </section>
   )

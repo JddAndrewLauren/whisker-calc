@@ -8,15 +8,18 @@
     },
     {
       "id": "berries",
-      "name": "Berries"
+      "name": "Berries",
+      "food": true
     },
     {
       "id": "berry-soup",
-      "name": "Berry Soup"
+      "name": "Berry Soup",
+      "food": true
     },
     {
       "id": "bread",
-      "name": "Bread"
+      "name": "Bread",
+      "food": true
     },
     {
       "id": "bronze-bars",
@@ -28,7 +31,8 @@
     },
     {
       "id": "canned-food",
-      "name": "Canned Food"
+      "name": "Canned Food",
+      "food": true
     },
     {
       "id": "coal",
@@ -37,6 +41,10 @@
     {
       "id": "copper-bars",
       "name": "Copper Bars"
+    },
+    {
+      "id": "copper-ore",
+      "name": "Copper Ore"
     },
     {
       "id": "cotton",
@@ -52,7 +60,8 @@
     },
     {
       "id": "fancy-meals",
-      "name": "Fancy Meals"
+      "name": "Fancy Meals",
+      "food": true
     },
     {
       "id": "fertilizer",
@@ -68,11 +77,13 @@
     },
     {
       "id": "fish",
-      "name": "Fish"
+      "name": "Fish",
+      "food": true
     },
     {
       "id": "fish-skewers",
-      "name": "Fish Skewers"
+      "name": "Fish Skewers",
+      "food": true
     },
     {
       "id": "fishing-nets",
@@ -95,8 +106,17 @@
       "name": "Furniture"
     },
     {
+      "id": "gold-bullion",
+      "name": "Gold Bullion"
+    },
+    {
+      "id": "gold-ore",
+      "name": "Gold Ore"
+    },
+    {
       "id": "hearty-meals",
-      "name": "Hearty Meals"
+      "name": "Hearty Meals",
+      "food": true
     },
     {
       "id": "iron-bars",
@@ -112,7 +132,8 @@
     },
     {
       "id": "jam-pastries",
-      "name": "Jam Pastries"
+      "name": "Jam Pastries",
+      "food": true
     },
     {
       "id": "logs",
@@ -128,11 +149,13 @@
     },
     {
       "id": "mushroom-stew",
-      "name": "Mushroom Stew"
+      "name": "Mushroom Stew",
+      "food": true
     },
     {
       "id": "mushrooms",
-      "name": "Mushrooms"
+      "name": "Mushrooms",
+      "food": true
     },
     {
       "id": "oil",
@@ -168,7 +191,8 @@
     },
     {
       "id": "savory-meals",
-      "name": "Savory Meals"
+      "name": "Savory Meals",
+      "food": true
     },
     {
       "id": "scissors",
@@ -176,7 +200,8 @@
     },
     {
       "id": "smoked-fish",
-      "name": "Smoked Fish"
+      "name": "Smoked Fish",
+      "food": true
     },
     {
       "id": "soap",
@@ -223,6 +248,10 @@
       "name": "Threads"
     },
     {
+      "id": "tin-ore",
+      "name": "Tin Ore"
+    },
+    {
       "id": "water",
       "name": "Water"
     },
@@ -246,6 +275,20 @@
       "workers": 2,
       "guild": "Engineer",
       "catalyst": "Precision Scales",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Apothecary"
     },
     {
@@ -254,6 +297,16 @@
       "workers": 3,
       "guild": "Farmer",
       "catalyst": "Salt",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Bakery"
     },
     {
@@ -262,6 +315,20 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Wooden Vice",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blacksmith"
     },
     {
@@ -270,6 +337,16 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Fire Tongs",
+      "cost": [
+        {
+          "item": "cut-stone",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Blast_Furnace"
     },
     {
@@ -278,6 +355,20 @@
       "workers": 3,
       "guild": "Farmer",
       "catalyst": "Salt",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cannery"
     },
     {
@@ -286,6 +377,20 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Oil",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Carpenter"
     },
     {
@@ -294,6 +399,16 @@
       "workers": 2,
       "guild": "Miner",
       "catalyst": "Fire Tongs",
+      "cost": [
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Charcoal_Furnace"
     },
     {
@@ -302,6 +417,24 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Precision Scales",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "copper-bars",
+          "qty": 3
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Chemist"
     },
     {
@@ -310,6 +443,20 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Wooden Vice",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Coppersmith"
     },
     {
@@ -318,6 +465,20 @@
       "workers": 2,
       "guild": "Explorer",
       "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Cotton_Gin"
     },
     {
@@ -326,6 +487,20 @@
       "workers": 3,
       "guild": "Farmer",
       "catalyst": "Salt",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fine_Kitchen"
     },
     {
@@ -334,6 +509,16 @@
       "workers": 3,
       "guild": "Farmer",
       "catalyst": "Net",
+      "cost": [
+        {
+          "item": "logs",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Fishing_Dock"
     },
     {
@@ -342,6 +527,16 @@
       "workers": 2,
       "guild": "Explorer",
       "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Flax_Spinner"
     },
     {
@@ -350,6 +545,20 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Precision Scales",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Machinist"
     },
     {
@@ -358,6 +567,16 @@
       "workers": 2,
       "guild": "Farmer",
       "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Mill"
     },
     {
@@ -366,6 +585,16 @@
       "workers": 3,
       "guild": "Explorer",
       "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Netter"
     },
     {
@@ -374,7 +603,43 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Iron Pots",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "iron-bars",
+          "qty": 3
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Oil_Press"
+    },
+    {
+      "id": "ore-furnace",
+      "name": "Ore Furnace",
+      "workers": 2,
+      "guild": "Miner",
+      "catalyst": "Fire Tongs",
+      "cost": [
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Ore_Furnace"
     },
     {
       "id": "sawmill",
@@ -382,6 +647,16 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Rope",
+      "cost": [
+        {
+          "item": "logs",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sawmill"
     },
     {
@@ -390,6 +665,24 @@
       "workers": 3,
       "guild": "Miner",
       "catalyst": "Rope",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 5
+        },
+        {
+          "item": "copper-bars",
+          "qty": 3
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Sifting_Tower"
     },
     {
@@ -398,6 +691,16 @@
       "workers": 2,
       "guild": "Farmer",
       "catalyst": "Salt",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Smokery"
     },
     {
@@ -406,6 +709,24 @@
       "workers": 3,
       "guild": "Farmer",
       "catalyst": "Iron Pots",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "copper-bars",
+          "qty": 3
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Soup_Kitchen"
     },
     {
@@ -414,6 +735,20 @@
       "workers": 2,
       "guild": "Farmer",
       "catalyst": "Oil",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Spice_Grinder"
     },
     {
@@ -422,6 +757,16 @@
       "workers": 3,
       "guild": "Engineer",
       "catalyst": "Rope",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Stone_Cutter"
     },
     {
@@ -430,6 +775,20 @@
       "workers": 3,
       "guild": "Explorer",
       "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 8
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tailor"
     },
     {
@@ -438,6 +797,20 @@
       "workers": 2,
       "guild": "Farmer",
       "catalyst": "Fire Tongs",
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 13
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Tea_Roaster"
     },
     {
@@ -446,7 +819,79 @@
       "workers": 3,
       "guild": "Explorer",
       "catalyst": "Scissors",
+      "cost": [
+        {
+          "item": "logs",
+          "qty": 21
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
       "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Weaver"
+    },
+    {
+      "id": "farm",
+      "name": "Farm",
+      "workers": 2,
+      "guild": "Farmer",
+      "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Farm"
+    },
+    {
+      "id": "water-pump",
+      "name": "Water Pump",
+      "workers": 1,
+      "guild": "Engineer",
+      "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 8
+        },
+        {
+          "item": "cut-stone",
+          "qty": 1
+        },
+        {
+          "item": "copper-bars",
+          "qty": 2
+        },
+        {
+          "item": "machinery",
+          "qty": 1
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Water_Pump"
+    },
+    {
+      "id": "steam-boiler",
+      "name": "Steam Boiler",
+      "workers": 0,
+      "guild": null,
+      "catalyst": null,
+      "cost": [
+        {
+          "item": "planks",
+          "qty": 13
+        },
+        {
+          "item": "cut-stone",
+          "qty": 5
+        },
+        {
+          "item": "iron-bars",
+          "qty": 2
+        }
+      ],
+      "wikiUrl": "https://wiki.hoodedhorse.com/Whiskerwood/Steam_Boiler"
     }
   ],
   "recipes": [
@@ -1048,6 +1493,73 @@
       "timeSeconds": 233
     },
     {
+      "id": "ore-furnace/copper-bars",
+      "building": "ore-furnace",
+      "inputs": [
+        {
+          "item": "copper-ore",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "copper-bars",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "ore-furnace/bronze-bars",
+      "building": "ore-furnace",
+      "inputs": [
+        {
+          "item": "copper-ore",
+          "qty": 1
+        },
+        {
+          "item": "tin-ore",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "bronze-bars",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 144
+    },
+    {
+      "id": "ore-furnace/gold-bullion",
+      "building": "ore-furnace",
+      "inputs": [
+        {
+          "item": "gold-ore",
+          "qty": 1
+        },
+        {
+          "item": "fuel",
+          "qty": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "gold-bullion",
+          "qty": 1
+        }
+      ],
+      "timeSeconds": 377
+    },
+    {
       "id": "sawmill/planks",
       "building": "sawmill",
       "inputs": [
@@ -1374,6 +1886,153 @@
         }
       ],
       "timeSeconds": 233
+    },
+    {
+      "id": "farm/cotton",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "cotton",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/wheat",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "wheat",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/tea-leaves",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "tea-leaves",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/peppers",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "peppers",
+          "qty": 144
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 72,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 72 tiles; growth 0.10 years (1728 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/berries",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "berries",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/flax",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "flax",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/mushrooms",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "mushrooms",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 864,
+      "tilesPerBuilding": 36,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles; growth 0.05 years (864 s), max yield 2 per tile."
+    },
+    {
+      "id": "farm/logs",
+      "building": "farm",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "logs",
+          "qty": 72
+        }
+      ],
+      "timeSeconds": 1728,
+      "tilesPerBuilding": 36,
+      "note": "Farmer's Almanac: one 2-worker Farm tends about 36 tiles of Trees (90 s of work per tile); growth 0.10 years (1728 s), max yield 2 per tile."
+    },
+    {
+      "id": "water-pump/water",
+      "building": "water-pump",
+      "inputs": [],
+      "outputs": [
+        {
+          "item": "water",
+          "qty": 5
+        }
+      ],
+      "timeSeconds": 30,
+      "note": "Estimate. Wiki: the pump delivers 5 units per trip; the 30 s trip time is a guess."
+    },
+    {
+      "id": "steam-boiler/steam",
+      "building": "steam-boiler",
+      "inputs": [
+        {
+          "item": "fuel",
+          "qty": 1
+        },
+        {
+          "item": "water",
+          "qty": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "steam",
+          "qty": 50
+        }
+      ],
+      "timeSeconds": 30,
+      "note": "Estimate. Wiki: burns about 1 fuel per 30 s and releases 50-100 steam per burst; water and steam quantities are guesses."
     }
   ]
 }

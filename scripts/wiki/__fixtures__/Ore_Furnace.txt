@@ -1,0 +1,85 @@
+==Ore Furnace==
+{| class="wikitable floatright" style="text-align:center;width: 40%;"
+|-
+|scope="row" colspan="6" style="font-size: 30px"| Ore Furnace
+|-
+|scope="row" colspan="6"| [[File:Ore Furnace.PNG|160px]]
+|-
+! scope="row" colspan="6"| Research
+|-
+| scope="row" colspan="6"| Ore Furnace
+|-
+! scope="row" colspan="6"| Construction Material
+|-
+| scope="row" colspan="1"| [[File:Tex MiningIcons 80 t.png|30px]]Cut stone
+| scope="row" colspan="2"| 13
+| scope="row" colspan="1"| [[File:Tex MiningIcons 14 t.png|30px]]Machinery
+| scope="row" colspan="2"| 1
+|-
+! scope="row" colspan="6"| Employees
+|-
+| scope="row" colspan="3"| [[File:Icons8-shovel-and-pickaxe-100.png|30px]] Miner's Guild Preference
+| scope="row" colspan="1"| Requires one apprentice for the first slot to unlock the last slot.
+| scope="row" colspan="2"| 2
+|-
+! scope="row" colspan="6"| Foot Print
+|-
+| scope="row" colspan="4"|Refines metal ores with low melting points into ingots. 
+| scope="row" colspan="2"|2x2x1
+|-
+!style="background-color:#21252a" scope="row" colspan="6"|Building's Catalyst
+|- style="background-color: rgb(0 0 0 / 5%)"
+|scope="row" colspan="3"| [[File:Tex tools 11.png|80px]]
+|scope="row" colspan="3"| Fire Tongs are made in the [[Coppersmith]]
+|-
+!style="background-color:#21252a" scope="row" colspan="6"| [[File:Tex_ForestIcons_51_t.png|30px]] Hard Labour
+|}
+The Ore Furnace is used to turn ores into ingots. You will need this building to smelt copper, bronze (copper + tin), and gold. This building is the gateway to the mid-game as copper ingots are required for all research passed this point. 
+
+Ore Furnaces can only produce one of their recipes at a time.  Only refining copper ore will be available at first until further research is completed. You will want 1 Ore Furnace per available recipe.   You may construct more, but the limited supplies of both copper ore and gold ore should not demand more of these unless you've found some rich veins of copper or have a lot of miners.
+
+One fully staffed (engineering Whiskers) Ore Furnace that is routinely supplied with ore can keep up with modest research needs (2-4 researchers) and still leave ingots available for building or constructing products. More researchers may risk outstripping your supply of copper ore more so than your Ore Furnace's ability to produce ingots. 
+
+Ore Furnaces use Fire Tongs as their catalyst but as mentioned with the Charcoal Kiln, the production cost of bronze ingots may not make the increased production speed worth it here. You will have to evaluate your stockpiles of ore and Bronze ingots to decide if expediting production is worth it. 
+
+Production limits are usually recommended,  but since you need a few thousand copper ingots just for research,  it is recommended to produce with reckless abandon until reaching the end of the research tree.  Just make sure you have at least a Medium Warehouse available to store your ingots. You will likely never have enough gold ore to ever worry about production limits and there is little reason to keep gold ore around. 
+
+Copper and Bronze ingots are not available to sell for taxes or to the Smuggler.  Gold Bullion is accepted by The Claw, The Smuggler, and The Pirates.  While copper ore and gold ore can be sold in a pinch to The Claw, it is not recommended.  Gold ore converts to Gold Bullion at a 1:1 ratio at the Ore Furnace, so it is best converted for the extra value.   Copper ore is valued less than iron ore, harder to find,  and is best utilized in research or construction. 
+
+Aside from the gold ore conversion rate, the other ores are up converted to greater quantities of ingots at the cost of fuel and production time. 
+
+Since this is a building that uses fuel,  it will produce pollution and it produces a lot. Similar to the Charcoal Furnace, this building should be located away from and downwind of your colony.  Between your Ore Furnaces and Charcoal Furnaces to feed them,  you should now have a consistent haze of pollution drifting away from your island during working hours. Make sure your Whiskers stay clear when possible. 
+
+Fuel should be staged in a Warehouse near your Ore Furnaces to keep them operating at peak efficiency. 
+
+Ore Furnaces do not need to be heated during winter as they will produce enough heat to keep themselves warm during winter.  They will not substitute as an effective heater for the area in which they are located. 
+
+You may wish to dedicate a Mining Camp or two to exploring and mining for copper to keep up with your Ore Furnace needs. Given this is usually subsurface mining, copper ore is slower to obtain than iron or tin ore.  You should account for this in trying to keep your Ore Furnace busy. 
+
+<br style="clear:both;" />
+{| class="wikitable" style="width: 75%;margin: auto;text-align: center;"
+|-
+! colspan="3" style="width: 30%;" | Input
+! style="width: 20%;" | Production time
+! colspan="2" style="width: 25%;" | Output
+|-
+| colspan="2" | [[File:Tex MiningIcons 84 t.png|30px]] Copper 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1 
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex ingots 12.png|30px]] Copper Bars 5
+| High Pollution 
+|- style="background-color: rgb(0 0 0 / 2%)"
+| [[File:Tex MiningIcons 84 t.png|30px]] Copper 1 
+| [[File:Tex MiningIcons 98 t.png|30px]] Tin Ore 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1 
+| [[File:Icons8-time-machine-96.png|30px]] 144.0s 
+| [[File:Tex ingots 10.png|30px]] Bronze Bars 5
+| High Pollution 
+|-
+| colspan="2" | [[File:Tex MiningIcons 91 t.png|30px]] Gold Ore 1 
+| [[File:Tex MiningIcons 74 t.png|30px]] Fuel 1 
+| [[File:Icons8-time-machine-96.png|30px]] 377.0s 
+| [[File:Tex in 01.png|30px]] Gold Bullion 1
+| High pollution 
+|-
+|}
